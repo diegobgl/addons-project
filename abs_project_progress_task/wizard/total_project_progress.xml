@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Added one wizard view for project.progress -->
+    <record id="open_total_project_progress_form" model="ir.ui.view">
+        <field name="name">project.progress.form</field>
+        <field name="model">project.progress</field>
+        <field name="arch" type="xml">
+            <form string="Total project progress">
+                <group>
+                    <field name="description"/>
+                    <field name="duration" readonly="1" widget="float_time"/>
+                </group>
+                <footer>
+                    <button string='Submit' name="add_detail_in_timesheet" type='object' class='btn-primary'/>
+                    <button string='Cancel' class='btn-default' special="cancel"/>	
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="open_total_project_progress_action" model="ir.actions.act_window">
+        <field name="name">Worked Description</field>
+        <field name="res_model">project.progress</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="open_total_project_progress_form"/>
+    </record> 
+
+</odoo>

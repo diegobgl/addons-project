@@ -1,0 +1,19 @@
+<odoo>
+
+    <template id="nibbana_custom_css" name="nibbana_css" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link href="/nibbana/static/src/css/custom.css" rel="stylesheet"
+                  type="text/css"/>
+        </xpath>
+    </template>
+
+    <template id="nibbana_cusom_js" name="nibbana_assets_backend" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script src="/nibbana/static/src/js/tour.js" type="text/javascript"></script>
+            <script src="/nibbana/static/src/js/tree_reload.js" type="text/javascript" ></script>
+            <script type="text/javascript" src="/nibbana/static/src/js/support.js"></script>
+        </xpath>
+    </template>
+
+
+</odoo>

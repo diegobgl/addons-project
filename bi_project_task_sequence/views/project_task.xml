@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="bi_project_task_form_inherit_field_sequence_name" model="ir.ui.view">
+            <field name="name">project.task.form.inherit</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@class='oe_title']" position="after">
+                    <group>
+                        <h1><field name="sequence_name" nolabel="1"/></h1>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

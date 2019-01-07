@@ -1,0 +1,16 @@
+<odoo>
+
+    <record id="nibbana_user_form_view" model="ir.ui.view">
+        <field name="name">Nibbana User Preferences</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='preferences']" position="after">
+                <group string="Nibbana">
+                    <field name="refocus_projects"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

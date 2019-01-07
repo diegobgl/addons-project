@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!-- Copyright 2018 Nova Code (http://www.novacode.nl)
+See LICENSE file for full copyright and licensing details. -->
+
+<odoo>
+    <record id="view_task_search_form_deadline_filters" model="ir.ui.view">
+        <field name="name">project.task.search.form</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_search_form"/>
+        <field name="arch" type="xml">
+            <filter name="inactive" position="after">
+                <separator name="deadline_current_and_next_weeks"/>
+                <!-- current week -->
+                <filter string="Deadline current week" name="deadline_current_week" domain="[('date_deadline', '&gt;=', (context_today() + relativedelta(weeks=-1,weekday=0)).strftime('%Y-%m-%d')),('date_deadline','&lt;=',(context_today()+relativedelta(weekday=6)).strftime('%Y-%m-%d'))]" help="Tasks with Deadline current week"/>
+                <!-- current AND next week -->
+                <filter string="Deadline between current and next week" name="deadline_current_next_week" domain="[('date_deadline', '&gt;=', (context_today() + relativedelta(weeks=-1,weekday=0)).strftime('%Y-%m-%d')),('date_deadline','&lt;=',(context_today()+relativedelta(weeks=1,weekday=6)).strftime('%Y-%m-%d'))]"  help="Tasks with Deadline current and next week"/>
+                <!-- current AND next 2nd week -->
+                <filter string="Deadline between current and next 2nd week" name="deadline_current_next_2nd_week" domain="[('date_deadline', '&gt;=', (context_today() + relativedelta(weeks=-1,weekday=0)).strftime('%Y-%m-%d')),('date_deadline','&lt;=',(context_today()+relativedelta(weeks=2,weekday=6)).strftime('%Y-%m-%d'))]"  help="Tasks with Deadline between current and next 2nd week"/>
+                <!-- current AND next 3rd week -->
+                <filter string="Deadline between current and next 3rd week" name="deadline_current_next_3rd_week" domain="[('date_deadline', '&gt;=', (context_today() + relativedelta(weeks=-1,weekday=0)).strftime('%Y-%m-%d')),('date_deadline','&lt;=',(context_today()+relativedelta(weeks=3,weekday=6)).strftime('%Y-%m-%d'))]"  help="Tasks with Deadline between current and next 3rd week"/>
+                <!-- current AND next 4th week -->
+                <filter string="Deadline between current and next 4th week" name="deadline_current_next_4th_week" domain="[('date_deadline', '&gt;=', (context_today() + relativedelta(weeks=-1,weekday=0)).strftime('%Y-%m-%d')),('date_deadline','&lt;=',(context_today()+relativedelta(weeks=4,weekday=6)).strftime('%Y-%m-%d'))]"  help="Tasks with Deadline between current and next 4th week"/>
+                <separator name="deadline_next_weeks"/>
+                <!-- Next week -->
+                <filter string="Deadline next week" name="deadline_next_week" domain="[('date_deadline', '&gt;=', (context_today() + relativedelta(weekday=0)).strftime('%Y-%m-%d')),('date_deadline','&lt;=',(context_today()+relativedelta(weeks=1,weekday=6)).strftime('%Y-%m-%d'))]"  help="Tasks with Deadline next week"/>
+                <!-- Next 2nd week -->
+                <filter string="Deadline next 2nd week" name="deadline_next_2nd_week" domain="[('date_deadline', '&gt;=', (context_today() + relativedelta(weeks=1,weekday=0)).strftime('%Y-%m-%d')),('date_deadline','&lt;=',(context_today()+relativedelta(weeks=2,weekday=6)).strftime('%Y-%m-%d'))]"  help="Tasks with Deadline next 2nd week"/>
+                <!-- Next 3rd week -->
+                <filter string="Deadline next 3rd week" name="deadline_next_3rd_week" domain="[('date_deadline', '&gt;=', (context_today() + relativedelta(weeks=2,weekday=0)).strftime('%Y-%m-%d')),('date_deadline','&lt;=',(context_today()+relativedelta(weeks=3,weekday=6)).strftime('%Y-%m-%d'))]"  help="Tasks with Deadline next 3rd week"/>
+                <!-- Next 4th week -->
+                <filter string="Deadline next 4th week" name="deadline_next_4th_week" domain="[('date_deadline', '&gt;=', (context_today() + relativedelta(weeks=3,weekday=0)).strftime('%Y-%m-%d')),('date_deadline','&lt;=',(context_today()+relativedelta(weeks=4,weekday=6)).strftime('%Y-%m-%d'))]"  help="Tasks with Deadline next 4th week"/>
+            </filter>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="view_task_form2" model="ir.ui.view">
+        <field name="name">project.task2.inherit</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <button name="action_assign_to_me" position="attributes">
+                <attribute name="attrs">{}</attribute>
+            </button>
+            <field name="child_ids" position="replace"/>
+            <h1 class="o_row" position="before">
+                <h2 class="o_row">
+                    <field name="template_task_id" placeholder="Task Template" class="oe_edit_only" context="{'default_template_task': 1}"/>
+                </h2>
+            </h1>
+            <field name="partner_id" position="after">
+                <field name="template_task"/>
+            </field>
+            <page name="extra_info" position="after">
+                <page name="subtasks" string="Subtasks" attrs="{'invisible': [('parent_id', '!=', False)]}">
+                    <!-- 'default_name': name + ':' -->
+                    <field name="child_ids" context="{'default_parent_id': id, 'default_project_id': subtask_project_id, 'default_partner_id': partner_id}">
+                        <tree editable ="bottom" decoration-danger="date_deadline and (date_deadline&lt;current_date)">
+                            <field name="sequence" invisible="1"/>
+                            <field name="name"/>
+                            <field name="project_id"/>
+                            <field name="user_id"/>
+                            <field name="planned_hours"/>
+                            <field name="remaining_hours" widget="float_time" sum="Remaining Hours" readonly="1"/>
+                            <field name="date_deadline" invisible="context.get('deadline_visible',True)"/>
+                            <field name="stage_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="priority" widget="priority"/>
+                            <field name="parent_id" invisible="1"/>
+                            <field name="tag_ids" invisible="1"/>
+                            <field name="notes" invisible="1"/>
+                            <field name="color" invisible="1"/>
+                            <field name="description" invisible="1"/>
+                            <field name="displayed_image_id" invisible="1"/>
+                        </tree>
+                    </field>
+                </page>
+            </page>
+        </field>
+    </record>
+
+
+
+    <record id="view_task_form2_subtask" model="ir.ui.view">
+        <field name="name">project.task2.inherit.subtask</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="view_task_form2"/>
+        <field name="priority">90</field>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <field name="parent_id" position="replace"/>
+            <field name="project_id" position="before">
+                <field name="parent_id" required="True" domain="[('project_id', '=', project_id)]"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_task_kanban_inherit" model="ir.ui.view">
+        <field name="name">project.task.kanban.inherit</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_kanban"/>
+        <field name="priority">90</field>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <kanban position="attributes">
+                <attribute name="on_create"></attribute>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_task_search_form" model="ir.ui.view">
+        <field name="name">project.task.search.inherit</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_search_form"/>
+        <field name="arch" type="xml">
+            <filter name="message_needaction" position="before">
+                <filter string="Is Task" name="is_task" domain="[('parent_id','=', False)]"/>
+                <filter string="Is Sub-Task" name="is_sub_task" domain="[('parent_id','!=', False)]"/>
+                <separator/>
+            </filter>
+            <filter name="User" position="before">
+                <filter string="Parent Task" context="{'group_by':'parent_id'}"/>
+            </filter>
+        </field>
+    </record>
+
+    <record id="act_project_project_2_project_sub_task_all" model="ir.actions.act_window">
+        <field name="name">Sub Tasks</field>
+        <field name="res_model">project.task</field>
+        <field name="view_mode">kanban,tree,form,calendar,pivot,graph</field>
+        <field name="context">{
+            'group_by': 'stage_id',
+            'search_default_project_id': [active_id],
+            'default_project_id': active_id,
+        }</field>
+        <field name="domain">[('parent_id','!=', False)]</field>
+        <field name="view_ids" eval="[(5,0,0),(0, 0, {'view_mode': 'kanban', 'view_id': ref('view_task_kanban_inherit')}),
+                   (0, 0, {'view_mode': 'form', 'view_id': ref('view_task_form2_subtask')})]"/>
+        <field name="search_view_id" ref="project.view_task_search_form"/>
+    </record>
+
+    <record id="project.act_project_project_2_project_task_all" model="ir.actions.act_window">
+        <field name="context">{
+            'group_by': 'stage_id',
+            'search_default_project_id': [active_id],
+            'default_project_id': active_id,
+            'search_default_is_task': 1,
+        }</field>
+    </record>
+</odoo>

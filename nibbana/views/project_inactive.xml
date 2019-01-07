@@ -1,0 +1,9 @@
+<odoo>
+    <record id="activate_user_projects_server_action" model="ir.actions.server">
+             <field name="name">Re-Activate Projects</field>
+            <field name="model_id" ref="model_nibbana_project"/>
+            <field name="state">code</field>
+            <field name="code">object.activate_user_projects()</field>
+            <field name="binding_model_id" ref="model_nibbana_project"/>
+    </record>    
+</odoo>

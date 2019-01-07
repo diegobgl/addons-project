@@ -1,0 +1,108 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* project_task_deadline_search_filters
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-05-04 10:15+0000\n"
+"PO-Revision-Date: 2018-05-04 12:21+0200\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_task_deadline_search_filters
+#: model:ir.ui.view,arch_db:project_task_deadline_search_filters.view_task_search_form_deadline_filters
+msgid "Deadline between current and next 2nd week"
+msgstr "Deadline tussen deze en volgende 2de week"
+
+#. module: project_task_deadline_search_filters
+#: model:ir.ui.view,arch_db:project_task_deadline_search_filters.view_task_search_form_deadline_filters
+msgid "Deadline between current and next 3rd week"
+msgstr "Deadline tussen deze en volgende 3de week"
+
+#. module: project_task_deadline_search_filters
+#: model:ir.ui.view,arch_db:project_task_deadline_search_filters.view_task_search_form_deadline_filters
+msgid "Deadline between current and next 4th week"
+msgstr "Deadline tussen deze en volgende 4de week"
+
+#. module: project_task_deadline_search_filters
+#: model:ir.ui.view,arch_db:project_task_deadline_search_filters.view_task_search_form_deadline_filters
+msgid "Deadline between current and next week"
+msgstr "Deadline tussen deze en volgende week"
+
+#. module: project_task_deadline_search_filters
+#: model:ir.ui.view,arch_db:project_task_deadline_search_filters.view_task_search_form_deadline_filters
+msgid "Deadline current week"
+msgstr "Deadline deze week"
+
+#. module: project_task_deadline_search_filters
+#: model:ir.ui.view,arch_db:project_task_deadline_search_filters.view_task_search_form_deadline_filters
+msgid "Deadline next 2nd week"
+msgstr "Deadline volgende 2de week"
+
+#. module: project_task_deadline_search_filters
+#: model:ir.ui.view,arch_db:project_task_deadline_search_filters.view_task_search_form_deadline_filters
+msgid "Deadline next 3rd week"
+msgstr "Deadline volgende 3de week"
+
+#. module: project_task_deadline_search_filters
+#: model:ir.ui.view,arch_db:project_task_deadline_search_filters.view_task_search_form_deadline_filters
+msgid "Deadline next 4th week"
+msgstr "Deadline volgende 4de week"
+
+#. module: project_task_deadline_search_filters
+#: model:ir.ui.view,arch_db:project_task_deadline_search_filters.view_task_search_form_deadline_filters
+msgid "Deadline next week"
+msgstr "Deadline volgende week"
+
+#. module: project_task_deadline_search_filters
+#: model:ir.ui.view,arch_db:project_task_deadline_search_filters.view_task_search_form_deadline_filters
+msgid "Tasks with Deadline between current and next 2nd week"
+msgstr "Taken met Deadline tussen deze en volgende 2de week"
+
+#. module: project_task_deadline_search_filters
+#: model:ir.ui.view,arch_db:project_task_deadline_search_filters.view_task_search_form_deadline_filters
+msgid "Tasks with Deadline between current and next 3rd week"
+msgstr "Taken met Deadline tussen deze en volgende 3de week"
+
+#. module: project_task_deadline_search_filters
+#: model:ir.ui.view,arch_db:project_task_deadline_search_filters.view_task_search_form_deadline_filters
+msgid "Tasks with Deadline between current and next 4th week"
+msgstr "Taken met Deadline tussen deze en volgende 4de week"
+
+#. module: project_task_deadline_search_filters
+#: model:ir.ui.view,arch_db:project_task_deadline_search_filters.view_task_search_form_deadline_filters
+msgid "Tasks with Deadline current and next week"
+msgstr "Taken met Deadline tussen deze en volgende week"
+
+#. module: project_task_deadline_search_filters
+#: model:ir.ui.view,arch_db:project_task_deadline_search_filters.view_task_search_form_deadline_filters
+msgid "Tasks with Deadline current week"
+msgstr "Taken met Deadline in deze week"
+
+#. module: project_task_deadline_search_filters
+#: model:ir.ui.view,arch_db:project_task_deadline_search_filters.view_task_search_form_deadline_filters
+msgid "Tasks with Deadline next 2nd week"
+msgstr "Taken met Deadline volgende 2de week"
+
+#. module: project_task_deadline_search_filters
+#: model:ir.ui.view,arch_db:project_task_deadline_search_filters.view_task_search_form_deadline_filters
+msgid "Tasks with Deadline next 3rd week"
+msgstr "Taken met Deadline volgende 3de week"
+
+#. module: project_task_deadline_search_filters
+#: model:ir.ui.view,arch_db:project_task_deadline_search_filters.view_task_search_form_deadline_filters
+#, fuzzy
+msgid "Tasks with Deadline next 4th week"
+msgstr "Taken met Deadline volgende 4de week"
+
+#. module: project_task_deadline_search_filters
+#: model:ir.ui.view,arch_db:project_task_deadline_search_filters.view_task_search_form_deadline_filters
+msgid "Tasks with Deadline next week"
+msgstr "Taken met Deadline volgende week"

@@ -1,0 +1,18 @@
+<odoo>
+
+    <record id="nibbana_support_action" model="ir.actions.client">
+        <field name="name">Nibbana Support</field>
+        <field name="tag">nibbana.support</field>
+    </record>
+    <record id="nibbana_addons_action" model="ir.actions.client">
+        <field name="name">Nibbana Addons</field>
+        <field name="tag">nibbana.addons</field>
+    </record>
+
+    <menuitem name="Support" parent="nibbana_about_menu" sequence="20"
+              action="nibbana_support_action" id="nibbana_support_menu"/>
+    <menuitem name="Addons" parent="nibbana_about_menu" sequence="10"
+              action="nibbana_addons_action" id="nibbana_addons_menu"/>
+
+
+</odoo>

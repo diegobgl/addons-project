@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+
+    <record model="ir.actions.act_window" id="contexts_action">
+        <field name="name">Context</field>
+        <field name="res_model">nibbana.context</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('create_uid','=', uid)]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <br/>
+                <h2>Define Your Contexts</h2>
+                Context is the place or situation where your work can be done.<br/>
+                Slice your work according to your context for better concentration.<br/>
+                You can attach many different contexts to a task or project.
+                <h4>Examples</h4>
+                    <ul>
+                        <li>Office</li>
+                        <li>Home</li>
+                        <li>In the city</li>
+                        <li>On drive</li>
+                        <li>To call</li>
+                        <li>To read</li>
+                    </ul>
+                </p>
+                <br/>
+                <p>
+                    <a href="/nibbana/create_default_contexts" class="btn btn-primary">Create Example Contexts</a>
+                </p>
+        </field>
+    </record>
+
+    <record id='context_projects_action' model='ir.actions.act_window'>
+        <field name='name'>Context Projects</field>
+        <field name='res_model'>nibbana.project</field>
+        <field name='view_mode'>tree,form</field>
+        <field name='domain'>[('context','=',active_id)]</field>
+        <field name="context">{'default_context': [(4, active_id)]}</field>
+    </record>
+
+    <record id='context_tasks_action' model='ir.actions.act_window'>
+        <field name='name'>Context Tasks</field>
+        <field name='res_model'>nibbana.task</field>
+        <field name='view_mode'>tree,form</field>
+        <field name='domain'>[('context','=',active_id)]</field>
+        <field name="context">{'default_context': [(4, active_id)]}</field>
+    </record>
+
+    <menuitem name="Contexts" parent="nibbana_organize_menu" sequence="50"
+              action="contexts_action" id="contexts_menu"/>
+
+    <record model="ir.ui.view" id="context_settings_list">
+        <field name="name">nibbana.context settings list</field>
+        <field name="model">nibbana.context</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="task_count"/>
+                <button name="%(context_tasks_action)d" type="action"
+                        icon="fa-tasks"/>
+                <field name="project_count"/>
+                <button name="%(context_projects_action)d" type="action"
+                        icon="fa-briefcase"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="context_form">
+        <field name="name">nibbana.context form</field>
+        <field name="model">nibbana.context</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box oe_read_only">
+                        <button class="oe_stat_button" type="action"
+                                name="%(context_projects_action)d" icon="fa-briefcase">
+                            <field name="project_count" widget="statinfo"
+                                    string="Projects"/>
+                        </button>
+                        <button class="oe_stat_button" type="action"
+                                name="%(context_tasks_action)d" icon="fa-tasks">
+                            <field name="task_count" widget="statinfo"
+                                    string="Tasks"/>
+                        </button>
+                    </div>
+                    <label for="name" class="oe_edit_only"/>
+                    <h1><field name="name"/></h1>
+                    <h2>
+                        <label for="description" class="oe_edit_only"/>
+                        <field name="description" class="oe_enline"/>
+                    </h2>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+</data></odoo>

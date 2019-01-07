@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Extended the functionality of the project view form to add the field use task template  -->
+    <record id="project_project_view_form_inherited" model="ir.ui.view">
+        <field name="name">project.project</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.project_project_view_form_simplified"/>
+        <field name="arch" type="xml">
+	    <xpath expr="//group" position="after">
+                <group>
+                    <field name="use_task_template" groups="project.group_task_template_show"/>
+                </group>
+            </xpath>
+        </field>
+    </record> 
+</odoo>

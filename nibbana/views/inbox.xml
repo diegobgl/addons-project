@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.actions.act_window" id="inbox_action">
+        <field name="name">Inbox</field>
+        <field name="res_model">nibbana.inbox</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('create_uid','=', uid)]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <br/>
+                <h2>Here is your Inbox collector</h2>
+                <p>
+                During the day collect here everything that is trying to distract you. <br/>
+                Process your Inbox folder when time to organize comes. <br/>
+                Then convert your inbox items to a tasks, projects or references.                
+                </p>
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="nibbana_inbox_menu" name="Inbox"
+              parent="nibbana_collect_menu" action="inbox_action"
+              sequence="10"/>
+
+
+    <record model="ir.ui.view" id="inbox_list">
+        <field name="name">nibbana.inbox list</field>
+        <field name="type">tree</field>
+        <field name="model">nibbana.inbox</field>
+        <field name="arch" type="xml">
+            <tree colors="color_field: area_color">
+                <field name="area_color" invisible="1"/>
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="area"/>
+                <field name="context_list"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="inbox_form">
+        <field name="name">nibbana.inbox form</field>
+        <field name="model">nibbana.inbox</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="convert_to_task" string="Convert to Task"
+                            class="oe_read_only oe_highlight"
+                            type="object" icon="fa-tasks"/>
+                    <button name="convert_to_project" string="Convert to Project"
+                            class="oe_read_only oe_highlight"
+                            type="object" icon="fa-briefcase"/>
+                    <button name="convert_to_reference" string="Convert to Reference"
+                            class="oe_read_only oe_highlight"
+                            type="object" icon="fa-book"/>
+                </header>
+                <sheet>
+                    <div class='oe_title'>
+                        <label for='name' class='oe_edit_only'/>
+                        <h1><field name='name'/></h1>
+                    </div>
+                    <group>
+                        <group>                            
+                            <field name="area"/>
+                        </group>
+                        <group>
+                            <field name="context" class="oe_inline"  
+                                widget="many2many_tags"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="note" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="metric_counter_search" model="ir.ui.view">
+        <field name="name">nibbana.metric_counter.search</field>
+        <field name="model">nibbana.metric_counter</field>
+        <field name="type">search</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter string="Changed" domain="[('code','=','projects_created')]"/>                        
+                <filter string="Created" domain="[('code','=','projects_created')]"/>
+
+                <filter string="Active Projects" domain="[('code','=','projects_state_active')]"/>
+                <filter string="Waiting Projects" domain="[('code','=','projects_state_waiting')]"/>
+                <filter string="Inactive Projects" domain="[('code','=','projects_state_inactive')]"/>
+                <filter string="Scheduled Projects" domain="[('code','=','projects_state_scheduled')]"/>
+                <filter name="projects_done" string="Done Projects" domain="[('code','=','projects_state_done')]"/>
+                <filter string="Cancelled Projects" domain="[('code','=','projects_state_cancelled')]"/>
+                <filter string="Inbox Projects" domain="[('code','=','projects_state_inbox')]"/>
+
+                <filter string="Next Tasks" domain="[('code','=','tasks_state_next')]"/>                
+                <filter string="Today Tasks" domain="[('code','=','tasks_state_today')]"/>
+                <filter string="Tomorrow Tasks" domain="[('code','=','tasks_state_tomorrow')]"/>
+                <filter string="Someday Tasks" domain="[('code','=','tasks_state_someday')]"/>
+                <filter string="Waiting Tasks" domain="[('code','=','tasks_state_waiting')]"/>
+                <filter string="Scheduled Tasks" domain="[('code','=','tasks_state_scheduled')]"/>
+                <filter name="tasks_done" string="Done Tasks" domain="[('code','=','tasks_state_done')]"/>
+                <filter string="Cancelled Tasks" domain="[('code','=','tasks_state_cancelled')]"/>
+                <filter string="Inbox Tasks" domain="[('code','=','tasks_state_inbox')]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="metric_counter_graph" model="ir.ui.view">
+        <field name="name">nibbana.metric_counter.graph</field>
+        <field name="model">nibbana.metric_counter</field>
+        <field name="type">graph</field>
+        <field name="arch" type="xml">
+            <graph>
+                <field name="metric_date" type="row" interval="day"/>                
+                <field name="name" type="col"/>
+                <field name="value" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+</odoo>

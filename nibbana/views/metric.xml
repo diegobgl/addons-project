@@ -1,0 +1,127 @@
+<odoo>
+
+    <menuitem id="nibbana_metrics_menu" name="Metrics" parent="nibbana_analize_menu"
+              sequence="20"/>
+
+    <record model="ir.actions.act_window" id="metric_changed_action">
+        <field name="name">Changed</field>
+        <field name="res_model">nibbana.metric_counter</field>
+        <field name="domain">[('code','in',['projects_changed','tasks_changed']),('owner','=', uid)]</field>
+        <field name="context">{'search_default_this_week': '1'}</field>
+        <field name="view_mode">graph</field>
+    </record>
+    <menuitem id="metric_changed_projects_menu" name="Changed" 
+              parent="nibbana_metrics_menu" sequence="10"
+              action="metric_changed_action"/>
+
+    <record model="ir.actions.act_window" id="metric_created_action">
+        <field name="name">Created</field>
+        <field name="res_model">nibbana.metric_counter</field>
+        <field name="domain">[('code','in',['projects_created','tasks_created']),('owner','=', uid)]</field>
+        <field name="context">{'search_default_this_week': '1'}</field>
+        <field name="view_mode">graph</field>
+    </record>
+    <menuitem id="metric_created_projects_menu" name="Created" 
+              parent="nibbana_metrics_menu" sequence="20"
+              action="metric_created_action"/>
+
+    <record model="ir.actions.act_window" id="metric_done_action">
+        <field name="name">Done</field>
+        <field name="res_model">nibbana.metric_counter</field>
+        <field name="domain">[('code','in',['projects_done','tasks_done']),('owner','=', uid)]</field>
+        <field name="context">{'search_default_this_week': '1'}</field>
+        <field name="view_mode">graph</field>
+    </record>
+    <menuitem id="metric_done_menu" name="Done" 
+              parent="nibbana_metrics_menu" sequence="5"
+              action="metric_done_action"/>
+
+
+    <record model="ir.actions.act_window" id="metric_projects_states_action">
+        <field name="name">Projects</field>
+        <field name="res_model">nibbana.metric_counter</field>
+        <field name="context">{}</field>
+        <field name="domain">[('code','in',[
+            'projects_state_active', 'projects_state_inactive', 'projects_state_waiting',
+            'projects_state_done', 'projects_state_cancelled']),('owner','=', uid)]
+        </field>
+        <field name="context">{'search_default_this_week': '1'}</field>
+        <field name="view_mode">graph</field>
+    </record>
+    <menuitem id="metric_projects_states_menu" name="Projects" 
+              parent="nibbana_metrics_menu" sequence="30"
+              action="metric_projects_states_action"/>
+
+    <record model="ir.actions.act_window" id="metric_task_states_action">
+        <field name="name">Tasks</field>
+        <field name="res_model">nibbana.metric_counter</field>
+        <field name="context">{}</field>
+        <field name="domain">[('code','in',[
+            'tasks_state_today', 'tasks_state_tomorrow', 'tasks_state_waiting',
+            'tasks_state_someday', 'tasks_state_scheduled',
+            'tasks_state_next', 'tasks_state_done', 'tasks_state_cancelled']),('owner','=', uid)]
+        </field>
+        <field name="context">{'search_default_this_week': '1'}</field>
+        <field name="view_mode">graph</field>
+    </record>
+    <menuitem id="metric_tasks_states_menu" name="Tasks" 
+              parent="nibbana_metrics_menu" sequence="40"
+              action="metric_task_states_action"/>
+
+    <record id="metric_counter_search" model="ir.ui.view">
+        <field name="name">nibbana.metric_counter.search</field>
+        <field name="model">nibbana.metric_counter</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter name="this_week" string="This week" domain="[
+        ('metric_date','&gt;=',(context_today()+relativedelta(weeks=-1, weekday=0)).strftime('%Y-%m-%d')),
+        ('metric_date','&lt;=',(context_today()+relativedelta(weekday=6)).strftime('%Y-%m-%d'))
+                    ]"/>  
+                <filter string="This month" domain="[
+        ('metric_date','&gt;=',(context_today()+relativedelta(day=1)).strftime('%Y-%m-%d')),
+        ('metric_date','&lt;=',(context_today()+relativedelta(day=31)).strftime('%Y-%m-%d'))
+                    ]"/>
+                <filter string="Previous month" domain="[
+        ('metric_date','&gt;=',(context_today()+relativedelta(months=-1, day=1)).strftime('%Y-%m-%d')),
+        ('metric_date','&lt;=',(context_today()+relativedelta(months=-1, day=31)).strftime('%Y-%m-%d'))
+                    ]"/>  
+                <filter string="This year" domain="[
+        ('metric_date','&gt;=',(context_today()+relativedelta(month=1, day=1)).strftime('%Y-%m-%d')),
+        ('metric_date','&lt;=',(context_today()+relativedelta(month=12, day=31)).strftime('%Y-%m-%d'))
+                    ]"/>  
+                <separator/>
+                <filter string="Changed" domain="[('code','=','projects_changed')]"/>                        
+                <filter string="Created" domain="[('code','=','projects_created')]"/>
+
+                <filter string="Active Projects" domain="[('code','=','projects_state_active')]"/>
+                <filter string="Waiting Projects" domain="[('code','=','projects_state_waiting')]"/>
+                <filter string="Inactive Projects" domain="[('code','=','projects_state_inactive')]"/>
+                <filter string="Scheduled Projects" domain="[('code','=','projects_state_scheduled')]"/>
+                <filter name="projects_done" string="Done Projects" domain="[('code','=','projects_state_done')]"/>
+                <filter string="Cancelled Projects" domain="[('code','=','projects_state_cancelled')]"/>
+                <separator/>
+                <filter string="Next Tasks" domain="[('code','=','tasks_state_next')]"/>                
+                <filter string="Today Tasks" domain="[('code','=','tasks_state_today')]"/>
+                <filter string="Tomorrow Tasks" domain="[('code','=','tasks_state_tomorrow')]"/>
+                <filter string="Someday Tasks" domain="[('code','=','tasks_state_someday')]"/>
+                <filter string="Waiting Tasks" domain="[('code','=','tasks_state_waiting')]"/>
+                <filter string="Scheduled Tasks" domain="[('code','=','tasks_state_scheduled')]"/>
+                <filter name="tasks_done" string="Done Tasks" domain="[('code','=','tasks_state_done')]"/>
+                <filter string="Cancelled Tasks" domain="[('code','=','tasks_state_cancelled')]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="metric_counter_graph" model="ir.ui.view">
+        <field name="name">nibbana.metric_counter.graph</field>
+        <field name="model">nibbana.metric_counter</field>
+        <field name="arch" type="xml">
+            <graph>
+                <field name="metric_date" type="row" interval="day"/>                
+                <field name="name" type="col"/>
+                <field name="value" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,187 @@
+<odoo>
+    <record id="area_owner_rule" model="ir.rule">
+        <field name="name">Area Owner Rule</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="model_id" ref="model_nibbana_area"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[('create_uid','=', user.id)]</field>
+    </record>
+
+    <record id="project_area_owner_rule" model="ir.rule">
+        <field name="name">Project area Owner Rule</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+        <field name="model_id" ref="model_nibbana_area_project"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[('create_uid','=', user.id)]</field>
+    </record>
+    <record id="task_area_owner_rule" model="ir.rule">
+        <field name="name">Task area Owner Rule</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+        <field name="model_id" ref="model_nibbana_area_task"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[('create_uid','=', user.id)]</field>
+    </record>
+    <record id="reference_area_owner_rule" model="ir.rule">
+        <field name="name">Reference area Owner Rule</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+        <field name="model_id" ref="model_nibbana_area_reference"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[('create_uid','=', user.id)]</field>
+    </record>
+
+<!-- CONTEXT -->
+
+    <record id="context_owner_rule" model="ir.rule">
+        <field name="name">Context Owner Rule</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="model_id" ref="model_nibbana_context"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[('create_uid','=', user.id)]</field>
+    </record>
+    <record id="task_context_owner_rule" model="ir.rule">
+        <field name="name">Task Context Owner Rule</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+        <field name="model_id" ref="model_nibbana_context_task"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[('create_uid','=', user.id)]</field>
+    </record>
+    <record id="project_context_owner_rule" model="ir.rule">
+        <field name="name">Project Context Owner Rule</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+        <field name="model_id" ref="model_nibbana_context_project"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[('create_uid','=', user.id)]</field>
+    </record>
+
+
+    <record id="project_owner_rule" model="ir.rule">
+        <field name="name">Project Owner Rule</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="model_id" ref="model_nibbana_project"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[('create_uid','=', user.id)]</field>
+    </record>
+
+    <record id="project_inactive_owner_rule" model="ir.rule">
+        <field name="name">Project Inactive Owner Rule</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="model_id" ref="model_nibbana_project_inactive"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[('user','=', user.id)]</field>
+    </record>
+
+    <record id="task_owner_rule" model="ir.rule">
+        <field name="name">Task Owner Rule</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="model_id" ref="model_nibbana_task"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[('create_uid','=', user.id)]</field>
+    </record>
+
+    <record id="reference_owner_rule" model="ir.rule">
+        <field name="name">Reference Owner Rule</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="model_id" ref="model_nibbana_reference"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[('create_uid','=', user.id)]</field>
+    </record>
+
+    <record id="inbox_owner_rule" model="ir.rule">
+        <field name="name">Inbox Owner Rule</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="model_id" ref="model_nibbana_inbox"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[('create_uid','=', user.id)]</field>
+    </record>
+
+    <record id="act_owner_rule" model="ir.rule">
+        <field name="name">Act Owner Rule</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="model_id" ref="model_nibbana_act_view"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[('user_id','=', user.id)]</field>
+    </record>
+
+    <record id="act_distinct_owner_rule" model="ir.rule">
+        <field name="name">Act Distinct Owner Rule</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="model_id" ref="model_nibbana_act_view_distinct"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[('user_id','=', user.id)]</field>
+    </record>
+
+    <record id="metric_counter_owner_rule" model="ir.rule">
+        <field name="name">Metric Counter Owner Rule</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="model_id" ref="model_nibbana_metric_counter"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[('owner','=', user.id)]</field>
+    </record>
+
+    <record id="settings_owner_rule" model="ir.rule">
+        <field name="name">Settings Owner Rule</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="model_id" ref="model_nibbana_settings"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[('create_uid','=', user.id)]</field>
+    </record>
+    <record id="timeline_owner_rule" model="ir.rule">
+        <field name="name">Timeline Owner Rule</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="model_id" ref="model_nibbana_timeline"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[('create_uid','=', user.id)]</field>
+    </record>
+
+</odoo>

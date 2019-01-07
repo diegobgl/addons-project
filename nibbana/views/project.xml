@@ -1,0 +1,404 @@
+<odoo><data>
+
+    <record id='projects_action' model='ir.actions.act_window'>
+        <field name='name'>Projects</field>
+        <field name='res_model'>nibbana.project</field>
+        <field name='view_mode'>tree,form,kanban,calendar,graph</field>
+        <field name="view_id" eval="False"/>
+        <field name="domain">[('create_uid','=', uid)]</field>
+        <field name="context">{'graph_mode': 'pie'}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <br/>
+                <h2>Manage your projects here</h2>
+                <ul style="list-style-type: none;">
+                    <li><span class="fa fa-toggle-on"/> / <span class="fa fa-toggle-off"/> 
+                        - Click these buttons to activate and deactivate your projects.</li>
+                    <li><span class="fa fa-star"/> / <span class="fa fa-star-o"/> - 
+                        Click stars to add focus to your project. </li>
+                    <li><span class="fa fa-tasks"/> - This is a shortcut to project's open tasks.</li>
+                    <li><span class="fa fa-archive"/> - When project is Done you can put it in Archive.</li>
+                </ul>
+                
+            </p>
+        </field>
+    </record>
+
+    <record id='project_tasks_action' model='ir.actions.act_window'>
+        <field name='name'>Project Tasks</field>
+        <field name='res_model'>nibbana.task</field>
+        <field name='view_mode'>tree,form,kanban,calenadr,graph</field>
+        <field name='domain'>[('project','=',active_id)]</field>
+    </record>
+
+
+    <menuitem id='projects_menu' name='Projects' action="projects_action"
+        parent='nibbana_organize_menu' sequence='10'/>
+
+    <record id='project_tree_view' model='ir.ui.view'>
+        <field name='name'>Project Tree</field>
+        <field name='model'>nibbana.project</field>
+        <field name='arch' type='xml'>
+            <tree colors="color_field: area_color">
+                <field name="focus" invisible="1"/>
+                <field name="area_color" invisible="1"/>
+                <field name="sequence" widget="handle"/>
+                <field name='name' class="project-name"/>
+                <field name="state"/>
+                <field name="area"/>
+                <field name="context_list"/>
+                <button name="set_active" icon="fa-toggle-off" type="object"
+                        class="o_nibbana_project_list_activation"
+                        states="Inactive,Waiting,Scheduled" help="Set to Active"/>
+                <button name="set_inactive" icon="fa-toggle-on" type="object"
+                        states="Active" help="Set to Inactive" class="o_nibbana_project_list_activation"/>
+                <button name="toggle_focus" icon="fa-star" type="object"
+                        help="Set Focus" attrs="{'invisible': [('focus','=','0')]}"/>
+                <button name="toggle_focus" icon="fa-star-o" type="object"
+                        help="Remove Focus" attrs="{'invisible': [('focus','=','1')]}"/>
+                <field name="open_task_count" string="Tasks"/>
+                <button name="%(project_tasks_action)d" type="action"
+                        icon="fa-tasks"/>                
+            </tree>
+        </field>
+    </record>
+
+    <record id='task_new_action' model='ir.actions.act_window'>
+        <field name='name'>Project New Action</field>
+        <field name='res_model'>nibbana.task</field>
+        <field name='view_mode'>form</field>
+        <field name="context">{'default_project': active_id, 'default_state': 'Next'}</field>
+    </record>
+
+    <record id='reference_new_action' model='ir.actions.act_window'>
+        <field name='name'>Reference New Action</field>
+        <field name='res_model'>nibbana.reference</field>
+        <field name='view_mode'>form</field>
+        <field name="context">{'default_project': active_id}</field>
+    </record>
+
+    <record id='open_task_project_action' model='ir.actions.act_window'>
+        <field name='name'>Open Tasks</field>
+        <field name='res_model'>nibbana.task</field>
+        <field name='view_mode'>tree,form</field>
+        <field name='context'>{'default_project': active_id}</field>
+        <field name='domain'>[('project','=', active_id), ('state','not in',['Done','Cancelled'])]</field>
+    </record>
+
+    <record id='closed_task_project_action' model='ir.actions.act_window'>
+        <field name='name'>Closed Tasks</field>
+        <field name='res_model'>nibbana.task</field>
+        <field name='view_mode'>tree,form</field>
+        <field name='context'>{'default_project': active_id}</field>
+        <field name='domain'>[('project','=', active_id), ('state','in',['Done','Cancelled'])]</field>
+    </record>
+
+    <record id='task_reference_action' model='ir.actions.act_window'>
+        <field name='name'>References</field>
+        <field name='res_model'>nibbana.reference</field>
+        <field name='view_mode'>tree,form</field>
+        <field name='context'>{'default_project': active_id}</field>
+        <field name='domain'>[('project','=', active_id)]</field>
+    </record>
+
+    <record id='project_form_view' model='ir.ui.view'>
+        <field name='name'>Project Form</field>
+        <field name='model'>nibbana.project</field>
+        <field name='arch' type='xml'>
+            <form string='Project' class="o_nibbana_project_form">
+                <header>
+                    <button class="oe_read_only" string="New Task" type="action"
+                            context="{'default_project': active_id, 'default_state': 'Next'}"
+                            name="%(task_new_action)d" icon="fa-tasks"/>
+                    <button class="oe_read_only" string="New Reference" type="action"
+                            name="%(reference_new_action)d" icon="fa-book"/>
+                    <field name="active" invisible="1"/>                        
+                    <field name="state" widget="statusbar" clickable="True" class="o_nibbana_project_statusbar"/>
+                </header>
+                <sheet string="Project">
+                    <div class='oe_button_box'>
+                        <button class="oe_inline oe_stat_button" name='%(open_task_project_action)d'
+                                type='action'
+                                context="{'default_project': active_id, 'active_test': False}"
+                                icon="fa-tasks">
+                            <field name="open_task_count" widget="statinfo" string="Open"/>
+                        </button>
+                        <button class="oe_inline oe_stat_button" name='%(closed_task_project_action)d'
+                                type='action'
+                                context="{'default_project': active_id, 'active_test': False}"
+                                icon="fa-list">
+                            <field name="closed_task_count" widget="statinfo" string="Closed"/>
+                        </button>                        
+                        <button class="oe_inline oe_stat_button" name='%(task_reference_action)d'
+                                type='action'
+                                context="{'default_project': active_id, 'active_test': False}"
+                                icon="fa-book">
+                            <field string="References" name="reference_count" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <div class='oe_title'>                        
+                        <h1 class="o_row">
+                            <field name="focus" widget="priority"/>
+                            <field name='name' placeholder="Project Title..."/>
+                        </h1>
+                    </div>
+                    <div class='oe_title'>
+                        <label for='area' class='oe_edit_only'/>
+                        <field name="area" class="oe_inline"/>
+                        <field name="has_context" invisible="1"/>
+                        <span class="oe_read_only" 
+                              attrs="{'invisible': ['|', ('has_context','=',False), ('area','=', False)] }"> @ </span> 
+                        <label for='context' class='oe_edit_only'/>
+                        <field name="context" class="oe_inline" widget="many2many_tags"/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="schedule_start_date" attrs="{'invisible': [('state','!=','Scheduled')]}"/>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>                        
+                        <page string="Current Tasks" name="current_task">
+                            <field name="today_tasks" nolabel="1"
+                                    attrs="{'invisible': [('today_tasks','=',[])]}"
+                                    context="{'default_state':'Today',                                    
+                                              'default_project': active_id}">
+                                    <tree>
+                                        <field string="Today" name="name"/>
+                                    </tree>
+                            </field>
+                            <field name="tomorrow_tasks" nolabel="1"
+                                   attrs="{'invisible': [('tomorrow_tasks','=',[])]}"
+                                   context="{'default_state':'Tomorrow',
+                                   'default_project': active_id}">
+                                    <tree>
+                                        <field string="Tomorrow" name="name"/>
+                                    </tree>
+                            </field>
+                            <field name="next_tasks" nolabel="1"                                   
+                                   attrs="{'invisible': [('next_tasks','=',[])]}"
+                                   context="{'default_state':'Next',
+                                   'default_project': active_id}">
+                                    <tree>
+                                        <field name="sequence" widget="handle"/>
+                                        <field string="Next" name="name"/>
+                                    </tree>
+                            </field>
+                        </page>
+                        <page string="Future Tasks">
+                            <field name="waiting_tasks" nolabel="1"
+                                    attrs="{'invisible': [('waiting_tasks','=',[])]}"
+                                    context="{'default_state':'Waiting',
+                                   'default_project': active_id}">
+                                    <tree>
+                                        <field name="sequence" widget="handle"/>
+                                        <field string="Waiting" name="name"/>
+                                    </tree>
+                            </field>
+                            <field name="scheduled_tasks" nolabel="1"
+                                    attrs="{'invisible': [('scheduled_tasks','=',[])]}"
+                                    context="{'default_state':'Scheduled',
+                                   'default_project': active_id}">
+                                    <tree>
+                                        <field name="sequence" widget="handle"/>
+                                        <field string="Scheduled" name="name"/>
+                                    </tree>
+                            </field>
+                            <field name="someday_tasks" nolabel="1"
+                                    attrs="{'invisible': [('someday_tasks','=',[])]}"
+                                    context="{'default_state':'Someday',
+                                   'default_project': active_id}">
+                                    <tree>
+                                        <field name="sequence" widget="handle"/>
+                                        <field string="Someday" name="name"/>
+                                    </tree>
+                            </field>
+                        </page>
+                        <page string="Other Tasks">
+                            <field name="done_tasks" nolabel="1"
+                                    attrs="{'invisible': [('done_tasks','=',[])]}"
+                                    context="{'default_state':'Done',
+                                   'default_project': active_id}">
+                                    <tree>
+                                        <field name="sequence" widget="handle"/>
+                                        <field string="Done" name="name"/>
+                                    </tree>
+                            </field>
+                            <field name="cancelled_tasks" nolabel="1"
+                                    attrs="{'invisible': [('cancelled_tasks','=',[])]}"
+                                    context="{'default_state':'Cancelled',
+                                   'default_project': active_id}">
+                                    <tree>
+                                        <field name="sequence" widget="handle"/>
+                                        <field string="Cancelled" name="name"/>
+                                    </tree>
+                            </field>
+                        </page>
+                        <page string="Contacts" name="contacts">
+                            <field name="contacts">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="email"/>
+                                    <field name="phone"/>
+                                    <field name="mobile"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="project_kanban" model="ir.ui.view">
+        <field name="name">Project Kanban</field>
+        <field name="model">nibbana.project</field>
+        <field name="type">kanban</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" class="o_kanban_mobile">>
+                <templates>
+                    <field name="focus"/>
+                    <field name="area_color"/>
+                    <t t-name="kanban-box">                        
+                        <div t-attf-style="background-color: {{ record.area_color.raw_value }};" 
+                             t-attf-class="oe_kanban_card oe_kanban_global_click">
+                            <div class="oe_kanban_content">
+                                <div class="o_kanban_record_top">
+                                    <div class="o_kanban_record_headings">
+                                        <strong class="o_kanban_record_title">
+                                            <field name="name"/>
+                                        </strong>
+                                        <br/>
+                                        <small class="o_kanban_record_subtitle text-muted">
+                                            <field name="area"/>
+                                        </small>                                    
+                                    </div>
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left">
+                                        <small class="o_kanban_record_subtitle text-muted">
+                                            <field name="context_list"/>
+                                        </small>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <field name="focus" widget="priority"/>
+                                    </div>
+                                </div>
+                            </div>                            
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="project_search" model="ir.ui.view">
+        <field name="name">nibbana.project.search</field>
+        <field name="model">nibbana.project</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="area"/>
+                <field name="context"/>
+                <field name="state"/>
+                <field name="note"/>
+                <group name="filter_by" string="Filter by">
+                    <filter name="active" string="Active" domain="[('state','=','Active')]"/>
+                    <filter name="focus" string="Focus" domain="[('focus','=','1'),('state','=','Active')]"/>
+                    <filter name="inactive" string="Inactive" domain="[('state','=','Inactive')]"/>                    
+                    <filter name="waiting" string="Waiting" domain="[('state','=','Waiting')]"/>
+                    <filter name="scheduled" string="Scheduled" domain="[('state','=','Scheduled')]"/>
+                    <filter name="done" string="Done" domain="[('state','=','Done')]"/>
+                    <filter name="cancelled" string="Cancelled" domain="[('state','=','Cancelled')]"/>
+                    <separator/>
+                    <filter name="archived" string="Archived" domain="[('active','=',False)]"/>
+                    <filter name="no_context" string="No context" domain="[('has_context','=',False)]"/>
+                </group>
+                <group name="group_by" string="Group By">
+                    <filter string="State" name="by_state" domain="[]"
+                            context="{'group_by': 'state'}"/>
+                    <filter string="Area" name="by_area" domain="[]"
+                            context="{'group_by': 'area'}"/>
+                    <filter string="Context" name="by_context" domain="[]"
+                            context="{'group_by': 'context'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="projects_graph_view" model="ir.ui.view">
+        <field name="name">nibbana.projects.graph</field>
+        <field name="model">nibbana.project</field>
+        <field name="arch" type="xml">
+            <graph>
+                <field name="area" type="row"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="projects_calendar_view" model="ir.ui.view">
+        <field name="name">nibbana.projects.calendar</field>
+        <field name="model">nibbana.project</field>
+        <field name="arch" type="xml">
+            <calendar date_start="schedule_start_date" color="area" mode="month"
+                    quick_add="false">
+                <field name="name"/>
+            </calendar>
+        </field>
+    </record>
+
+
+    <!-- Context Actions -->
+    <record id="project_multi_set_active_server_action" model="ir.actions.server">
+        <field name="name">Set Active</field>
+        <field name="model_id" ref="model_nibbana_project"/>
+        <field name="state">code</field>
+        <field name="code">object.set_multi_state('Active')</field>
+        <field name="binding_model_id" ref="model_nibbana_project"/>
+    </record>
+
+    <record id="project_multi_set_inactive_server_action" model="ir.actions.server">
+        <field name="name">Set Inactive</field>
+        <field name="model_id" ref="model_nibbana_project"/>
+        <field name="state">code</field>
+        <field name="code">object.set_multi_state('Inactive')</field>
+        <field name="binding_model_id" ref="model_nibbana_project"/>
+    </record>
+
+    <!-- Change Area -->
+    <record id="project_change_area_view" model="ir.ui.view">
+        <field name="name">Change Area</field>
+        <field name="model">nibbana.project_area</field>
+        <field name="arch" type="xml">
+            <form string="Change Area">
+                <group>
+                    <field name="new_area"/>
+                </group>
+                <footer>
+                    <button string="Submit" name="do_change_area" type="object"
+                            class="oe_highlight"/>
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id='project_multi_change_area_action' model='ir.actions.act_window'>
+        <field name='name'>Change Area</field>
+        <field name='res_model'>nibbana.project_area</field>
+        <field name="target">new</field>
+        <field name='view_mode'>form</field>
+        <field name="binding_model_id" ref="model_nibbana_project"/>
+    </record>
+
+</data></odoo>

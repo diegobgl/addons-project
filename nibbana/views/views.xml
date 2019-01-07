@@ -1,0 +1,11 @@
+<odoo>    
+    <menuitem id='nibbana_top_menu' name='Nibbana' sequence='10'
+        web_icon="nibbana,static/src/icon/web_icon.png"/>
+    <menuitem id='nibbana_collect_menu' name='Collect' parent='nibbana_top_menu' sequence='15'/>
+    <menuitem id='nibbana_act_menu' name='Act' parent='nibbana_top_menu' sequence='10'/>
+    <menuitem id='nibbana_organize_menu' name='Organize' parent='nibbana_top_menu' sequence='20'/>
+    <menuitem id='nibbana_analize_menu' name='Analize'  parent='nibbana_top_menu' sequence='30'/>
+    <menuitem id='nibbana_settings_menu' name='Settings' parent='nibbana_top_menu' sequence='40'/>
+    <menuitem id='nibbana_about_menu' name='Nibbana' parent='nibbana_top_menu' sequence='100'/>
+</odoo>
+

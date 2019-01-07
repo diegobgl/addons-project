@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.actions.act_window" id="timeline_action">
+        <field name="name">Timeline</field>
+        <field name="res_model">nibbana.timeline</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('create_uid','=', uid)]</field>
+        <field name="context">{'search_default_today': '1'}</field>
+    </record>
+
+    <menuitem name="Timeline" parent="nibbana_analize_menu" sequence="10"
+              action="timeline_action" id="timeline_menu"/>
+
+    <record model="ir.ui.view" id="timeline_list">
+        <field name="name">nibbana.timeline list</field>
+        <field name="model">nibbana.timeline</field>
+        <field name="arch" type="xml">
+            <tree create="false">
+                <field name="note"/>
+                <field name="create_date" string="Date"/>
+                
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="timeline_form">
+        <field name="name">nibbana.timeline form</field>
+        <field name="model">nibbana.timeline</field>
+        <field name="arch" type="xml">
+            <form edit="false" create="false" delete="false">
+                <sheet>        
+                    <group>
+                        <field name="note"/>
+                    </group>
+                    <group>
+                        <group attrs="{'invisible': [('project_name','=',False)]}">
+                            <field name="project_name"
+                                attrs="{'invisible': [('project','!=',False)]}"/>
+                            <field name="project" 
+                                attrs="{'invisible': [('project','=',False)]}"/>
+                        </group>
+                        <group attrs="{'invisible': [('task_name','=',False)]}">
+                            <field name="task_name"
+                                    attrs="{'invisible': [('task','!=',False)]}"/>
+                            <field name="task"
+                                attrs="{'invisible': [('task','=',False)]}"/>                            
+                        </group>
+                        <group attrs="{'invisible': [('reference_name','=',False)]}">
+                            <field name="reference_name"
+                                attrs="{'invisible': [('reference','!=',False)]}"/>
+                            <field name="reference"
+                                attrs="{'invisible': [('reference','=',False)]}"/>                            
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="timeline_search" model="ir.ui.view">
+        <field name="name">nibbana.timeline.search</field>
+        <field name="model">nibbana.timeline</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="task_name"/>
+                <field name="task"/>
+                <filter name="today" string="Today" domain="[
+        ('create_date','&gt;=',(context_today()+relativedelta(days=-1)).strftime('%Y-%m-%d')),
+        ('create_date','&lt;=',(context_today()+relativedelta(days=1)).strftime('%Y-%m-%d'))
+                    ]"/>  
+                <filter string="This week" domain="[
+        ('create_date','&gt;=',(context_today()+relativedelta(weeks=-1, weekday=0)).strftime('%Y-%m-%d')),
+        ('create_date','&lt;=',(context_today()+relativedelta(weekday=6)).strftime('%Y-%m-%d'))
+                    ]"/>  
+                <filter string="This month" domain="[
+        ('create_date','&gt;=',(context_today()+relativedelta(day=1)).strftime('%Y-%m-%d')),
+        ('create_date','&lt;=',(context_today()+relativedelta(day=31)).strftime('%Y-%m-%d'))
+                    ]"/>
+                <separator/>
+                <filter string="Updated" domain="[('event_type','=','updated')]"/>
+                <filter string="Created" domain="[('event_type','=','created')]"/>
+                <filter string="Deleted" domain="[('event_type','=','deleted')]"/>
+                <filter name="archived" string="Archived" domain="[('active','=',False)]"/>
+                <filter string="Event Type" context="{'group_by': 'event_type'}"/>
+            </search>
+        </field>
+    </record>
+    
+</odoo>

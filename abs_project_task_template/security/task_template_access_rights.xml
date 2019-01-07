@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Access right for the Task Template-->
+    <record id="project.group_task_template_show" model="res.groups">
+        <field name="name">Task Template</field>
+    </record>
+</odoo>

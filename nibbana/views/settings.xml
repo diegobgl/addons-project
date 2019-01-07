@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.actions.server" id="settings_action">
+        <field name="type">ir.actions.server</field>
+        <field name="name">Settings</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="model_nibbana_settings"/>
+        <field name="code">action = model.open_settings_form()</field>
+    </record>
+
+    <menuitem name="Settings" parent="nibbana_about_menu" sequence="5"
+              action="settings_action" id="settings_menu"/>
+
+    <record model="ir.ui.view" id="settings_form">
+        <field name="name">nibbana.settings form</field>
+        <field name="model">nibbana.settings</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group name="main_settings">
+                        <group>
+                            <field name="daily_refocus"/>
+                        </group>
+                        <group>
+                            <p> If enabled Nibbana will inactivate all active projects every night.
+                                You will start every morning activating those projects that you feel are most 
+                                important for this moment of your life.
+                            </p>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

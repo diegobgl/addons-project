@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+        <record id="project_website" model="nibbana.project">
+            <field name="name">Website</field>
+            <field name="description">Our company new website</field>
+            <field name="area" ref="nibbana.work_area"/>
+            <field name="context" eval="[(6,0,[ref('nibbana.office_context')])]"/>
+            <field name="state">Active</field>
+        </record>
+
+        <record id="project_mail" model="nibbana.project">
+            <field name="name">Mail server</field>
+            <field name="description">Our company mail server</field>
+            <field name="area" ref="nibbana.work_area"/>
+            <field name="context" eval="[(6,0,[ref('nibbana.office_context')])]"/>
+            <field name="state">Inactive</field>
+        </record>
+
+        <record id="project_new_server" model="nibbana.project">
+            <field name="name">New server</field>
+            <field name="description">Our company new DB server</field>
+            <field name="area" ref="nibbana.work_area"/>
+            <field name="state">Waiting</field>
+        </record>
+
+        <record id="project_done" model="nibbana.project">
+            <field name="name">Migrate website to Odoo</field>
+            <field name="description">Migrate our company website to Odoo.</field>
+            <field name="area" ref="nibbana.work_area"/>
+            <field name="state">Done</field>
+        </record>
+
+        <record id="project_canelled" model="nibbana.project">
+            <field name="name">Use Wordpress as a WEB site</field>
+            <field name="description">Investigate if Wordpress would be a solution for our WEB</field>
+            <field name="area" ref="nibbana.work_area"/>
+            <field name="state">Cancelled</field>
+        </record>
+
+        <record id="project_research" model="nibbana.project">
+            <field name="name">Research on new technology</field>
+            <field name="description">Investigate if we can use new technologies to develop our business</field>
+            <field name="area" ref="nibbana.work_area"/>
+            <field name="context" eval="[(6,0,[ref('nibbana.home_context')])]"/>
+            <field name="state">Cancelled</field>
+        </record>
+
+
+    </data>
+</odoo>

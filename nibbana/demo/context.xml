@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <record id="office_context" model="nibbana.context">
+            <field name="name">Office</field>
+            <field name="description">At the office</field>
+        </record>
+        <record id="home_context" model="nibbana.context">
+            <field name="name">Home</field>
+            <field name="description">At home</field>
+        </record>
+        <record id="ondrive_context" model="nibbana.context">
+            <field name="name">On drive</field>
+            <field name="description">On drive</field>
+        </record>
+    </data>
+</odoo>

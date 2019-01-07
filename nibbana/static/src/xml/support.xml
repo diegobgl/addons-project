@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="nibbana.support">
+        <div class="o_form_view">
+            <div class="o_form_sheet_bg">
+                <div class="o_form_sheet">
+                    <hr/>
+                    <h2>Bugs, feature requests</h2>
+                    <p> For bugs and feature requests please send email to 
+                        <strong><a href="mailto:odooist@gmail.com">odooist@gmail.com</a></strong>.
+                    </p>
+                    <hr/>
+                    <h2>Tips &amp; tricks</h2>
+                    <p> To talk about Nibbana join our
+                        <a class="btn btn-info btn-small" target="new"
+                            href="https://t.me/joinchat/FsCgbg-oog8ZA_c4uRdUKA">Telegram chat</a>
+                    </p>
+                    <hr/>
+                    <h2>E-mail Subscription</h2>
+                        <p> Subscribe to Nibbana's mailing list to get updates:</p>
+                        <a class="btn btn-small btn-info" href="/nibbana/signup" target="new">
+                            Signup for updates</a>
+                    <hr/>
+                    <h2>Telegram announcements channel</h2>
+                    <p> Or subscribe to Telegram channel:</p>
+                    <a class="btn btn-info btn-small" target="new"
+                        href="https://t.me/joinchat/AAAAAEGulMFU2qdv4ggvAg">Nibbana Announcements</a>
+                    <hr/>                    
+                </div>
+            </div>
+        </div>
+    </t>
+
+
+    <t t-name="nibbana.addons">
+        <div class="o_form_view">
+            <div class="o_form_sheet_bg">
+                <div class="o_form_sheet">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h1>Available addons </h1>
+                            <a href="https://www.odoo.com/apps/modules/browse?search=nibbana"
+                                target="new"
+                                class="btn btn-small btn-info">See Nibbana addons on Odoo App Market</a>
+                            <hr/>
+
+                            <h2>Nibbana for Teams</h2>
+                            <p>You can use GTD methodology in a team collaboration!</p>
+                            <ul>
+                                <li>Team Epicenter!</li>
+                                <li>Shared projects and tasks!</li>
+                                <li>Chat and subscriptions!</li>
+                                <li>Individual areas and contexts on shared projects and tasks!</li>
+                            </ul>
+                            <strong><a href="https://www.odoo.com/apps/modules/11.0/nibbana_team/"
+                                target="new">Visit app page</a></strong>
+                            <hr/>
+
+                            <h2>Nibbana Projects</h2>
+                            <p>Odoo Project module integration</p>
+                            <ul>
+                                <li>Cross linking between Odoo Project module and Nibbana</li>
+                                <li>Kanban buttons linking to Nibbana projects.</li>
+                                <li>Form notebook page with related projects and tasks.</li>
+                            </ul>
+                            <strong><a href="https://www.odoo.com/apps/modules/11.0/nibbana_project/"
+                                target="new">Visit app page</a></strong>
+                            <hr/>
+
+                            <h2>Nibbana CRM</h2>
+                            <p>Odoo Project CRM module integration</p>
+                            <ul>
+                                <li>Cross linking between Odoo CRM module and Nibbana</li>
+                                <li>Kanban buttons linking to Nibbana projects and tasks.</li>
+                                <li>Form notebook page with related leads.</li>
+                            </ul>
+                            <strong>
+                                <a href="#" target="new">Visit app page</a>
+                            </strong>
+                            <hr/>
+
+                            <p><i>More addons coming soon...</i></p>
+                        </div>
+                        <div class="col-md-4">
+                            <img width="200px" src="/nibbana/static/description/icon.png"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,1783 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* nibbana
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0-20180122\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-19 12:01+0000\n"
+"PO-Revision-Date: 2018-06-19 12:01+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.projects_action
+msgid "<span class=\"fa fa-archive\"></span> - When project is Done you can put it in Archive."
+msgstr "<span class=\"fa fa-archive\"></span> - Когда проект Выполнен, вы можете поместить его в Архив."
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.tasks_action
+msgid "<span class=\"fa fa-briefcase\"></span>\n"
+"                        - This is a shortcut to task's project."
+msgstr "<span class=\"fa fa-briefcase\"></span>\n"
+"                        - Это ярлык для задач проекта."
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.tasks_action
+msgid "<span class=\"fa fa-calendar\"></span> - Move task to <strong>Scheduled</strong>."
+msgstr "<span class=\"fa fa-calendar\"></span> - Переместить в <strong>Запланированные</strong>."
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.tasks_action
+msgid "<span class=\"fa fa-calendar-o\"></span> - Move task to <strong>Someday</strong>."
+msgstr "<span class=\"fa fa-calendar-o\"></span> - Переместить задачу в <strong>Когда-нибудь</strong>."
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.tasks_action
+msgid "<span class=\"fa fa-check\"></span> - Set task as <strong>Done</strong>."
+msgstr "<span class=\"fa fa-check\"></span> - Установить задачу как <strong>Выполнено</strong>."
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.act_action
+#: model:ir.actions.act_window,help:nibbana.act_distinct_action
+msgid "<span class=\"fa fa-check\"></span> - Set task to <strong>Done</strong>."
+msgstr "<span class=\"fa fa-check\"></span> - Установить задачу в <strong>Выполнено</strong>."
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.act_action
+#: model:ir.actions.act_window,help:nibbana.act_distinct_action
+msgid "<span class=\"fa fa-folder-open\"></span> - Click here to \n"
+"                        enter project or task details."
+msgstr "<span class=\"fa fa-folder-open\"></span> - Нажмите сюда \n"
+"                        чтобы открыть подробности проекта или задачи."
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.tasks_action
+msgid "<span class=\"fa fa-forward\"></span> - Move task to <strong>Tomorrow</strong>."
+msgstr "<span class=\"fa fa-forward\"></span> - Переместить задачу в <strong>Завтра</strong>."
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.tasks_action
+msgid "<span class=\"fa fa-pause\"></span> - Move task to <strong>Waiting</strong>."
+msgstr "<span class=\"fa fa-pause\"></span> - Переместить задачу в <strong>Ожидание</strong>."
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.tasks_action
+msgid "<span class=\"fa fa-play\"></span> - Move task to <strong><font color=\"red\">Today</font></strong>\n"
+"                        <small>(Today tasks are marked with red color)</small>."
+msgstr "<span class=\"fa fa-play\"></span> - Переместить задачу в <strong><font color=\"red\">Сегодня</font></strong>\n"
+"                        <small>(сегодняшние задачи отмечены красным цветом)</small>."
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.tasks_action
+msgid "<span class=\"fa fa-random\"></span> - Move task to <strong>Next</strong>."
+msgstr "<span class=\"fa fa-random\"></span> - Переместить задачу в <strong>Следующий</strong>."
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.act_action
+#: model:ir.actions.act_window,help:nibbana.act_distinct_action
+msgid "<span class=\"fa fa-star\"></span> / <span class=\"fa fa-star-o\"></span> - \n"
+"                        Click stars to add focus to your project or task."
+msgstr "<span class=\"fa fa-star\"></span> / <span class=\"fa fa-star-o\"></span> - \n"
+"                        Нажмите на звездочку чтобы установить фокус для проекта или задач."
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.projects_action
+msgid "<span class=\"fa fa-star\"></span> / <span class=\"fa fa-star-o\"></span> - \n"
+"                        Click stars to add focus to your project."
+msgstr "<span class=\"fa fa-star\"></span> / <span class=\"fa fa-star-o\"></span> - \n"
+"                        Нажмите на звездочку чтобы установить фокус для проекта."
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.tasks_action
+msgid "<span class=\"fa fa-star\"></span> / <span class=\"fa fa-star-o\"></span> - \n"
+"                        Click stars to add focus to your task."
+msgstr "<span class=\"fa fa-star\"></span> / <span class=\"fa fa-star-o\"></span> - \n"
+"                        Нажмите на звездочку чтобы установить фокус для задачи."
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.projects_action
+msgid "<span class=\"fa fa-tasks\"></span> - This is a shortcut to project's open tasks."
+msgstr "<span class=\"fa fa-tasks\"></span> - Это ярлык для открытых задач проекта."
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.tasks_action
+msgid "<span class=\"fa fa-times\"></span> - Set task as <strong>Cancelled</strong>."
+msgstr "<span class=\"fa fa-times\"></span> - Установить как <strong>Отеменено</strong>."
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.act_action
+#: model:ir.actions.act_window,help:nibbana.act_distinct_action
+#: model:ir.actions.act_window,help:nibbana.projects_action
+msgid "<span class=\"fa fa-toggle-on\"></span> / <span class=\"fa fa-toggle-off\"></span> \n"
+"                        - Click these buttons to activate and deactivate your projects."
+msgstr "<span class=\"fa fa-toggle-on\"></span> / <span class=\"fa fa-toggle-off\"></span> \n"
+"                        - Нажмите эти кнопки для активации и деактивации ваших проектов."
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.area_action
+msgid "<strong>Set active project limit</strong> for an area - let \n"
+"                        Nibbana help you to do what you really can manage to do. \n"
+"                        Values 3-5-7 active projects are reasonable."
+msgstr "<strong>Установить лимит активных проектов</strong> для области - пусть Ниббана поможет вам сделать то \n"
+"                         что вам действительно удастся сделать. \n"
+"                        Значения 3-5-7 активных проектов являются разумными."
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.area_action
+msgid "<strong>Set area color</strong> - projects and tasks will be colored accordingly so\n"
+"                        you can immediately understand work's area. Set gentle pastel shades\n"
+"                        as this a background color."
+msgstr "<strong>Установите цвет области</strong> - проекты и задачи будут соответственно окрашены,\n"
+"                        чтобы вы могли сразу понять область работы.\n"
+"                        Установите нежные пастельные тона, так как это цвет фона."
+
+#. module: nibbana
+#: model:ir.ui.menu,name:nibbana.nibbana_act_menu
+msgid "Act"
+msgstr "Действие"
+
+#. module: nibbana
+#: code:addons/nibbana/models/project.py:13
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_active
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_active
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_reference_active
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_task_active
+#: model:ir.ui.view,arch_db:nibbana.project_search
+#: model:ir.ui.view,arch_db:nibbana.reference_search
+#: selection:nibbana.project,state:0
+#, python-format
+msgid "Active"
+msgstr "Активно"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_active_project_limit
+msgid "Active Project Limit"
+msgstr "Лимит Активных Проектов"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.metric_counter_search
+#: model:ir.ui.view,arch_db:nibbana.task_search
+msgid "Active Projects"
+msgstr "Активные Проекты"
+
+#. module: nibbana
+#: model:ir.ui.menu,name:nibbana.nibbana_analize_menu
+msgid "Analize"
+msgstr "Анализ"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.area_form
+msgid "Archive"
+msgstr "Архив"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.area_search
+#: model:ir.ui.view,arch_db:nibbana.project_search
+#: model:ir.ui.view,arch_db:nibbana.reference_search
+#: model:ir.ui.view,arch_db:nibbana.task_search
+msgid "Archived"
+msgstr "Архивировано"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.area_form
+msgid "Archiving an area will hide this area from area list. Do you want to proceed?"
+msgstr "Архивирование области скроет эту область из списка областей. Вы хотите продолжить?"
+
+#. module: nibbana
+#: code:addons/nibbana/models/project.py:38
+#: model:ir.actions.act_window,name:nibbana.area_action
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view_area
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view_distinct_area
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_project_area_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_reference_area_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_task_area_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_inbox_area
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_area
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_area_list
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_reference_area
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_task_area
+#: model:ir.ui.view,arch_db:nibbana.act_distinct_search
+#: model:ir.ui.view,arch_db:nibbana.act_search
+#: model:ir.ui.view,arch_db:nibbana.project_search
+#: model:ir.ui.view,arch_db:nibbana.reference_search
+#: model:ir.ui.view,arch_db:nibbana.task_search
+#, python-format
+msgid "Area"
+msgstr "Область"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.task_search
+msgid "Area & Project"
+msgstr "Область & Проект"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view_area_color
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view_distinct_area_color
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_area_color
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_reference_area_color
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_task_area_color
+msgid "Area Color"
+msgstr "Цвет области"
+
+#. module: nibbana
+#: model:ir.actions.act_window,name:nibbana.area_projects_action
+msgid "Area Projects"
+msgstr "Область Проектов"
+
+#. module: nibbana
+#: model:ir.actions.act_window,name:nibbana.area_references_action
+msgid "Area References"
+msgstr "Справки Области"
+
+#. module: nibbana
+#: model:ir.actions.act_window,name:nibbana.area_tasks_action
+msgid "Area Tasks"
+msgstr "Область Задач"
+
+#. module: nibbana
+#: code:addons/nibbana/models/project.py:185
+#, python-format
+msgid "Area's projects limit has been reached!"
+msgstr "Достигнут лимит проектов для области!"
+
+#. module: nibbana
+#: model:ir.ui.menu,name:nibbana.area_menu
+msgid "Areas"
+msgstr "Области"
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.area_action
+msgid "Business"
+msgstr "Бизнес"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.project_change_area_view
+#: model:ir.ui.view,arch_db:nibbana.task_schedule_form
+#: model:ir.ui.view,arch_db:nibbana.task_set_waiting_form
+msgid "Cancel"
+msgstr "Отмена"
+
+#. module: nibbana
+#: code:addons/nibbana/models/project.py:18
+#: code:addons/nibbana/models/task.py:28
+#: model:ir.ui.view,arch_db:nibbana.project_form_view
+#: model:ir.ui.view,arch_db:nibbana.project_search
+#: model:ir.ui.view,arch_db:nibbana.task_search
+#: selection:nibbana.project,state:0
+#: selection:nibbana.task,state:0
+#, python-format
+msgid "Cancelled"
+msgstr "Отменено"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.metric_counter_search
+msgid "Cancelled Projects"
+msgstr "Отмененные Проекты"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_cancelled_tasks
+#: model:ir.ui.view,arch_db:nibbana.metric_counter_search
+msgid "Cancelled Tasks"
+msgstr "Отмененные Задачи"
+
+#. module: nibbana
+#: model:ir.actions.act_window,name:nibbana.project_multi_change_area_action
+#: model:ir.ui.view,arch_db:nibbana.project_change_area_view
+msgid "Change Area"
+msgstr "Изменить Область"
+
+#. module: nibbana
+#: code:addons/nibbana/models/project.py:48
+#: code:addons/nibbana/models/task.py:62
+#: model:ir.actions.act_window,name:nibbana.metric_changed_action
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_state_changed
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_task_state_changed
+#: model:ir.ui.menu,name:nibbana.metric_changed_projects_menu
+#: model:ir.ui.view,arch_db:nibbana.metric_counter_search
+#, python-format
+msgid "Changed"
+msgstr "Изменено"
+
+#. module: nibbana
+#: code:addons/nibbana/models/project.py:50
+#: code:addons/nibbana/models/task.py:63
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_state_change_count
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_task_state_change_count
+#, python-format
+msgid "Changes"
+msgstr "Изменения"
+
+#. module: nibbana
+#. openerp-web
+#: code:addons/nibbana/static/src/js/tour.js:21
+#, python-format
+msgid "Click here to deactivate your project."
+msgstr "Нажмите сюда чтобы деактивировать проект."
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.project_form_view
+msgid "Closed"
+msgstr "Закрыто"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_closed_task_count
+msgid "Closed Task Count"
+msgstr "Количество Закрытых Задач"
+
+#. module: nibbana
+#: model:ir.actions.act_window,name:nibbana.closed_task_project_action
+msgid "Closed Tasks"
+msgstr "Закрытые Задачи"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_metric_counter_code
+msgid "Code"
+msgstr "Код"
+
+#. module: nibbana
+#: model:ir.ui.menu,name:nibbana.nibbana_collect_menu
+msgid "Collect"
+msgstr "Сбор"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_color
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_inbox_area_color
+msgid "Color"
+msgstr "Цвет"
+
+#. module: nibbana
+#: code:addons/nibbana/models/area.py:59
+#, python-format
+msgid "Color must be in format of #AABBCC!"
+msgstr "Цвет должен быть в формате #AABBCC!"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_reference_content
+msgid "Content"
+msgstr "Содержание"
+
+#. module: nibbana
+#: code:addons/nibbana/models/act.py:60
+#: code:addons/nibbana/models/inbox.py:19
+#: code:addons/nibbana/models/project.py:42
+#: code:addons/nibbana/models/task.py:51
+#: model:ir.actions.act_window,name:nibbana.contexts_action
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view_context
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view_context_list
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view_distinct_context
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view_distinct_context_list
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_project_context_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_task_context_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_inbox_context
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_inbox_context_list
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_context
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_context_list
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_task_context
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_task_context_list
+#: model:ir.ui.view,arch_db:nibbana.act_distinct_search
+#: model:ir.ui.view,arch_db:nibbana.act_search
+#: model:ir.ui.view,arch_db:nibbana.project_search
+#: model:ir.ui.view,arch_db:nibbana.task_search
+#, python-format
+msgid "Context"
+msgstr "Контекст"
+
+#. module: nibbana
+#: model:ir.actions.act_window,name:nibbana.context_projects_action
+msgid "Context Projects"
+msgstr "Контекст Проектов"
+
+#. module: nibbana
+#: model:ir.actions.act_window,name:nibbana.context_tasks_action
+msgid "Context Tasks"
+msgstr "Контекст Задач"
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.contexts_action
+msgid "Context is the place or situation where your work can be done.<br>\n"
+"                Slice your work according to your context for better concentration.<br>\n"
+"                You can attach many different contexts to a task or project."
+msgstr "Контекст - это место или ситуация, когда ваша работа может быть выполнена. <br>\n"
+"                Поделите свою работу в соответствии с вашим контекстом для лучшей концентрации. <br>\n"
+"                Вы можете прикрепить много разных контекстов к задаче или проекту."
+
+#. module: nibbana
+#: model:ir.ui.menu,name:nibbana.contexts_menu
+msgid "Contexts"
+msgstr "Контексты"
+
+#. module: nibbana
+#: model:ir.actions.server,name:nibbana.task_convert_to_project_server_action
+#: model:ir.ui.view,arch_db:nibbana.inbox_form
+msgid "Convert to Project"
+msgstr "Конвертировать в Проект"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.inbox_form
+msgid "Convert to Reference"
+msgstr "Конвертировать в Справку"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.inbox_form
+msgid "Convert to Task"
+msgstr "Конвертировать в Задачу"
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.area_action
+msgid "Create Example Areas"
+msgstr "Создать Примеры Областей"
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.contexts_action
+msgid "Create Example Contexts"
+msgstr "Создать Примеры Контекстов"
+
+#. module: nibbana
+#: model:ir.actions.act_window,name:nibbana.metric_created_action
+#: model:ir.ui.menu,name:nibbana.metric_created_projects_menu
+#: model:ir.ui.view,arch_db:nibbana.metric_counter_search
+#: model:ir.ui.view,arch_db:nibbana.task_search
+msgid "Created"
+msgstr "Создано"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_create_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_project_create_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_reference_create_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_task_create_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_create_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_project_create_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_task_create_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_inbox_create_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_area_create_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_create_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_inactive_create_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_reference_create_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_schedule_task_create_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_task_create_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_waiting_task_create_uid
+msgid "Created by"
+msgstr "Создано"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_create_date
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_project_create_date
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_reference_create_date
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_task_create_date
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_create_date
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_project_create_date
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_task_create_date
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_inbox_create_date
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_area_create_date
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_create_date
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_inactive_create_date
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_reference_create_date
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_schedule_task_create_date
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_task_create_date
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_waiting_task_create_date
+msgid "Created on"
+msgstr "Создан"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.task_search
+msgid "Current"
+msgstr "Текущий"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.project_form_view
+msgid "Current Tasks"
+msgstr "Текущие Задачи"
+
+#. module: nibbana
+#: code:addons/nibbana/models/user.py:8
+#: model:ir.model.fields,field_description:nibbana.field_res_users_refocus_projects
+#, python-format
+msgid "Daily refocus projects"
+msgstr "Ежедневная рефокусировка проектов"
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.area_action
+msgid "Define Your Areas of Responsibility"
+msgstr "Определите Свои Области Ответственности"
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.contexts_action
+msgid "Define Your Contexts"
+msgstr "Определите Свои Контексты"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_description
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_description
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_description
+msgid "Description"
+msgstr "Описание"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view_display_name
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view_distinct_display_name
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_display_name
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_project_display_name
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_reference_display_name
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_task_display_name
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_display_name
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_project_display_name
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_task_display_name
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_inbox_display_name
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_metric_counter_display_name
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_area_display_name
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_display_name
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_inactive_display_name
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_reference_display_name
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_schedule_task_display_name
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_task_display_name
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_waiting_task_display_name
+msgid "Display Name"
+msgstr "Отображаемое Имя"
+
+#. module: nibbana
+#: code:addons/nibbana/models/project.py:17
+#: code:addons/nibbana/models/task.py:27
+#: model:ir.actions.act_window,name:nibbana.metric_done_action
+#: model:ir.ui.menu,name:nibbana.metric_done_menu
+#: model:ir.ui.view,arch_db:nibbana.project_form_view
+#: model:ir.ui.view,arch_db:nibbana.project_search
+#: model:ir.ui.view,arch_db:nibbana.task_search
+#: selection:nibbana.project,state:0
+#: selection:nibbana.task,state:0
+#, python-format
+msgid "Done"
+msgstr "Выполнено"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.metric_counter_search
+msgid "Done Projects"
+msgstr "Выполненные Проекты"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_done_tasks
+#: model:ir.ui.view,arch_db:nibbana.metric_counter_search
+msgid "Done Tasks"
+msgstr "Выполненные Задачи"
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.inbox_action
+msgid "During the day collect here everything that is trying to distract you. <br>\n"
+"                Process your Inbox folder when time to organize comes. <br>\n"
+"                Then convert your inbox items to a tasks, projects or references."
+msgstr "В течение дня собирайте здесь все, что пытается отвлечь вас.  <br>\n"
+"                Обработайте папку «Входящие», когда придет время для организации. <br>\n"
+"                Затем преобразуйте записи во Входящих в задачи, проекты или справочные материалы (справки)."
+
+#. module: nibbana
+#: code:addons/nibbana/models/task.py:53
+#: selection:nibbana.task,interval_type:0
+#, python-format
+msgid "Every Day"
+msgstr "Каждый День"
+
+#. module: nibbana
+#: code:addons/nibbana/models/task.py:55
+#: selection:nibbana.task,interval_type:0
+#, python-format
+msgid "Every Month"
+msgstr "Каждый Месяц"
+
+#. module: nibbana
+#: code:addons/nibbana/models/task.py:54
+#: selection:nibbana.task,interval_type:0
+#, python-format
+msgid "Every Week"
+msgstr "Каждую Неделю"
+
+#. module: nibbana
+#: code:addons/nibbana/models/task.py:56
+#: selection:nibbana.task,interval_type:0
+#, python-format
+msgid "Every Year"
+msgstr "Каждый Год"
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.area_action
+msgid "Example Areas"
+msgstr "Пример Областей"
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.contexts_action
+msgid "Examples"
+msgstr "Примеры"
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.area_action
+msgid "Family"
+msgstr "Семья"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.project_search
+#: model:ir.ui.view,arch_db:nibbana.reference_search
+#: model:ir.ui.view,arch_db:nibbana.task_search
+msgid "Filter by"
+msgstr "Фильтровать по"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view_distinct_focus
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view_focus
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_focus
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_task_focus
+#: model:ir.ui.view,arch_db:nibbana.act_distinct_search
+#: model:ir.ui.view,arch_db:nibbana.act_search
+#: model:ir.ui.view,arch_db:nibbana.project_search
+#: model:ir.ui.view,arch_db:nibbana.task_search
+msgid "Focus"
+msgstr "Сфокусироваться"
+
+#. module: nibbana
+#: code:addons/nibbana/models/project.py:83
+#: code:addons/nibbana/models/task.py:66
+#: selection:nibbana.project,focus:0
+#: selection:nibbana.task,focus:0
+#, python-format
+msgid "Focused"
+msgstr "Сфокусированы"
+
+#. module: nibbana
+#: code:addons/nibbana/controllers/main.py:33
+#, python-format
+msgid "Fun, excitements, cinema, travel etc"
+msgstr "Веселье, возбуждение, кино, путешествия и т.д."
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.project_form_view
+msgid "Future Tasks"
+msgstr "Будущие Задачи"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.project_search
+#: model:ir.ui.view,arch_db:nibbana.reference_search
+#: model:ir.ui.view,arch_db:nibbana.task_search
+msgid "Group By"
+msgstr "Группировать"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_has_context
+msgid "Has Context"
+msgstr "Имеет Контекст"
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.area_action
+msgid "Health"
+msgstr "Здоровье"
+
+#. module: nibbana
+#: code:addons/nibbana/controllers/main.py:38
+#, python-format
+msgid "Health, fitness"
+msgstr "Здоровье, фитнес"
+
+#. module: nibbana
+#: code:addons/nibbana/controllers/main.py:43
+#, python-format
+msgid "Help to my friends and my contribution to the world"
+msgstr "Помогите моим друзьям и моему вкладу в мир"
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.inbox_action
+msgid "Here is your Inbox collector"
+msgstr "Это ваш сборщик Входящих"
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.act_action
+msgid "Here only your current work is shown e.g. Active projects and \n"
+"                    today, next and focus tasks. If a project has many such tasks all of them are shown here."
+msgstr "Здесь отображается только ваша текущая работа, например, \n"
+"                    активные проекты и сегодняшние, следующие и фокусные задачи. Если у проекта много таких \n"
+"                    задач, все они показаны здесь."
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.act_distinct_action
+msgid "Here only your current work is shown e.g. Active projects and today \n"
+"                    and next tasks <i>one per project</i>. This is the difference between \n"
+"                    this Sequential Actions view and the above Unified List."
+msgstr "Здесь отображается только ваша текущая работа, например, активные проекты \n"
+"                    и сегодняшние и следующие задачи <i>по одному на проект</i>. \n"
+"                    В этом разница между этим представлением Последовательных \n"
+"                    действий и приведенным выше Единым списком."
+
+#. module: nibbana
+#. openerp-web
+#: code:addons/nibbana/static/src/js/tour.js:15
+#, python-format
+msgid "Here you change state of your project."
+msgstr "Здесь вы меняете состояние своего проекта."
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.area_action
+msgid "Hints"
+msgstr "Подсказки"
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.contexts_action
+msgid "Home"
+msgstr "Дом"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view_distinct_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_project_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_reference_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_task_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_project_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_task_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_inbox_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_metric_counter_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_area_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_inactive_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_reference_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_schedule_task_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_task_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_waiting_task_id
+msgid "ID"
+msgstr "Номер"
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.contexts_action
+msgid "In the city"
+msgstr "В городе"
+
+#. module: nibbana
+#: code:addons/nibbana/models/project.py:14
+#: model:ir.ui.view,arch_db:nibbana.project_search
+#: selection:nibbana.project,state:0
+#, python-format
+msgid "Inactive"
+msgstr "Неактивно"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.metric_counter_search
+#: model:ir.ui.view,arch_db:nibbana.task_search
+msgid "Inactive Projects"
+msgstr "Неактивные Проекты"
+
+#. module: nibbana
+#: model:ir.actions.act_window,name:nibbana.inbox_action
+#: model:ir.ui.menu,name:nibbana.nibbana_inbox_menu
+msgid "Inbox"
+msgstr "Входящие"
+
+#. module: nibbana
+#: code:addons/nibbana/models/task.py:57
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_task_interval_type
+#, python-format
+msgid "Interval"
+msgstr "Промежуток"
+
+#. module: nibbana
+#: code:addons/nibbana/controllers/main.py:107
+#, python-format
+msgid "Issues I can solve on the meeting"
+msgstr "Вопросы, которые я могу решить на собрании"
+
+#. module: nibbana
+#: code:addons/nibbana/controllers/main.py:28
+#, python-format
+msgid "Kids, wife, parents, home"
+msgstr "Дети, жена, родители, дом"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view___last_update
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view_distinct___last_update
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area___last_update
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_project___last_update
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_reference___last_update
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_task___last_update
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context___last_update
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_project___last_update
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_task___last_update
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_inbox___last_update
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_metric_counter___last_update
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project___last_update
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_area___last_update
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_inactive___last_update
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_reference___last_update
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_schedule_task___last_update
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_task___last_update
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_waiting_task___last_update
+msgid "Last Modified on"
+msgstr "Последнее Изменение"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_project_write_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_reference_write_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_task_write_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_write_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_project_write_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_task_write_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_write_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_inbox_write_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_area_write_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_inactive_write_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_write_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_reference_write_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_schedule_task_write_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_task_write_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_waiting_task_write_uid
+msgid "Last Updated by"
+msgstr "Последний раз Обновил"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_project_write_date
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_reference_write_date
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_task_write_date
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_write_date
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_project_write_date
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_task_write_date
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_write_date
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_inbox_write_date
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_area_write_date
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_inactive_write_date
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_write_date
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_reference_write_date
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_schedule_task_write_date
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_task_write_date
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_waiting_task_write_date
+msgid "Last Updated on"
+msgstr "Последнее Обновление"
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.area_action
+msgid "Learning"
+msgstr "Изучение"
+
+#. module: nibbana
+#: code:addons/nibbana/controllers/main.py:131
+#, python-format
+msgid "Little time is required to complete a task"
+msgstr "Для выполнения задачи требуется немного времени"
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.projects_action
+msgid "Manage your projects here"
+msgstr "Управляйте своими проектами здесь"
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.tasks_action
+msgid "Manage your tasks here"
+msgstr "Управляйте своими задачами здесь"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_metric_counter_metric_date
+msgid "Metric Date"
+msgstr "Метрическая Дата"
+
+#. module: nibbana
+#: model:ir.ui.menu,name:nibbana.nibbana_metrics_menu
+msgid "Metrics"
+msgstr "Метрики"
+
+#. module: nibbana
+#: model:ir.actions.act_window,name:nibbana.task_set_waiting_action
+msgid "Move Task to Waiting"
+msgstr "Переместить Задачу в Ожидаемые"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.task_tree_view
+msgid "Move to Next"
+msgstr "Переместить в Следущие"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.task_tree_view
+msgid "Move to Scheduled"
+msgstr "Переместить в Запланированные"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.task_tree_view
+msgid "Move to Someday"
+msgstr "Переместить в Когда-нибудь"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.task_tree_view
+msgid "Move to Today"
+msgstr "Переместить в Сегодня"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.task_tree_view
+msgid "Move to Tomorrow"
+msgstr "Переместить в Завтра"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.task_set_waiting_form
+msgid "Move to Waiting"
+msgstr "Переместить в Ожидаемые"
+
+#. module: nibbana
+#: code:addons/nibbana/controllers/main.py:53
+#, python-format
+msgid "My activities related to connection to the Great Spirit"
+msgstr "Мои действия связаны с соединением с Великим Духом"
+
+#. module: nibbana
+#: code:addons/nibbana/controllers/main.py:48
+#, python-format
+msgid "My carrier and personal growth"
+msgstr "Мой карьерный и персональный рост"
+
+#. module: nibbana
+#: code:addons/nibbana/controllers/main.py:23
+#, python-format
+msgid "My work projects and tasks"
+msgstr "Мои рабочие проекты и задачи"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view_distinct_name
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view_name
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_name
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_name
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_inbox_name
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_metric_counter_name
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_name
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_reference_name
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_task_name
+msgid "Name"
+msgstr "Название"
+
+#. module: nibbana
+#: code:addons/nibbana/controllers/main.py:127
+#, python-format
+msgid "Need to discuss"
+msgstr "Необходимо обсудить"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_area_new_area
+msgid "New Area"
+msgstr "Новая Область"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.project_form_view
+msgid "New Reference"
+msgstr "Новая Справка"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_schedule_task_new_start_date
+msgid "New Start Date"
+msgstr "Новая Дата Начала"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.project_form_view
+msgid "New Task"
+msgstr "Новая Задача"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_waiting_task_new_wait_till
+msgid "New Wait Till"
+msgstr "Новое Ожидание До"
+
+#. module: nibbana
+#: code:addons/nibbana/models/task.py:23
+#: model:ir.ui.view,arch_db:nibbana.project_form_view
+#: model:ir.ui.view,arch_db:nibbana.task_search
+#: selection:nibbana.task,state:0
+#, python-format
+msgid "Next"
+msgstr "Следующие"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_next_tasks
+#: model:ir.ui.view,arch_db:nibbana.metric_counter_search
+msgid "Next Tasks"
+msgstr "Следующие Задачи"
+
+#. module: nibbana
+#: model:ir.ui.menu,name:nibbana.nibbana_top_menu
+#: model:ir.ui.view,arch_db:nibbana.nibbana_user_form_view
+msgid "Nibbana"
+msgstr "Ниббана"
+
+#. module: nibbana
+#: model:ir.actions.server,name:nibbana.cron_activate_scheduled_projects_ir_actions_server
+#: model:ir.cron,cron_name:nibbana.cron_activate_scheduled_projects
+#: model:ir.cron,name:nibbana.cron_activate_scheduled_projects
+msgid "Nibbana activate scheduled projects"
+msgstr "Ниббана активирует запланированные проекты"
+
+#. module: nibbana
+#: model:ir.actions.server,name:nibbana.cron_deactivate_projects_ir_actions_server
+#: model:ir.cron,cron_name:nibbana.cron_deactivate_projects
+#: model:ir.cron,name:nibbana.cron_deactivate_projects
+msgid "Nibbana deactivate projects"
+msgstr "Ниббана деактивирует проекты"
+
+#. module: nibbana
+#: model:ir.actions.server,name:nibbana.cron_move_tasks_to_today_ir_actions_server
+#: model:ir.cron,cron_name:nibbana.cron_move_tasks_to_today
+#: model:ir.cron,name:nibbana.cron_move_tasks_to_today
+msgid "Nibbana move task to today"
+msgstr "Ниббана перемещает задачи на сегодня"
+
+#. module: nibbana
+#: model:ir.actions.server,name:nibbana.cron_scrap_counters_ir_actions_server
+#: model:ir.cron,cron_name:nibbana.cron_scrap_counters
+#: model:ir.cron,name:nibbana.cron_scrap_counters
+msgid "Nibbana scrap counters"
+msgstr "Ниббана содрать метрики"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.reference_search
+msgid "No Area"
+msgstr "Нет Области"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.reference_search
+msgid "No Project"
+msgstr "Нет Проекта"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.project_search
+msgid "No context"
+msgstr "Нет Контекста"
+
+#. module: nibbana
+#: code:addons/nibbana/models/project.py:82
+#: code:addons/nibbana/models/task.py:65
+#: selection:nibbana.project,focus:0
+#: selection:nibbana.task,focus:0
+#, python-format
+msgid "Non-focused"
+msgstr "Не сфокусирован"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_inbox_note
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_note
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_task_note
+#: model:ir.ui.view,arch_db:nibbana.project_form_view
+#: model:ir.ui.view,arch_db:nibbana.task_form_view
+msgid "Note"
+msgstr "Примечание"
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.contexts_action
+msgid "Office"
+msgstr "Офис"
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.contexts_action
+msgid "On drive"
+msgstr "За рулем"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.project_form_view
+msgid "Open"
+msgstr "Открыто"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_open_task_count
+msgid "Open Task Count"
+msgstr "Открыто Количество Задач"
+
+#. module: nibbana
+#: model:ir.actions.act_window,name:nibbana.open_task_project_action
+msgid "Open Tasks"
+msgstr "Открытая Задача"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view_distinct_open_type
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view_open_type
+msgid "Open Type"
+msgstr "Открытый Тип"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.act_distinct_list
+#: model:ir.ui.view,arch_db:nibbana.act_list
+#: model:ir.ui.view,arch_db:nibbana.task_tree_view
+msgid "Open task's project form."
+msgstr "Открыта форма задач проекта."
+
+#. module: nibbana
+#: model:ir.ui.menu,name:nibbana.nibbana_organize_menu
+msgid "Organize"
+msgstr "Организация"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.project_form_view
+msgid "Other Tasks"
+msgstr "Другие Задачи"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_metric_counter_owner
+msgid "Owner"
+msgstr "Владелец"
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.area_action
+msgid "Personal"
+msgstr "Личный"
+
+#. module: nibbana
+#: code:addons/nibbana/models/project.py:25
+#: model:ir.model,name:nibbana.model_nibbana_project
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view_distinct_project_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view_project_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_project_project_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_project_project_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_inactive_project
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_reference_project
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_task_project
+#: model:ir.ui.view,arch_db:nibbana.act_distinct_search
+#: model:ir.ui.view,arch_db:nibbana.act_search
+#: model:ir.ui.view,arch_db:nibbana.project_form_view
+#: model:ir.ui.view,arch_db:nibbana.reference_search
+#: model:ir.ui.view,arch_db:nibbana.task_search
+#, python-format
+msgid "Project"
+msgstr "Проект"
+
+#. module: nibbana
+#: model:ir.actions.act_window,name:nibbana.task_new_action
+msgid "Project New Action"
+msgstr "Новое Действие Проекта"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.task_search
+msgid "Project State"
+msgstr "Состояние Проекта"
+
+#. module: nibbana
+#: model:ir.actions.act_window,name:nibbana.project_tasks_action
+msgid "Project Tasks"
+msgstr "Задачи Проекта"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.project_form_view
+msgid "Project Title..."
+msgstr "Название Проекта..."
+
+#. module: nibbana
+#: code:addons/nibbana/models/area.py:15
+#: code:addons/nibbana/models/context.py:15
+#: code:addons/nibbana/models/project.py:95
+#: code:addons/nibbana/models/project.py:110
+#: code:addons/nibbana/models/project.py:113
+#: code:addons/nibbana/models/project.py:115
+#: model:ir.actions.act_window,name:nibbana.metric_projects_states_action
+#: model:ir.actions.act_window,name:nibbana.projects_action
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_project_count
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_project_count
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_projects
+#: model:ir.ui.menu,name:nibbana.metric_projects_states_menu
+#: model:ir.ui.menu,name:nibbana.projects_menu
+#: model:ir.ui.view,arch_db:nibbana.area_form
+#: model:ir.ui.view,arch_db:nibbana.area_list
+#: model:ir.ui.view,arch_db:nibbana.context_form
+#, python-format
+msgid "Projects"
+msgstr "Проекты"
+
+#. module: nibbana
+#: model:ir.actions.server,name:nibbana.activate_user_projects_server_action
+msgid "Re-Activate Projects"
+msgstr "Переактивировать Проекты"
+
+#. module: nibbana
+#: code:addons/nibbana/models/reference.py:21
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_reference_reference_id
+#, python-format
+msgid "Reference"
+msgstr "Справка"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_reference_count
+msgid "Reference Count"
+msgstr "Количество Справочников"
+
+#. module: nibbana
+#: model:ir.actions.act_window,name:nibbana.reference_new_action
+msgid "Reference New Action"
+msgstr "Новое Действие Справки"
+
+#. module: nibbana
+#: code:addons/nibbana/models/area.py:19
+#: model:ir.actions.act_window,name:nibbana.references_action
+#: model:ir.actions.act_window,name:nibbana.task_reference_action
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_reference_count
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_references
+#: model:ir.ui.menu,name:nibbana.references_menu
+#: model:ir.ui.view,arch_db:nibbana.area_form
+#: model:ir.ui.view,arch_db:nibbana.area_list
+#: model:ir.ui.view,arch_db:nibbana.project_form_view
+#, python-format
+msgid "References"
+msgstr "Справки"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.project_tree_view
+#: model:ir.ui.view,arch_db:nibbana.task_tree_view
+msgid "Remove Focus"
+msgstr "Удалить Фокус"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_task_repeat
+msgid "Repeat"
+msgstr "Повторить"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.task_schedule_form
+msgid "Schedule"
+msgstr "Запланировать"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_schedule_start_date
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_task_schedule_start_date
+msgid "Schedule Start Date"
+msgstr "Запланированная Дата Начал"
+
+#. module: nibbana
+#: model:ir.actions.act_window,name:nibbana.task_set_scheduled_action
+#: model:ir.ui.view,arch_db:nibbana.task_schedule_form
+msgid "Schedule a Task"
+msgstr "Запланировать Задачу"
+
+#. module: nibbana
+#: code:addons/nibbana/models/project.py:16
+#: code:addons/nibbana/models/task.py:25
+#: model:ir.ui.view,arch_db:nibbana.project_form_view
+#: model:ir.ui.view,arch_db:nibbana.project_search
+#: model:ir.ui.view,arch_db:nibbana.task_search
+#: selection:nibbana.project,state:0
+#: selection:nibbana.task,state:0
+#, python-format
+msgid "Scheduled"
+msgstr "Запланировано"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.metric_counter_search
+msgid "Scheduled Projects"
+msgstr "Запланированные Проекты"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_scheduled_tasks
+#: model:ir.ui.view,arch_db:nibbana.metric_counter_search
+msgid "Scheduled Tasks"
+msgstr "Запланированные Задачи"
+
+#. module: nibbana
+#: code:addons/nibbana/models/act.py:127
+#: code:addons/nibbana/models/project.py:339
+#: code:addons/nibbana/models/reference.py:89
+#: code:addons/nibbana/models/task.py:468
+#, python-format
+msgid "Search area by {} not implemented!"
+msgstr "Поиск области по {} не реализован!"
+
+#. module: nibbana
+#: code:addons/nibbana/models/act.py:103
+#: code:addons/nibbana/models/project.py:289
+#: code:addons/nibbana/models/task.py:414
+#, python-format
+msgid "Search context by {} not implemented!"
+msgstr "Поиск контекста по {} не реализован!"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_inbox_sequence
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_sequence
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_reference_sequence
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_task_sequence
+msgid "Sequence"
+msgstr "Последовательность"
+
+#. module: nibbana
+#: model:ir.actions.act_window,name:nibbana.act_distinct_action
+#: model:ir.ui.menu,name:nibbana.nibbana_act_distinct_submenu
+msgid "Sequential Actions"
+msgstr "Последовательные Действия"
+
+#. module: nibbana
+#: model:ir.actions.server,name:nibbana.project_multi_set_active_server_action
+msgid "Set Active"
+msgstr "Перевести в Активно"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.project_tree_view
+#: model:ir.ui.view,arch_db:nibbana.task_tree_view
+msgid "Set Focus"
+msgstr "Установить Фокус"
+
+#. module: nibbana
+#: model:ir.actions.server,name:nibbana.project_multi_set_inactive_server_action
+msgid "Set Inactive"
+msgstr "Перевести в Неактивно"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.task_tree_view
+msgid "Set Waiting"
+msgstr "Перевести в Ожидание"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.act_distinct_list
+#: model:ir.ui.view,arch_db:nibbana.act_list
+msgid "Set project to Inactive"
+msgstr "Сделать проект Неактивным"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.project_tree_view
+msgid "Set to Active"
+msgstr "Перевести в Активные"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.task_tree_view
+msgid "Set to Cancelled"
+msgstr "Перевести в Отмененные"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.act_distinct_list
+#: model:ir.ui.view,arch_db:nibbana.act_list
+#: model:ir.ui.view,arch_db:nibbana.task_tree_view
+msgid "Set to Done"
+msgstr "Перевести в Выполненные"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.project_tree_view
+msgid "Set to Inactive"
+msgstr "Перевести в Неактивно"
+
+#. module: nibbana
+#: model:ir.ui.menu,name:nibbana.nibbana_settings_menu
+msgid "Settings"
+msgstr "Настройки"
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.area_action
+msgid "Social"
+msgstr "Общественный"
+
+#. module: nibbana
+#: code:addons/nibbana/models/task.py:26
+#: model:ir.ui.view,arch_db:nibbana.project_form_view
+#: model:ir.ui.view,arch_db:nibbana.task_search
+#: selection:nibbana.task,state:0
+#, python-format
+msgid "Someday"
+msgstr "Когда-нибудь"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_someday_tasks
+#: model:ir.ui.view,arch_db:nibbana.metric_counter_search
+msgid "Someday Tasks"
+msgstr "Задачи Когда-нибудь"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view_distinct_state
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view_state
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_state
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_reference_project_state
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_task_project_state
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_task_state
+#: model:ir.ui.view,arch_db:nibbana.project_search
+#: model:ir.ui.view,arch_db:nibbana.task_search
+msgid "State"
+msgstr "Состояние"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.project_change_area_view
+#: model:ir.ui.view,arch_db:nibbana.task_set_waiting_form
+msgid "Submit"
+msgstr "Подтвердить"
+
+#. module: nibbana
+#: code:addons/nibbana/models/task.py:35
+#: model:ir.model,name:nibbana.model_nibbana_task
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view_distinct_task_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view_task_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_task_task_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_task_task_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_schedule_task_task
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_waiting_task_task
+#: model:ir.ui.view,arch_db:nibbana.task_form_view
+#, python-format
+msgid "Task"
+msgstr "Задача"
+
+#. module: nibbana
+#: code:addons/nibbana/models/act.py:61
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view_distinct_task_project
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view_task_project
+#, python-format
+msgid "Task Project"
+msgstr "Задача Проекта"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.task_form_view
+msgid "Task Title..."
+msgstr "Название Задачи..."
+
+#. module: nibbana
+#: code:addons/nibbana/models/area.py:17
+#: code:addons/nibbana/models/context.py:12
+#: code:addons/nibbana/models/task.py:83
+#: code:addons/nibbana/models/task.py:105
+#: code:addons/nibbana/models/task.py:107
+#: code:addons/nibbana/models/task.py:109
+#: model:ir.actions.act_window,name:nibbana.metric_task_states_action
+#: model:ir.actions.act_window,name:nibbana.tasks_action
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_task_count
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_task_count
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_tasks
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_tasks
+#: model:ir.ui.menu,name:nibbana.metric_tasks_states_menu
+#: model:ir.ui.menu,name:nibbana.tasks_menu
+#: model:ir.ui.view,arch_db:nibbana.area_form
+#: model:ir.ui.view,arch_db:nibbana.area_list
+#: model:ir.ui.view,arch_db:nibbana.context_form
+#: model:ir.ui.view,arch_db:nibbana.project_tree_view
+#, python-format
+msgid "Tasks"
+msgstr "Задачи"
+
+#. module: nibbana
+#: code:addons/nibbana/controllers/main.py:103
+#, python-format
+msgid "Tasks I can complete while driving somewhere"
+msgstr "Задачи, которые я могу выполнить во время езды"
+
+#. module: nibbana
+#: code:addons/nibbana/controllers/main.py:115
+#, python-format
+msgid "Tasks that require reading new information"
+msgstr "Задачи, требующие чтения новой информации"
+
+#. module: nibbana
+#: code:addons/nibbana/controllers/main.py:123
+#, python-format
+msgid "Tasks that require to listen to something"
+msgstr "Задачи, которые требуют что-то слушать"
+
+#. module: nibbana
+#: code:addons/nibbana/controllers/main.py:119
+#, python-format
+msgid "Tasks that require to watch something"
+msgstr "Задачи, которые требуют посмотреть что-то"
+
+#. module: nibbana
+#: code:addons/nibbana/models/area.py:27
+#: code:addons/nibbana/models/context.py:20
+#: code:addons/nibbana/models/project.py:88
+#: code:addons/nibbana/models/task.py:73
+#: sql_constraint:nibbana.area:0
+#: sql_constraint:nibbana.context:0
+#: sql_constraint:nibbana.project:0
+#: sql_constraint:nibbana.task:0
+#, python-format
+msgid "The uid must be unique !"
+msgstr "UID должен быть уникальным !"
+
+#. module: nibbana
+#: code:addons/nibbana/controllers/main.py:111
+#, python-format
+msgid "Things I can do on a walk"
+msgstr "Вещи, которые я могу сделать на прогулке"
+
+#. module: nibbana
+#: code:addons/nibbana/models/metric.py:21
+#: sql_constraint:nibbana.metric_counter:0
+#, python-format
+msgid "This metric is already created for this day and user!"
+msgstr "Эти метрики уже созданы для этого дня и пользователя!"
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.contexts_action
+msgid "To Call"
+msgstr "Позвать"
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.contexts_action
+msgid "To Read"
+msgstr "Читать"
+
+#. module: nibbana
+#: code:addons/nibbana/models/task.py:21
+#: model:ir.ui.view,arch_db:nibbana.act_distinct_search
+#: model:ir.ui.view,arch_db:nibbana.act_search
+#: model:ir.ui.view,arch_db:nibbana.project_form_view
+#: model:ir.ui.view,arch_db:nibbana.task_search
+#: selection:nibbana.task,state:0
+#, python-format
+msgid "Today"
+msgstr "Сегодня"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_today_tasks
+#: model:ir.ui.view,arch_db:nibbana.metric_counter_search
+msgid "Today Tasks"
+msgstr "Задачи на Сегодня"
+
+#. module: nibbana
+#: code:addons/nibbana/models/task.py:22
+#: model:ir.ui.view,arch_db:nibbana.project_form_view
+#: model:ir.ui.view,arch_db:nibbana.task_search
+#: selection:nibbana.task,state:0
+#, python-format
+msgid "Tomorrow"
+msgstr "Завтра"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_tomorrow_tasks
+#: model:ir.ui.view,arch_db:nibbana.metric_counter_search
+msgid "Tomorrow Tasks"
+msgstr "Завтрашние задачи"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_area_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_context_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_reference_uid
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_task_uid
+msgid "Uid"
+msgstr "Uid"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.area_form
+msgid "Unarchive"
+msgstr "Разархивировать"
+
+#. module: nibbana
+#: code:addons/nibbana/models/act.py:148
+#: code:addons/nibbana/models/act.py:177
+#: code:addons/nibbana/models/project.py:398
+#: code:addons/nibbana/models/task.py:506
+#, python-format
+msgid "Undefined"
+msgstr "Неопределенный"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.task_search
+msgid "Undone"
+msgstr "Невыполненные"
+
+#. module: nibbana
+#: model:ir.actions.act_window,name:nibbana.act_action
+#: model:ir.ui.menu,name:nibbana.nibbana_act_submenu
+msgid "Unified List"
+msgstr "Единый Список"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.task_search
+msgid "Updated"
+msgstr "Обновлено"
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.area_action
+msgid "Use <span class=\"fa fa-book\"></span> to open area's references."
+msgstr "Используйте <span class=\"fa fa-book\"></span> чтобы открыть справки области."
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.area_action
+msgid "Use <span class=\"fa fa-briefcase\"></span> to open area's projects."
+msgstr "Используйте <span class=\"fa fa-briefcase\"></span> чтобы открыть проекты областей."
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view_distinct_user_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_act_view_user_id
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_inactive_user
+msgid "User"
+msgstr "Пользователь"
+
+#. module: nibbana
+#: model:ir.model,name:nibbana.model_res_users
+msgid "Users"
+msgstr "Пользователи"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_metric_counter_value
+msgid "Value"
+msgstr "Объём"
+
+#. module: nibbana
+#: code:addons/nibbana/models/task.py:58
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_task_wait_till
+#, python-format
+msgid "Wait untill"
+msgstr "Ждать до"
+
+#. module: nibbana
+#: code:addons/nibbana/models/project.py:15
+#: code:addons/nibbana/models/task.py:24
+#: model:ir.ui.view,arch_db:nibbana.project_form_view
+#: model:ir.ui.view,arch_db:nibbana.project_search
+#: model:ir.ui.view,arch_db:nibbana.task_search
+#: selection:nibbana.project,state:0
+#: selection:nibbana.task,state:0
+#, python-format
+msgid "Waiting"
+msgstr "В Ожидании"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.metric_counter_search
+msgid "Waiting Projects"
+msgstr "Ожидающие Проекты"
+
+#. module: nibbana
+#: model:ir.model.fields,field_description:nibbana.field_nibbana_project_waiting_tasks
+#: model:ir.ui.view,arch_db:nibbana.metric_counter_search
+msgid "Waiting Tasks"
+msgstr "Ожидание Задач"
+
+#. module: nibbana
+#: code:addons/nibbana/controllers/main.py:87
+#, python-format
+msgid "Whan I am at home"
+msgstr "Когда я дома"
+
+#. module: nibbana
+#: code:addons/nibbana/controllers/main.py:79
+#, python-format
+msgid "When I am in the city"
+msgstr "Когда я в городе"
+
+#. module: nibbana
+#: code:addons/nibbana/controllers/main.py:91
+#, python-format
+msgid "When I am in the office"
+msgstr "Пока я в офисе"
+
+#. module: nibbana
+#: code:addons/nibbana/controllers/main.py:83
+#, python-format
+msgid "When I can do shopping"
+msgstr "Когда я могу делать покупки"
+
+#. module: nibbana
+#: code:addons/nibbana/controllers/main.py:75
+#, python-format
+msgid "When I have the opportunity to place calls"
+msgstr "Когда у меня есть возможность поместить звонки"
+
+#. module: nibbana
+#: code:addons/nibbana/controllers/main.py:95
+#, python-format
+msgid "When I use my personal computer"
+msgstr "Когда я использую свой персональный компьютер"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.task_search
+msgid "With Project"
+msgstr "С Проектом"
+
+#. module: nibbana
+#: model:ir.ui.view,arch_db:nibbana.task_search
+msgid "Without Project"
+msgstr "Без Проекта"
+
+#. module: nibbana
+#: code:addons/nibbana/controllers/main.py:99
+#, python-format
+msgid "Work I can do on mobile internet"
+msgstr "Работу я могу делать с мобильного интернета"
+
+#. module: nibbana
+#: code:addons/nibbana/models/task.py:92
+#: code:addons/nibbana/models/act.py:250
+#: code:addons/nibbana/models/task.py:314
+#, python-format
+msgid "You should keep focus on Today's tasks!"
+msgstr "Вы должны сосредоточиться на сегодняшних задачах!"
+
+#. module: nibbana
+#: code:addons/nibbana/models/project.py:175
+#: code:addons/nibbana/models/task.py:308
+#: code:addons/nibbana/models/task.py:320
+#, python-format
+msgid "You should set a future date!"
+msgstr "Вы должны установить дату в будущем!"
+
+#. module: nibbana
+#: model:ir.actions.act_window,help:nibbana.act_action
+#: model:ir.actions.act_window,help:nibbana.act_distinct_action
+msgid "Your Epicenter is empty! Great :-)"
+msgstr "Ваш Эпицентр пуст! Здорово :-)"
+
+#. module: nibbana
+#: model:ir.model,name:nibbana.model_nibbana_act_view
+msgid "nibbana.act_view"
+msgstr "nibbana.act_view"
+
+#. module: nibbana
+#: model:ir.model,name:nibbana.model_nibbana_act_view_distinct
+msgid "nibbana.act_view_distinct"
+msgstr "nibbana.act_view_distinct"
+
+#. module: nibbana
+#: model:ir.model,name:nibbana.model_nibbana_area
+msgid "nibbana.area"
+msgstr "nibbana.area"
+
+#. module: nibbana
+#: model:ir.model,name:nibbana.model_nibbana_area_project
+msgid "nibbana.area_project"
+msgstr "nibbana.area_project"
+
+#. module: nibbana
+#: model:ir.model,name:nibbana.model_nibbana_area_reference
+msgid "nibbana.area_reference"
+msgstr "nibbana.area_reference"
+
+#. module: nibbana
+#: model:ir.model,name:nibbana.model_nibbana_area_task
+msgid "nibbana.area_task"
+msgstr "nibbana.area_task"
+
+#. module: nibbana
+#: model:ir.model,name:nibbana.model_nibbana_context
+msgid "nibbana.context"
+msgstr "nibbana.context"
+
+#. module: nibbana
+#: model:ir.model,name:nibbana.model_nibbana_context_project
+msgid "nibbana.context_project"
+msgstr "nibbana.context_project"
+
+#. module: nibbana
+#: model:ir.model,name:nibbana.model_nibbana_context_task
+msgid "nibbana.context_task"
+msgstr "nibbana.context_task"
+
+#. module: nibbana
+#: model:ir.model,name:nibbana.model_nibbana_inbox
+msgid "nibbana.inbox"
+msgstr "nibbana.inbox"
+
+#. module: nibbana
+#: model:ir.model,name:nibbana.model_nibbana_metric_counter
+msgid "nibbana.metric_counter"
+msgstr "nibbana.metric_counter"
+
+#. module: nibbana
+#: model:ir.model,name:nibbana.model_nibbana_project_area
+msgid "nibbana.project_area"
+msgstr "nibbana.project_area"
+
+#. module: nibbana
+#: model:ir.model,name:nibbana.model_nibbana_project_inactive
+msgid "nibbana.project_inactive"
+msgstr "nibbana.project_inactive"
+
+#. module: nibbana
+#: model:ir.model,name:nibbana.model_nibbana_reference
+msgid "nibbana.reference"
+msgstr "nibbana.reference"
+
+#. module: nibbana
+#: model:ir.model,name:nibbana.model_nibbana_schedule_task
+msgid "nibbana.schedule_task"
+msgstr "nibbana.schedule_task"
+
+#. module: nibbana
+#: model:ir.model,name:nibbana.model_nibbana_waiting_task
+msgid "nibbana.waiting_task"
+msgstr "nibbana.waiting_task"
+

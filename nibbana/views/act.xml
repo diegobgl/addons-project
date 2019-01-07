@@ -1,0 +1,101 @@
+<odoo>
+    <record model="ir.actions.act_window" id="act_action">
+        <field name="name">Unified List</field>
+        <field name="res_model">nibbana.act_view</field>
+        <field name="view_mode">tree,graph</field>
+        <field name="context">{'graph_mode': 'pie'}</field>
+        <field name="domain">[('user_id','=', uid)]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <br/>
+                <h2>Your Epicenter is empty! Great :-)</h2>
+                <p>
+                    Here only your current work is shown e.g. Active projects and 
+                    today, next and focus tasks. If a project has many such tasks all of them are shown here.
+                </p>
+                <p>
+                <ul style="list-style-type: none;">
+                    <li><span class="fa fa-folder-open"/> - Click here to 
+                        enter project or task details.</li>
+                    <li><span class="fa fa-toggle-on"/> / <span class="fa fa-toggle-off"/> 
+                        - Click these buttons to activate and deactivate your projects.</li>                        
+                    <li><span class="fa fa-star"/> / <span class="fa fa-star-o"/> - 
+                        Click stars to add focus to your project or task. </li>
+                    <li><span class="fa fa-check"/> - Set task to <strong>Done</strong>.</li>                        
+                </ul>
+                </p>
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="nibbana_act_submenu" name="Unified List"
+              parent="nibbana_act_menu" action="act_action"
+              sequence="20"/>
+
+
+    <record model="ir.ui.view" id="act_list">
+        <field name="name">nibbana.act list</field>
+        <field name="model">nibbana.act_view</field>
+        <field name="arch" type="xml">
+            <tree create="false" delete="false" colors="color_field: area_color">
+                <field name="open_type" invisible="1"/>
+                <field name="project_id" invisible="1"/>
+                <field name="area_color" invisible="1"/>
+                <button type="object" name="open" icon="fa-folder-open"/>
+                <field name="name"
+                    options='{"fg_color": "red: state==&apos;Today&apos;"}'/>
+                <field name="state"/>
+                <field name="area"/>
+                <field name="context_list"/>                
+                <button name="set_done" icon="fa-check" type="object"
+                        attrs="{'invisible': [('open_type','!=','task')]}"
+                        help="Set to Done"/>                        
+                <button name="set_inactive" icon="fa-toggle-on" type="object"
+                        attrs="{'invisible': [('open_type','!=','project')]}"
+                        help="Set project to Inactive"/>
+                <field name="focus" invisible="1"/>
+                <button name="invert_focus" icon="fa-star" type="object"
+                    attrs="{'invisible': [('focus','=','0')]}"/>
+                <button name="invert_focus" icon="fa-star-o" type="object"
+                    attrs="{'invisible': [('focus','!=','0')]}"/>
+                <field name="task_project"/>
+                <button name="open_project_form" type="object" icon="fa-briefcase"
+                        attrs="{'invisible': [('task_project','=',False)]}"
+                        help="Open task's project form."/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="act_search" model="ir.ui.view">
+        <field name="name">nibbana.act.search</field>
+        <field name="model">nibbana.act_view</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="area"/>
+                <field name="context"/>
+                <group>
+                    <filter string="Focus" domain="[('focus','=', '1')]"/>
+                    <filter string="Today" domain="[('state','=', 'Today')]"/>
+                </group>
+                <group>
+                    <filter string="Area" context="{'group_by': 'area'}"/>
+                    <filter string="Context" context="{'group_by': 'context'}"/>
+                    <filter string="Project" context="{'group_by': 'project_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="act_graph_view" model="ir.ui.view">
+        <field name="name">nibbana.act.graph</field>
+        <field name="model">nibbana.act_view</field>
+        <field name="arch" type="xml">
+            <graph>
+                <field name="area" type="row"/>
+            </graph>
+        </field>
+    </record>
+
+
+</odoo>

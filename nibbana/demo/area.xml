@@ -1,0 +1,19 @@
+<odoo>
+    <data>
+        <record id="work_area" model="nibbana.area">
+            <field name="name">Business</field>
+            <field name="color">#FFE8ED</field>
+            <field name="description">My work projects and tasks</field>
+        </record>
+        <record id="family_area" model="nibbana.area">
+            <field name="name">Family</field>
+            <field name="color">#E0FFDE</field>
+            <field name="description">My family projects and tasks</field>
+        </record>
+        <record id="sport_area" model="nibbana.area">
+            <field name="name">Sport</field>
+            <field name="color">#B5F8FF</field>
+            <field name="description">My sport activities</field>
+        </record>
+    </data>
+</odoo>
