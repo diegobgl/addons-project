@@ -1,0 +1,21 @@
+<odoo>
+    <data>
+
+        <!-- Gantt view -->
+        <record id="project_task_gantt_view" model="ir.ui.view">
+            <field name="name">project.task.gantt</field>
+            <field name="model">project.task</field>
+            <field name="arch" type="xml">
+                <gantt date_stop="date_deadline" date_start="date_assign" progress="progress" string="Project task" default_group_by="stage_id">
+                </gantt>
+            </field>
+        </record>
+
+        <!-- Add gantt view mode to the project.task dashboard -->
+        <record id="project.action_view_task" model="ir.actions.act_window">
+            <field name="view_mode">kanban,tree,form,gantt,calendar,pivot,graph,activity</field>
+            <field name="context">{'search_default_project': 1}</field>
+        </record>
+
+    </data>
+</odoo>

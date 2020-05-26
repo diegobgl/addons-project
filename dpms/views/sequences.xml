@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="seq_dpms_project" model="ir.sequence">
+            <field name="name">dpms.project</field>
+            <field name="code">dpms.project</field>
+            <field name="prefix">PJT/%(year)s/</field>
+            <field name="padding">4</field>
+        </record>
+    </data>
+</odoo>

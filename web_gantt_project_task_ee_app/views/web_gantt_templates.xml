@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="schedule_assets_backend" name="schedule_web_gantt assets" inherit_id="web.assets_backend">
+		<xpath expr="." position="inside">
+			<script type="text/javascript" src="/web_gantt_project_task_ee_app/static/src/js/gantt_renderer.js"></script>
+            <script type="text/javascript" src="/web_gantt_project_task_ee_app/static/src/js/gantt_model.js"></script>
+            <script type="text/javascript" src="/web_gantt_project_task_ee_app/static/src/js/gantt_controller.js"></script>
+		</xpath>
+	</template>
+</odoo>

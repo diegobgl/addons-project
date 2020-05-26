@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_project_task_screenshot_form" model="ir.ui.view">
+            <field name="name">view_project_task_screenshot_form</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page name="screenshots" string="Screenshots" autofocus="autofocus">
+                        <div class="oe_button_box" name="expense_button_box">
+                            <button name="%(smart_screenshots.task_screenshot_action)s"
+                                    type="action"
+                                    class="oe_stat_button"
+                                    icon="fa-image"
+                                    string="Screenshots">
+                            </button>
+                            <button name="show_screenshot_settings"
+                                    type="object"
+                                    class="oe_stat_button"
+                                    icon="fa-list"
+                                    string="Domain Mapping">
+                            </button>
+                        </div>
+
+                        <group name="problems" string="Problems:">
+                            <field name="screenshot_problem_ids" nolabel="1">
+                                <kanban class="o_attachments_previews" create="false" edit="false">
+                                    <field name="id"/>
+                                    <field name="name"/>
+                                    <field name="problem_task_id"/>
+                                    <field name="solution_task_id"/>
+                                    <field name="project_id"/>
+                                    <field name="source_url"/>
+                                    <field name="attachment_id"/>
+                                    <field name="image"/>
+                                    <field name="type"/>
+                                    <templates>
+                                        <t t-name="kanban-box">
+                                            <div class="oe_kanban_global_click">
+                                                <div class="kanban_screenshot_card"
+                                                     t-attf-style="background-image:url(/web/image/#{record.attachment_id.raw_value});">
+                                                    <div class="kanban_screenshot_type">
+                                                        <t t-if="record.type.raw_value == 'problem'">
+                                                            <span class="type-problem">
+                                                                <field name="type"/>
+                                                            </span>
+                                                        </t>
+                                                        <t t-else="">
+                                                            <span class="type-solution">
+                                                                <field name="type"/>
+                                                            </span>
+                                                        </t>
+                                                    </div>
+                                                    <div class="kanban_screenshot_card_buttons">
+                                                        <a t-att-href="record.source_url.value"
+                                                           t-att-title="record.source_url.value"
+                                                           target="_blank">
+                                                            <button class="btn btn-primary screenshot_source">
+                                                                Source
+                                                            </button>
+                                                        </a>
+                                                        <button name="open_replacement_domain"
+                                                                class="btn btn-warning"
+                                                                type="object">
+                                                            Replacement
+                                                        </button>
+
+                                                        <button class="btn btn-info"
+                                                                name="share_screenshot"
+                                                                type="object">
+                                                            <i class="fa fa-share-square"/>
+                                                            Share
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </templates>
+                                </kanban>
+                            </field>
+                        </group>
+                        <group name="solutions" string="Solutions:">
+                            <field name="screenshot_solution_ids" nolabel="1">
+                                <kanban class="o_attachments_previews" create="false" edit="false">
+                                    <field name="id"/>
+                                    <field name="name"/>
+                                    <field name="problem_task_id"/>
+                                    <field name="solution_task_id"/>
+                                    <field name="project_id"/>
+                                    <field name="source_url"/>
+                                    <field name="attachment_id"/>
+                                    <field name="image"/>
+                                    <field name="type"/>
+                                    <templates>
+                                        <t t-name="kanban-box">
+                                            <div class="oe_kanban_global_click">
+                                                <div class="kanban_screenshot_card"
+                                                     t-attf-style="background-image:url(/web/image/#{record.attachment_id.raw_value});">
+                                                    <div class="kanban_screenshot_type">
+                                                        <t t-if="record.type.raw_value == 'problem'">
+                                                            <span class="type-problem">
+                                                                <field name="type"/>
+                                                            </span>
+                                                        </t>
+                                                        <t t-else="">
+                                                            <span class="type-solution">
+                                                                <field name="type"/>
+                                                            </span>
+                                                        </t>
+                                                    </div>
+                                                    <div class="kanban_screenshot_card_buttons">
+                                                        <a t-att-href="record.source_url.value"
+                                                           t-att-title="record.source_url.value"
+                                                           target="_blank">
+                                                            <button class="btn btn-primary screenshot_source">
+                                                                Source
+                                                            </button>
+                                                        </a>
+                                                        <button name="open_replacement_domain"
+                                                                class="btn btn-warning"
+                                                                type="object">
+                                                            Replacement
+                                                        </button>
+
+                                                        <button class="btn btn-info"
+                                                                name="share_screenshot"
+                                                                type="object">
+                                                            <i class="fa fa-share-square"/>
+                                                            Share
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </templates>
+                                </kanban>
+                            </field>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+    Copyright 2019 Fenix Engineering Solutions
+    @author Jose F. Fernandez
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+    <record id="project_kanban_documents_view" model="ir.ui.view">
+        <field name="name">project.kanban.documents.view</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_kanban"/>
+        <field name="priority">24</field>
+        <field name="arch" type="xml">
+            <xpath expr="/kanban" position="inside">
+                <field name="doc_count" invisible="1"/>
+            </xpath>
+            <xpath expr="//div[hasclass('o_kanban_manage_reports')]/div[last()]" position="after">
+                <div>
+                    <a name="attachment_tree_view" type="object">Documents</a>
+                </div>
+            </xpath>
+            <xpath expr="//div[hasclass('o_project_kanban_boxes')]" position="inside">
+                <a class="o_project_kanban_box" name="attachment_tree_view" type="object">
+                    <div>
+                        <span class="o_value"><t t-esc="record.doc_count.value"/></span>
+                        <span t-if="record.doc_count.value == 1" class="o_label">Document</span>
+                        <span t-if="record.doc_count.value != 1" class="o_label">Documents</span>
+                    </div>
+                </a>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <t t-name="smart_screenshots.screenshot.new_task">
+        <li style="display: none;">
+            <a class="smart_screenshot_button" title="Screen" role="button">
+                <i class="fa fa-camera" role="img" aria-label="Screenshot"/>
+            </a>
+        </li>
+    </t>
+</templates>

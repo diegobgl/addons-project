@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates>
+	<t t-name="GanttView">
+		<div t-attf-class="o_gantt_view table-responsive chart_id_{{widget.chart_id}}">
+		</div>
+	</t>
+
+	<t t-name="GanttView.buttons">
+	  <div class="o_gantt_button_dates" role="toolbar" aria-label="Main actions">
+	<button class="o_gantt_button_left btn btn-primary" t-if="!isMobile" aria-label="Previous" title="Previous">
+	  <span class="fa fa-arrow-left"/>
+	</button>
+	<button class="o_gantt_button_today btn btn-primary">
+	  Today
+	</button>
+	<button class="o_gantt_button_right btn btn-primary" t-if="!isMobile" aria-label="Next" title="Next">
+	  <span class="fa fa-arrow-right"/>
+	</button>
+	  </div>
+		<div class="btn-group" t-if="isMobile">
+			<a role="button" class="btn btn-link dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false"><span class="dropdown_gantt_content mr4">Month</span><i class="fa fa-caret-down" role="img" aria-label="Dropdown menu" title="Dropdown menu"></i></a>
+			<div class="dropdown-menu" role="menu">
+				<a id="qtr_day" role="menuitem" class="o_gantt_button_scale btn btn-secondary dropdown-item" data-value="day">Quarter Day</a>
+				<a id="half_day" role="menuitem" class="o_gantt_button_scale btn btn-secondary dropdown-item" data-value="day">Half Day</a>
+				<a id="day" role="menuitem" class="o_gantt_button_scale btn btn-secondary dropdown-item" data-value="day">Day</a>
+				<a id="week" role="menuitem" class="o_gantt_button_scale btn btn-secondary dropdown-item" data-value="week">Week</a>
+				<a id="month" role="menuitem" class="o_gantt_button_scale btn btn-secondary dropdown-item active" data-value="month">Month</a>
+				<a id="qtr_year" role="menuitem" class="o_gantt_button_scale btn btn-secondary dropdown-item" data-value="year">Quarter Year</a>
+				<a id="half_year" role="menuitem" class="o_gantt_button_scale btn btn-secondary dropdown-item" data-value="year">Half Year</a>
+				<a id="year" role="menuitem" class="o_gantt_button_scale btn btn-secondary dropdown-item" data-value="year">Year</a>
+			</div>
+		</div>
+		<div t-attf-class="btn-group" t-else="" role="toolbar" aria-label="Period">
+			<button class="o_gantt_button_scale btn btn-secondary" type="button" data-value="day" 
+			id="qtr_day">Quarter Day</button>
+			<button class="o_gantt_button_scale btn btn-secondary" type="button" data-value="day" 
+			id="half_day">Half Day</button>
+			<button class="o_gantt_button_scale btn btn-secondary" type="button" data-value="day"
+			id="day">Day</button>
+			<button  id="week" class="o_gantt_button_scale btn btn-secondary" type="button" data-value="week">Week</button>
+			<button class="o_gantt_button_scale btn btn-secondary" type="button" data-value="month"
+			id="month">Month</button>
+			<button class="o_gantt_button_scale btn btn-secondary" type="button" data-value="year"
+			id="qtr_year">Quarter Year</button>
+			<button class="o_gantt_button_scale btn btn-secondary" type="button" data-value="year"
+			id="half_year">Half Year</button>
+			<button class="o_gantt_button_scale btn btn-secondary" type="button" data-value="year"
+			id="year">Year</button>
+		</div>
+	</t>
+</templates>

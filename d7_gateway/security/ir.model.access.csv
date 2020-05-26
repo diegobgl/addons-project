@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_d7_gateway_template,d7_gateway.d7_gateway,model_sms_template,,1,0,0,0
+access_d7_gateway_model,d7_gateway.d7_gateway,model_sms_model,,1,1,1,0
+
+access_d7_gateway_user_template,sms.user,model_sms_template,group_sms_user,1,0,0,0
+access_d7_gateway_user_model,sms.user,model_sms_model,group_sms_user,1,1,1,0
+
+acces_d7_gateway_manager_template,sms.manager,model_sms_template,group_sms_manager,1,1,1,1
+acces_d7_gateway_manager_model,sms.manager,model_sms_model,group_sms_manager,1,1,1,1

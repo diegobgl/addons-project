@@ -1,0 +1,50 @@
+<odoo>
+    <data noupdate="1">
+        <record id="data_sms_template_hr" model="sms.template">
+            <field name="name">Leave Request</field>
+            <field name="content">Dear {name},
+Your {type} for {days} from {duration} is approved by {manager}.
+            </field>
+        </record>
+        <record id="data_sms_template_hr_allocation" model="sms.template">
+            <field name="name">Leave Allocation</field>
+            <field name="content">Dear {name},
+Your {type} for {days} is approved by {manager}.
+            </field>
+        </record>
+        <record id="data_sms_template_hr_payroll" model="sms.template">
+            <field name="name">Payroll</field>
+            <field name="content">Dear {name},
+{payslip_name} of reference {p_reference} for period {duration} is confirmed by {manager}.
+            </field>
+        </record>
+        <record id="data_sms_template_purchase" model="sms.template">
+            <field name="name">Purchase</field>
+            <field name="content">Dear {name},
+Your {po_order} is confirmed by {manager}. Total amount is {amount} ({amount_words}).
+            </field>
+        </record>
+        <record id="data_sms_template_sales" model="sms.template">
+            <field name="name">Sales</field>
+            <field name="content">Dear {name},
+Your {so_order} is confirmed by {manager}. Total amount is {amount} ({amount_words}).
+            </field>
+        </record>
+        <record id="data_sms_template_project" model="sms.template">
+            <field name="name">Project Task State Notify</field>
+            <field name="content">Dear {name},
+Your project task stage is changed to {stage}.
+Project: {project}
+Task: {task}
+            </field>
+        </record>
+        <record id="data_sms_template_project_task" model="sms.template">
+            <field name="name">Project Task Notify</field>
+            <field name="content">Dear {name},
+New Task is created on your project.
+Project: {project}
+Task: {task}
+            </field>
+        </record>
+    </data>
+</odoo>

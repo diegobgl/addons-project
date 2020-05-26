@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+       <record id="view_skilled_resources_tree" model="ir.ui.view">
+            <field name="name">hr.employee.tree</field>
+            <field name="model">hr.employee</field>
+            <field name="arch" type="xml">
+                <tree string="Skilled Resources">
+                    <field name="name"/>
+                    <field name="skills_ids" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_project_skilled_resources_form" model="ir.ui.view">
+            <field name="name">project.project.form</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="skills_ids" widget="many2many_tags" options="{'no_create_edit': True}"  groups="abs_project_skill_matching.group_allow_finding_skill_employee"/>
+                </xpath>
+                <xpath expr="//button[@name='toggle_active']" position="after">                   
+                    <button class="oe_stat_button" type="object" name="check_skilled_resources" icon="fa-tasks" string="Skilled Resources" groups="abs_project_skill_matching.group_allow_finding_skill_employee">
+                    </button>
+                </xpath>
+            </field>
+        </record>
+</odoo>

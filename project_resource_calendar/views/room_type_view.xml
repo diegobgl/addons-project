@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_resource_room_type" model="ir.actions.act_window">
+        <field name="name">Room Type</field>
+        <field name="res_model">resource.calendar.room.type</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="configuration_sub_menu"
+              name="Configuration"
+              parent="calendar.mail_menu_calendar"
+              sequence="310"
+              groups="group_resource_calendar_manager"/>
+    <menuitem id="room_type_sub_menu"
+              name="Room Types"
+              parent="configuration_sub_menu"
+              action="action_resource_room_type"
+              groups="group_resource_calendar_manager"/>
+    <record id="resource_room_type_tree" model="ir.ui.view">
+        <field name="name">Room Type Tree</field>
+        <field name="model">resource.calendar.room.type</field>
+        <field name="arch" type="xml">
+            <tree string="room_type">
+                 <field name="name"/>
+                <field name="sequence"/>
+            </tree>
+        </field>
+    </record>
+    <record id="room_type_form" model="ir.ui.view">
+        <field name="name">Room Form</field>
+        <field name="model">resource.calendar.room.type</field>
+        <field name="arch" type="xml">
+            <form string="Room">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="sequence"/>
+                   </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

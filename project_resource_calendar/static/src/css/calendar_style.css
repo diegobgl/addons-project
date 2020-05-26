@@ -1,0 +1,8 @@
+.o_field_recurrency_icon, .o_field_is_cancelled, .o_field_state {
+    visibility: hidden;
+}
+
+.cancelled_status {
+    color: red;
+    font-weight: bold;
+}

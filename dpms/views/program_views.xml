@@ -1,0 +1,287 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="dpms_program_tree">
+            <field name="name">Programs</field>
+            <field name="model">dpms.program</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="title"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="budget"/>
+                    <field name="owner_id"/>
+                    <field name="user_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="dpms_program_kanban">
+            <field name="name">Programs Dashboard</field>
+            <field name="model">dpms.program</field>
+            <field name="arch" type="xml">
+                <kanban class="background_grey">
+                    <field name="title"/>
+                    <field name="progression"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div name="stock_picking" class="oe_kanban_color_0 o_kanban_record">
+                                <div>
+                                    <div class="o_kanban_card_header">
+                                        <div class="o_kanban_card_header_title">
+                                            <div class="o_primary">
+
+                                            </div>
+                                            <div class="o_secondary">
+                                                <a type="open" class=" oe_kanban_action oe_kanban_action_a">
+                                                    <h2>
+                                                        <field name="title"/>
+                                                    </h2>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container o_kanban_card_content">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <field string="Progression" name="progression" widget="gauge"
+                                                       options="{'title': 'Progression %'}"/>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div t-if="record.start_date.raw_value" class="col-xs-3">
+                                                <span>Start Date:
+                                                    <field name="start_date"/>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+
+                                            <div t-if="record.end_date.raw_value" class="col-xs-3 ">
+                                                <span>End Date:
+                                                    <field name="end_date"/>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div t-if="record.risk_count.raw_value" class="col-xs-2 warning-color">
+                                                <span>Risks:
+                                                    <field name="risk_count"/>
+                                                </span>
+                                            </div>
+                                            <div t-if="record.issue_count.raw_value" class="col-xs-2 danger-color">
+                                                <span>Issues:
+                                                    <field name="issue_count"/>
+                                                </span>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12 o_kanban_primary_left">
+                                                <span>Allocated Budget: $
+                                                    <field name="budget"/>
+                                                </span>
+                                            </div>
+                                            <div class="col-xs-12 o_kanban_primary_left">
+                                                <span>Spent Budget: $
+                                                    <field name="spent_budget"/>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="dpms_program_form">
+            <field name="name">Program</field>
+            <field name="model">dpms.program</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+
+                    </header>
+                    <group string="Program Information">
+                        <group>
+                            <field name="title"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="owner_id"/>
+                        </group>
+                        <group>
+
+                            <field name="budget"/>
+                            <field name="progression"/>
+                            <field name="programmanager_id"/>
+
+                        </group>
+                    </group>
+                    <group string="Program Description">
+                        <field name="ready"/>
+                        <field name="description"/>
+                        <field name="budget_resources"/>
+                    </group>
+                    <notebook>
+                        <page string="Projects">
+                            <field name="project_ids">
+                                <kanban class="background_grey">
+                                    <field name="title"/>
+                                    <field name="progression"/>
+                                    <templates>
+                                        <t t-name="kanban-box">
+                                            <div name="stock_picking" class="oe_kanban_color_0 o_kanban_record">
+                                                <div>
+                                                    <div class="o_kanban_card_header">
+                                                        <div class="o_kanban_card_header_title">
+                                                            <div class="o_primary">
+                                                                <a type="open"
+                                                                   class=" oe_kanban_action oe_kanban_action_a">
+                                                                    <span>
+                                                                        <field name="code"/>
+                                                                    </span>
+                                                                </a>
+                                                            </div>
+                                                            <div class="o_secondary">
+                                                                <a type="open"
+                                                                   class=" oe_kanban_action oe_kanban_action_a">
+                                                                    <h2>
+                                                                        <field name="title"/>
+                                                                    </h2>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="container o_kanban_card_content">
+                                                        <div class="row">
+                                                            <div class="col-xs-3">
+                                                                <field string="Progression" name="progression"
+                                                                       widget="gauge"
+                                                                       options="{'title': 'Progression %'}"/>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="row">
+                                                            <div t-if="record.start_date.raw_value" class="col-xs-3">
+                                                                <span>Start Date:
+                                                                    <field name="start_date"/>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+
+                                                            <div t-if="record.end_date.raw_value" class="col-xs-3 ">
+                                                                <span>End Date:
+                                                                    <field name="end_date"/>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div t-if="record.risk_count.raw_value"
+                                                                 class="col-xs-2 warning-color">
+                                                                <span>Risks:
+                                                                    <field name="risk_count"/>
+                                                                </span>
+                                                            </div>
+                                                            <div t-if="record.issue_count.raw_value"
+                                                                 class="col-xs-2 danger-color">
+                                                                <span>Issues:
+                                                                    <field name="issue_count"/>
+                                                                </span>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-xs-12 o_kanban_primary_left">
+                                                                <span>Allocated Budget: $
+                                                                    <field name="budget"/>
+                                                                </span>
+                                                            </div>
+                                                            <div class="col-xs-12 o_kanban_primary_left">
+                                                                <span>Spent Budget: $
+                                                                    <field name="spent_budget"/>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </templates>
+                                </kanban>
+
+                            </field>
+                        </page>
+                        <page string="Risks">
+                            <field name="risk_ids">
+                                <tree colors="red:status=='pending';green:status=='solved'">
+                                    <field name="title"/>
+                                    <field name="impact"/>
+                                    <field name="owner_id"/>
+                                    <field name="resolution_date"/>
+                                    <field name="status"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Issues">
+                            <field name="issue_ids">
+                                <tree colors="red:status=='pending';green:status=='solved'">
+                                    <field name="title"/>
+                                    <field name="impact"/>
+                                    <field name="owner_id"/>
+                                    <field name="resolution_date"/>
+                                    <field name="status"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+        <record id="dpms_program_search" model="ir.ui.view">
+            <field name="name">dpms.program.search</field>
+            <field name="model">dpms.program</field>
+            <field name="arch" type="xml">
+                <search string="Program">
+                    <field name="title"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="owner_id"/>
+                    <newline/>
+                    <group expand="0" string="Group by...">
+                        <filter string="Department" name="owner_id" domain="[]" context="{'group_by':'owner_id'}"/>
+
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="dpms_program_pm_action_window">
+            <field name="name">My Programs</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">dpms.program</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,graph,form</field>
+            <field name="search_view_id" ref="dpms_program_search"/>
+            <field name="domain">[('user_id','=',uid)]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="dpms_program_action_window">
+            <field name="name">Programs</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">dpms.program</field>
+            <field name="view_type">form</field>
+            <field name="search_view_id" ref="dpms_program_search"/>
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+
+    </data>
+</odoo>

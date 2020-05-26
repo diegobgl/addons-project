@@ -1,0 +1,151 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* crm_project_task
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-10 18:31+0100\n"
+"PO-Revision-Date: 2017-07-10 18:33+0100\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.0.2\n"
+"Last-Translator: \n"
+"Language: es\n"
+
+#. module: crm_project_task
+#: model:ir.ui.view,arch_db:crm_project_task.project_lead_kanban_view
+msgid "<span class=\"o_label\">Leads</span>"
+msgstr "<span class=\"o_label\">Oportunidades</span>"
+
+#. module: crm_project_task
+#: model:ir.ui.view,arch_db:crm_project_task.crm_case_form_view_leads_project_task
+#: model:ir.ui.view,arch_db:crm_project_task.crm_case_form_view_opportunities_project_task
+msgid ""
+"<span class=\"o_stat_text\">Convert To</span>\n"
+"                        <span class=\"o_stat_text\">Task</span>"
+msgstr ""
+"<span class=\"o_stat_text\">Convertir a</span>\n"
+" \n"
+"<span class=\"o_stat_text\">Tarea</span>"
+
+#. module: crm_project_task
+#: model:ir.model.fields,field_description:crm_project_task.field_crm_lead2projecttask_wizard_asigned_id
+msgid "Asignado a"
+msgstr ""
+
+#. module: crm_project_task
+#: model:ir.ui.view,arch_db:crm_project_task.view_crm_lead2projecttask_wizard
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: crm_project_task
+#: model:ir.actions.act_window,help:crm_project_task.crm_task_to_opportunity
+msgid "Click to show task related."
+msgstr "Haga clic para mostrar las tareas relacionadas."
+
+#. module: crm_project_task
+#: model:ir.actions.act_window,name:crm_project_task.convert_lead2projecttask_wizard_action
+#: model:ir.ui.view,arch_db:crm_project_task.crm_case_form_view_leads_project_task
+#: model:ir.ui.view,arch_db:crm_project_task.crm_case_form_view_opportunities_project_task
+#: model:ir.ui.view,arch_db:crm_project_task.view_crm_lead2projecttask_wizard
+msgid "Convert to Task"
+msgstr "Convertir a tarea"
+
+#. module: crm_project_task
+#: model:ir.ui.view,arch_db:crm_project_task.view_crm_lead2projecttask_wizard
+msgid "Create Task"
+msgstr "Crear tarea"
+
+#. module: crm_project_task
+#: model:ir.model.fields,field_description:crm_project_task.field_crm_lead2projecttask_wizard_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: crm_project_task
+#: model:ir.model.fields,field_description:crm_project_task.field_crm_lead2projecttask_wizard_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: crm_project_task
+#: model:ir.model.fields,field_description:crm_project_task.field_crm_lead2projecttask_wizard_date_deadline
+msgid "Deadline"
+msgstr "Fecha límite"
+
+#. module: crm_project_task
+#: model:ir.model.fields,field_description:crm_project_task.field_crm_lead2projecttask_wizard_display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: crm_project_task
+#: model:ir.model.fields,field_description:crm_project_task.field_crm_lead2projecttask_wizard_id
+msgid "ID"
+msgstr ""
+
+#. module: crm_project_task
+#: model:ir.model.fields,field_description:crm_project_task.field_crm_lead2projecttask_wizard___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: crm_project_task
+#: model:ir.model.fields,field_description:crm_project_task.field_crm_lead2projecttask_wizard_write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: crm_project_task
+#: model:ir.model.fields,field_description:crm_project_task.field_crm_lead2projecttask_wizard_write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: crm_project_task
+#: model:ir.model.fields,field_description:crm_project_task.field_crm_lead2projecttask_wizard_lead_id
+#: model:ir.model.fields,field_description:crm_project_task.field_project_project_leadcount
+msgid "Lead"
+msgstr "Iniciativa"
+
+#. module: crm_project_task
+#: model:ir.model,name:crm_project_task.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Iniciativa/Oportunidad"
+
+#. module: crm_project_task
+#: model:ir.actions.act_window,name:crm_project_task.action_open_view_project
+msgid "Leads"
+msgstr "Iniciativas"
+
+#. module: crm_project_task
+#: model:ir.actions.act_window,help:crm_project_task.crm_task_to_opportunity
+msgid ""
+"Odoo helps you easily track all activities related to\n"
+"                a task."
+msgstr ""
+"Odoo le ayuda a controlar fácilmente todas las actividades\n"
+" relacionadas con una tarea."
+
+#. module: crm_project_task
+#: model:ir.model.fields,field_description:crm_project_task.field_project_task_opportunity_id
+msgid "Opportunity"
+msgstr "Oportunidad"
+
+#. module: crm_project_task
+#: model:ir.model,name:crm_project_task.model_project_project
+#: model:ir.model.fields,field_description:crm_project_task.field_crm_lead2projecttask_wizard_project_id
+#: model:ir.model.fields,field_description:crm_project_task.field_crm_lead_project_id
+msgid "Project"
+msgstr "Proyecto"
+
+#. module: crm_project_task
+#: model:ir.actions.act_window,name:crm_project_task.crm_task_to_opportunity
+#: model:ir.model,name:crm_project_task.model_project_task
+#: model:ir.model.fields,field_description:crm_project_task.field_crm_lead_taskcount
+msgid "Task"
+msgstr "Tarea"
+
+#. module: crm_project_task
+#: model:ir.model,name:crm_project_task.model_crm_lead2projecttask_wizard
+msgid "crm.lead2projecttask.wizard"
+msgstr ""

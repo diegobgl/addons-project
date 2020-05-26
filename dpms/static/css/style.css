@@ -1,0 +1,38 @@
+.progressbar
+{
+    border:solid #ccc 1px !important;
+    margin-bottom:5px !important;
+}
+
+.progressbar div.progressbar-full
+{
+    height:10px !important;
+    background-color:red !important;
+}
+
+.issues-tile
+{
+    margin: 5px;
+    padding: 5px;
+
+}
+
+.danger-color
+{
+    background-color: #f06050;
+    color:#000;
+    width: 130px;
+}
+
+.warning-color
+{
+    background-color: #f4a460;
+    color:#000;
+    margin-right: 5px;
+    width: 130px;
+}
+
+.o_button_import
+{
+    display: none;
+}

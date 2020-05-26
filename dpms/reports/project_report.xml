@@ -1,0 +1,118 @@
+<odoo>
+    <data>
+        <report
+                id="dpms_project_report"
+                model="dpms.project"
+                string="Project Report"
+                name="dpms.project_report"
+                file="dpms.project_report"
+                report_type="qweb-pdf"
+                attachment="False"
+        />
+
+
+        <template id="dpms.external_layout">
+            <!-- Multicompany -->
+            <t t-if="not o and doc">
+                <t t-set="o" t-value="doc"/>
+            </t>
+
+            <t t-raw="0"/>
+
+        </template>
+
+
+        <template id="dpms.project_report">
+            <t t-call="dpms.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <h2 style="color:#FFC000;">Reporting on
+                                        <span t-field="o.title"/>
+                                    </h2>
+                                </div>
+                                <div class="col-xs-4 text-right">
+                                    <img src="dpms/static/img/dummy.png" width="100"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h4 style="color:#FFC000;">Reporting Date</h4>
+                                    <p>
+                                        <t t-esc="datetime.datetime.today().strftime('%Y-%m-%d')"
+                                           t-usertime="%Y-%m-%d"/>
+                                    </p>
+                                </div>
+                            </div>
+                            <div t-if="o.issue_count!=0" class="row">
+                                <div class="col-xs-12">
+                                    <h4 style="color:#FFC000;">Issues</h4>
+                                    <table class="table table-stripped">
+                                        <thead>
+                                            <tr>
+                                                <th>Title</th>
+                                                <th>Impact</th>
+                                                <th>Owner</th>
+                                                <th>Resolution Date</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr t-foreach="o.issue_ids" t-as="i">
+                                                <td>
+                                                    <span t-field="i.title"/>
+                                                </td>
+                                                <td>
+                                                    <span t-field="i.impact"/>
+                                                </td>
+                                                <td>
+                                                    <span t-field="i.owner_id"/>
+                                                </td>
+                                                <td>
+                                                    <span t-field="i.resolution_date"/>
+                                                </td>
+                                                <td>
+                                                    <span t-field="i.status"/>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h4 style="color:#FFC000;">Ready By</h4>
+                                    <ul>
+                                        <li t-if="o.duration">Duration:
+                                            <span t-field="o.duration"/>
+                                        </li>
+                                        <li>Start Date:
+                                            <span t-field="o.start_date"/>
+                                        </li>
+                                        <li>Expected end Date:
+                                            <span t-field="o.end_date"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h4 style="color:#FFC000;">Spent Budget</h4>
+                                    <p>
+                                        $
+                                        <span t-field="o.spent_budget"/>
+                                        USD
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

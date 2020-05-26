@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_project_screenshot_settings,access_project_screenshot_settings,model_project_screenshot_settings,base.group_user,1,1,1,1
+access_project_task_screenshot,access_project_task_screenshot,model_project_task_screenshot,base.group_user,1,1,1,1
+access_project_screenshot_settings_domain,access_project_screenshot_settings_domain,model_project_screenshot_settings_domain,base.group_user,1,1,1,1

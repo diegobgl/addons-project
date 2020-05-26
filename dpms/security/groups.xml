@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+        <record id="dpms_group_admin" model="res.groups">
+            <field name="name">DPMS Administrator</field>
+        </record>
+
+        <record id="dpms_group_reader" model="res.groups">
+            <field name="name">DPMS Reader</field>
+        </record>
+
+        <record id="dpms_group_pm" model="res.groups">
+            <field name="name">DPMS Project Manager</field>
+        </record>
+
+        <record id="dpms_group_pgm" model="res.groups">
+            <field name="name">DPMS Program Manager</field>
+        </record>
+
+    </data>
+</odoo>

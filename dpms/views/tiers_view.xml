@@ -1,0 +1,89 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="dpms_department_tree">
+            <field name="name">Departments</field>
+            <field name="model">dpms.department</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="dpms_department_form">
+            <field name="name">Department</field>
+            <field name="model">dpms.department</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group string="Department Information" >
+                        <field name="name" />
+                        <field name="description" />
+                    </group>
+                </form>
+            </field>
+
+
+        </record>
+
+
+         <record model="ir.actions.act_window" id="dpms_department_action_window">
+            <field name="name">Departments</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">dpms.department</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="dpms_employee_action_window">
+            <field name="name">Project Managers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">dpms.employee</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <record model="ir.ui.view" id="dpms_employee_form">
+            <field name="name">Project Manager</field>
+            <field name="model">dpms.employee</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group string="Project Manager Information" >
+                        <group>
+                            <field name="name" />
+                            <field name="title" />
+                            <field name="user_id" />
+                        </group>
+                        <group>
+                            <field name="description" />
+                            <field name="department_id" />
+                        </group>
+                    </group>
+                </form>
+            </field>
+
+        </record>
+
+         <record model="ir.ui.view" id="dpms_employee_tree">
+            <field name="name">Project Managers</field>
+            <field name="model">dpms.employee</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="title"/>
+                    <field name="department_id" />
+                </tree>
+            </field>
+        </record>
+
+
+
+    </data>
+</odoo>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="view_crm_lead2projecttask_wizard" model="ir.ui.view">
+        <field name="name">crm.lead2projecttask.wizard.form</field>
+        <field name="model">crm.lead2projecttask.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Convert to Task">
+                <group>
+                    <field name="project_id"/>
+                    <field name="asigned_id"/>
+                    <field name="date_deadline"/>
+                </group>
+                <footer>
+                    <button type="object" name="action_lead_to_project_task" string="Create Task" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="convert_lead2projecttask_wizard_action" model="ir.actions.act_window">
+        <field name="name">Convert to Task</field>
+        <field name="res_model">crm.lead2projecttask.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

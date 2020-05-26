@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<record model="ir.ui.view" id="project_stages_form_view">
+			<field name="name">to.project.stages</field>
+			<field name="model">project.project</field>
+			<field name="inherit_id" ref="project.edit_project" />
+			<field name="arch" type="xml">
+				<notebook position="inside">
+					<page string="Stages">
+						<field name="type_ids" />
+					</page>
+				</notebook>
+			</field>
+		</record>
+	</data>
+</odoo>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_resource_instrument" model="ir.actions.act_window">
+        <field name="name">Equip./Service</field>
+        <field name="res_model">resource.calendar.instrument</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="instrument_sub_menu"
+              name="Equip./Service"
+              parent="resource.menu_resource_config"
+              action="action_resource_instrument"
+              sequence="16"
+              groups="group_resource_calendar_manager"/>
+    <record id="resource_instrument_tree" model="ir.ui.view">
+        <field name="name">Equip./Service Tree</field>
+        <field name="model">resource.calendar.instrument</field>
+        <field name="arch" type="xml">
+            <tree string="Equip./Service">
+                <field name="name"/>
+                <field name="category_type"/>
+                <field name="is_bookable"/>
+                <field name="sku"/>
+                <field name="room_id"/>
+            </tree>
+        </field>
+    </record>
+    <record id="resource_calendar_instrument_form" model="ir.ui.view">
+        <field name="name">Equip./Service Form</field>
+        <field name="model">resource.calendar.instrument</field>
+        <field name="arch" type="xml">
+            <form string="Equip./Service">
+                <sheet>
+                    <field name="photo" widget="image" class="oe_avatar"/>
+                    <div align="right">
+                        <div name="button_box" position="inside">
+                            <button class="oe_stat_button" type="action"
+                                    name="%(project_resource_calendar.action_project_resource_instrument_log)d"
+                                    icon="fa-history"
+                                    context="{'search_default_res_id': active_id}">
+                                <field string="Instrument Logs" name="instrument_log_count" widget="statinfo"/>
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <h1>
+                            <field name="name" placeholder="Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="room_id"
+                                   attrs="{'required':[('category_type','in',['equipment','instrument'])], 'invisible':[('category_type','in',['consumable','service'])]}"/>
+                            <field name="category_type"/>
+                        </group>
+                        <group>
+                            <field name="sku"/>
+                            <field name="is_bookable"/>
+                            <field name="allow_double_book" attrs="{'readonly':[('is_bookable','=',False)]}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Photos">
+                            <group>
+                                <field name="photo_1"
+                                       widget="image"/>
+                            </group>
+                            <group>
+                                <field name="photo_2"
+                                       widget="image"
+                                       attrs="{'invisible': [('photo_1','=',False)]}"/>
+                            </group>
+                            <group>
+                                <field name="photo_3"
+                                       widget="image"
+                                       attrs="{'invisible': [('photo_2','=',False)]}"/>
+                                <field name="photo_4"
+                                       widget="image"
+                                       attrs="{'invisible': [('photo_3','=',False)]}"/>
+                            </group>
+                        </page>
+                        <page string="Pricing">
+                            <group>
+                                <field name="pricing_type"/>
+                                <field name="pricing"/>
+                            </group>
+                        </page>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

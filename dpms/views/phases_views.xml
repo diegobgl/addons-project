@@ -1,0 +1,74 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="dpms_phase_form">
+            <field name="name">Phase</field>
+            <field name="model">dpms.phase</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group string="Phase Information">
+                        <group>
+
+                            <field name="title"/>
+
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="owner_id"/>
+                        </group>
+                        <group>
+                            <field name="status"/>
+                            <field name="weight" />
+                             <field name="progression" />
+                            <field name="budget"/>
+                            <field name="project_id" invisible="1" />
+                        </group>
+
+
+                    </group>
+
+                    <notebook>
+
+                        <page string="Responsabilities">
+                            <field name="responsibility_ids">
+                                <tree editable="bottom">
+                                    <field name="department_id" />
+                                    <field name="responsibility" />
+                                    <field name="accountable" />
+                                    <field name="consulted" />
+                                    <field name="informed" />
+                                    <field name="resources" />
+                                </tree>
+                            </field>
+                        </page>
+
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="dpms_phase_tree">
+            <field name="name">Phases</field>
+            <field name="model">dpms.phase</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="title"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="budget"/>
+                    <field name="status"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="dpms_phase_action_window">
+            <field name="name">Phases</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">dpms.phase</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_calendar_event_form" model="ir.ui.view">
+        <field name="name">calendar.event.form</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="resource_calendar.view_calendar_event_form"/>
+        <field name="arch" type="xml"> 
+            <xpath expr="//button[@class='oe_stat_button pull-right']" position="replace"/>        
+            <xpath expr="//div[@class='oe_title']" position="before">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,open,cancelled"/>
+                    <field name="is_task_event" invisible="1"/>
+                </header>
+                <br/>
+                <div align="right">
+                    <button string="Print Report" type="object" icon="fa-print" name="print_calendar_report"/>
+                </div>
+                <div align="right">
+                    <h2>
+                        <field name="event_task_id" readonly="1" context="{
+                            'form_view_ref':'project_event.project_event_task_form',
+                            'tree_view_ref':'project_event.project_event_task_tree'
+                            }"/>
+                    </h2>
+                    <br/>
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="attrs">{'readonly': [('is_task_event','=',True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='start_datetime']" position="attributes">
+                <attribute name="attrs">{'invisible': [('allday','=',True)], 'readonly': [('is_task_event','=',True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='duration']" position="attributes">
+                <attribute name="attrs">{'readonly': [('is_task_event','=',True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='stop_datetime']" position="attributes">
+                <attribute name="attrs">{'readonly': [('is_task_event','=',True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='allday']" position="attributes">
+                <attribute name="attrs">{'readonly': [('is_task_event','=',True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='description']" position="attributes">
+                <attribute name="attrs">{'readonly': [('is_task_event','=',True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='categ_ids']" position="attributes">
+                <attribute name="attrs">{'readonly': [('is_task_event','=',True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='alarm_ids']" position="attributes">
+                <attribute name="attrs">{'readonly': [('is_task_event','=',True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='location']" position="attributes">
+                <attribute name="attrs">{'readonly': [('is_task_event','=',True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='recurrency']" position="attributes">
+                <attribute name="attrs">{'readonly': [('is_task_event','=',True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='privacy']" position="attributes">
+                <attribute name="attrs">{'readonly': [('is_task_event','=',True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='show_as']" position="attributes">
+                <attribute name="attrs">{'readonly': [('is_task_event','=',True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='attendee_ids']" position="attributes">
+                <attribute name="attrs">{'readonly': [('is_task_event','=',True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="attributes">
+                <attribute name="attrs">{'readonly': [('is_task_event','=',True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='partner_ids']" position="attributes">
+                <attribute name="attrs">{'readonly': [('is_task_event','=',True)]}</attribute>
+                 <attribute name="class">oe_inline</attribute>
+                 <attribute name="style">font-size: 13px;</attribute>
+            </xpath>
+            <xpath expr="//label[@for='partner_ids']" position="before">
+                <group>
+                  <field name="client_id"
+                            placeholder="Client"
+                            required="1"
+                            attrs="{'readonly': True}"
+                            options="{'no_open': True}"/>
+                  <field name="room_id"
+                           placeholder="Select Room"
+                           required="1"
+                           class="oe_inline" attrs="{'readonly': [('is_task_event','=',True)]}"/>
+                  <field name="equipment_ids"
+                           widget="many2many_tags"
+                           placeholder="Select Equipment"
+                           class="oe_inline" attrs="{'readonly': [('is_task_event','=',True)]}"/>
+                </group>
+            </xpath>
+            <xpath expr="//field[@name='resource_ids']" position="replace">
+            </xpath>
+            <xpath expr="//label[@for='resource_ids']" position="replace">
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_calendar_event_form_inherit_editor_group" model="ir.ui.view">
+        <field name="name">calendar.event.form.inherit.editor.group</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="resource_calendar.view_calendar_event_form"/>
+        <field name="groups_id" eval="[(6, 0, [ref('project_resource_calendar.group_resource_calendar_editor'), ref('project_resource_calendar.group_resource_calendar_manager')])]"/>
+        <field name="arch" type="xml">
+            <field name="client_id" position="attributes">
+                 <attribute name="attrs">{'readonly': [('is_task_event', '=', True)]}</attribute>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_calendar_event_form_popup" model="ir.ui.view">
+        <field name="name">view.calendar.event.form.popup</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="resource_calendar.view_calendar_event_form_popup"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@class='oe_stat_button pull-right']" position="replace"/>
+            <xpath expr="//form/group[1]" position="before">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,open,cancelled"/>
+                    <field name="is_task_event" invisible="1"/>
+                </header>
+                <div align="right">
+                    <button string="Print Report" type="object" icon="fa-print" name="print_calendar_report"/>
+                </div>
+                <div align="right">
+                    <h2>
+                        <field name="event_task_id" readonly="1" context="{
+                            'form_view_ref':'project_event.project_event_task_form',
+                            'tree_view_ref':'project_event.project_event_task_tree'
+                            }"/>
+                    </h2>
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='partner_ids']" position="before">
+                <field name="client_id" invisible="1" class="oe_inline"/>
+            </xpath>
+             <xpath expr="//field[@name='client_id']" position="attributes">
+                 <attribute name="style">font-size: 13px;</attribute>
+                 <attribute name="class">oe_inline</attribute>
+                 <attribute name="readonly">True</attribute>
+                 <attribute name="options">{'no_open': True}</attribute>
+            </xpath>
+            <field name="partner_ids" position="after">
+                <field name="resource_type" attrs="{'invisible': [('is_task_event','=',False)], 'readonly': [('is_task_event','=',True)]}"/>
+                <field name="room_id"
+                       required="1"
+                       attrs="{'readonly': [('is_task_event','=',True)]}"
+                       options="{'no_open': True}"/>
+                <field name="equipment_ids"
+                       attrs="{'required':[('resource_type','=','equipment')], 'readonly': [('is_task_event','=',True)]}"
+                       widget="many2many_tags"/>
+            </field>
+            <xpath expr="//field[@name='equipment_ids']" position="attributes">
+                 <attribute name="class">oe_inline</attribute>
+                 <attribute name="style">font-size: 13px;</attribute>
+            </xpath>
+            <xpath expr="//field[@name='alarm_ids']" position="after">
+                <field name="partner_id" attrs="{'invisible': [('is_task_event','=',True)]}" options="{'no_open': True}"/>
+            </xpath>
+            <xpath expr="//field[@name='partner_ids']" position="attributes">
+                <attribute name="attrs">{'readonly': [('is_task_event','=',True)]}</attribute>
+                 <attribute name="class">oe_inline</attribute>
+                 <attribute name="style">font-size: 13px;</attribute>
+            </xpath>
+            <xpath expr="//field[@name='start_datetime']" position="attributes">
+                <attribute name="attrs">{'invisible': [('allday','=',True)], 'readonly': [('is_task_event','=',True)]}</attribute>
+            </xpath>
+             <xpath expr="//field[@name='start_datetime']" position="after">
+                 <field name="stop_datetime" readonly="1"/>
+            </xpath>
+            <xpath expr="//field[@name='duration']" position="attributes">
+                <attribute name="attrs">{'readonly': [('is_task_event','=',True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='location']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='categ_ids']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='alarm_ids']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='location']" position="before">
+                <field name="recurrent_state" attrs="{'invisible': [('is_task_event','=',True)]}" readonly = "1"/>
+                <field name="recurrence_type" attrs="{'invisible': [('is_task_event','=',True)]}" readonly = "1"/>
+            </xpath>
+            <xpath expr="//field[@name='resource_ids']" position="replace">
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_calendar_event_form_popup_inherit_editor_group" model="ir.ui.view">
+        <field name="name">calendar.event.form.popup.inherit.editor.group</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="resource_calendar.view_calendar_event_form_popup"/>
+        <field name="groups_id" eval="[(6, 0, [ref('project_resource_calendar.group_resource_calendar_editor'), ref('project_resource_calendar.group_resource_calendar_manager')])]"/>
+        <field name="arch" type="xml">
+            <field name="client_id" position="attributes">
+                <attribute name="attrs">{'readonly': [('is_task_event', '=', True)]}</attribute>
+            </field>
+            
+        </field>
+    </record>
+
+    <record id="view_calendar_event_calendar" model="ir.ui.view">
+        <field name="name">calendar.event.calendar</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_calendar"/>
+        <field name="arch" type="xml">
+            <field name="resource_ids" position="attributes"> <attribute name="invisible">True</attribute> </field>
+            <xpath expr="//field[@name='resource_ids']" position="after">
+                <field name="client_id_partner_ids_names"/>
+                <field name="room_id"/>
+                <field name="recurrency_icon"/>
+                <field name="is_cancelled"/>
+                <field name="state"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_calendar_event_search" model="ir.ui.view">
+        <field name="name">calendar.event.search</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='categ_ids']" position="replace">
+                <field name="equipment_ids"/>
+            </xpath>
+            <xpath expr="//field[@name='resource_ids']" position="replace">
+                <field name="room_id"/>
+            </xpath>
+            <xpath expr="//field[@name='room_id']" position="after">
+                <field name="room_floor"/>
+                <field name="room_miscellaneous"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_calendar_event_tree" model="ir.ui.view">
+        <field name="name">calendar.event.tree</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="replace">
+                <field name="name" string="Title"/>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="room_id"/>
+            </xpath>
+            <xpath expr="//field[@name='partner_ids']" position="replace">
+                <field name="partner_ids" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='message_needaction']" position="after">
+                <field name="client_id"/>
+                <field name="partner_ids"/>
+                <field name="state"/>
+            </xpath>
+            <xpath expr="//field[@name='location']" position="replace">
+                <field name="location" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="calendar_event_gantt_view" model="ir.ui.view">
+        <field name="name">calendar.event.gantt</field>
+        <field name="model">calendar.event</field>
+        <field name="type">timeline</field>
+        <field name="arch" type="xml">
+            <timeline date_stop="stop"
+                      date_start="start"
+                      string="Operations"
+                      default_group_by="room_id"
+                      colors="#114455:color == False;#889977:state == 'draft';
+                              #889977:is_task_event == 'True';
+                              #889977:font_color == True;"
+                      event_open_popup="true">
+            </timeline>
+        </field>
+    </record>
+
+    <record id="action_calendar_event_gantt" model="ir.actions.act_window">
+        <field name="name">Meetings Gantt</field>
+        <field name="res_model">calendar.event</field>
+        <field name="view_mode">timeline</field>
+        <field name="view_id" ref="project_resource_calendar.calendar_event_gantt_view"/>
+
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to schedule a new meeting.
+          </p><p>
+            The calendar is shared between employees and fully integrated with
+            other applications such as the employee leaves or the business
+            opportunities.
+          </p>
+        </field>
+    </record>
+
+    <!-- Menus -->
+    <menuitem
+        id="menu_calendar_gantt"
+        name="Gantt"
+        sequence="2"
+        action="action_calendar_event_gantt"
+        web_icon="calendar,static/description/icon.png"
+        groups="base.group_user"/>
+
+    <record model="ir.ui.menu" id="resource_calendar.calendar_event_menu">
+            <field name="name">Calendar Event</field>
+    </record>
+
+    <record model="ir.ui.menu" id="resource_calendar.calendar_menu">
+        <field name="groups_id" eval="[(6,0, [ref('base.group_user')])]"/>
+        <field name="name">Calendars</field>
+    </record>
+
+    <record model="ir.ui.menu" id="resource.menu_resource_config">
+        <field name="groups_id" eval="[(6,0, [ref('group_resource_calendar_manager')])]"/>
+        <field name="name">Resources</field>
+    </record>
+
+</odoo>

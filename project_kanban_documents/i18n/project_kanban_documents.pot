@@ -1,0 +1,32 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* project_kanban_documents
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-13 21:53+0000\n"
+"PO-Revision-Date: 2019-02-13 21:53+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_kanban_documents
+#: model:ir.ui.view,arch_db:project_kanban_documents.project_kanban_documents_view
+msgid "Document"
+msgstr ""
+
+#. module: project_kanban_documents
+#: model:ir.ui.view,arch_db:project_kanban_documents.project_kanban_documents_view
+msgid "Documents"
+msgstr ""
+
+#. module: project_kanban_documents
+#: model:ir.model,name:project_kanban_documents.model_project_project
+msgid "Project"
+msgstr ""
+

@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!--
+    Copyright 2019 Fenix Engineering Solutions
+    @author Jose F. Fernandez
+    License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
+-->
+<odoo>
+<data>
+    <record id="project_task_collaborators_form_view" model="ir.ui.view">
+        <field name="name">project.task.collaborators.form.view</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="priority" eval="16" />
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="collaborator_ids" widget="many2many_tags" options="{'no_create': True}"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_task_search_form" model="ir.ui.view">
+        <field name="name">project.task.search.form</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_search_form"/>
+        <field name="priority" eval="16" />
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="collaborator_ids"/>
+            </field>
+            <xpath expr="//filter[@name='my_tasks']" position="attributes">
+                <attribute name="domain">['|', ('user_id', '=', uid), ('collaborator_ids.user_id', '=', uid)]</attribute>
+            </xpath>
+            <xpath expr="//filter[@name='unassigned']" position="attributes">
+                <attribute name="domain">[('user_id', '=', False), ('collaborator_ids', '=', False)]</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_task_kanban">
+        <field name="name">project.task.kanban</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_kanban"/>
+        <field name="priority" eval="16" />
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="collaborator_ids"/>
+            </field>
+            <xpath expr="//div[hasclass('o_kanban_record_body')]" position="inside">
+                <div class="oe_kanban_project_avatars">
+                    <t t-foreach="record.collaborator_ids.raw_value" t-as="employee">
+                        <img t-att-src="kanban_image('hr.employee', 'image_small', employee)" t-att-data-member_id="employee" width="30" height="30" class="oe_kanban_avatar"/>
+                    </t>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</data>
+</odoo>

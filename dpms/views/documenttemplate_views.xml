@@ -1,0 +1,43 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="dpms_documenttemplate_tree">
+            <field name="name">Document Templates</field>
+            <field name="model">dpms.documenttemplate</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="title"/>
+                    <field name="data" widget="binary" filename="filename"/>
+                    <field name="filename" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+         <record model="ir.ui.view" id="dpms_documenttemplate_form">
+            <field name="name">Document Template</field>
+            <field name="model">dpms.documenttemplate</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group >
+                        <field name="title" />
+                        <field name="description" />
+                    </group>
+                    <group>
+                        <field name="data" widget="binary" filename="filename"/>
+                        <field name="filename" invisible="1"/>
+                    </group>
+                </form>
+            </field>
+         </record>
+
+
+        <record model="ir.actions.act_window" id="dpms_documenttemplate_action_window">
+            <field name="name">Document Templates</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">dpms.documenttemplate</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+    </data>
+</odoo>

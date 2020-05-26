@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!--Security Category-->
+    <record model="ir.module.category" id="module_category_sms">
+        <field name="name">SMS</field>
+        <field name="sequence">101</field>
+    </record>
+
+    <!--Security Groups-->
+    <!--User-->
+    <record id="group_sms_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="module_category_sms" />
+    </record>
+
+    <!--Manager-->
+    <record id="group_sms_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_category_sms" />
+        <field name="implied_ids" eval="[(4, ref('group_sms_user'))]"/>
+    </record>
+
+</odoo>

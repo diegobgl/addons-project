@@ -1,0 +1,190 @@
+<odoo>
+    <data>
+        <!--SMS Configuration-->
+        <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.sms</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="40"/>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <!--Credentials and data-->
+                    <div class="app_settings_block" data-string="Credentials" string="SMS" data-key="d7_gateway">
+                        <div id="d7_sms_data">
+                            <h2>Data</h2>
+                            <div class="row mt16 o_settings_container">
+                                <div class="col-xs-12 col-md-12 o_setting_box">
+                                    <div class="col-xs-4">
+                                        <label string="From"/>
+                                        <field name="source"/>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <label string="Testing Address"/>
+                                        <field name="test_to"/>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <label string=""/>
+                                        <button string="Test" name="test_sms" id="test_sms" type="object" class="btn btn-warning"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="flags" invisible="1">
+                            <field name="sms_hr_leave_flag"/>
+                            <field name="sms_hr_payroll_flag"/>
+                            <field name="sms_sales_flag"/>
+                            <field name="sms_purchase_flags"/>
+                            <field name="sms_project"/>
+                        </div>
+
+                        <div id="d7_sms_config_credentials">
+                            <h2>Credentials</h2>
+                            <div class="row mt16 o_settings_container">
+                                <div class="col-xs-12 col-md-6 o_setting_box">
+                                    <div class="col-xs-6">
+                                        <label string="Username"/>
+                                        <field name="username"/>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <label string="Password"/>
+                                        <field name="password" password="True"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Notifications-->
+                        <div id="d7_sms_module_list">
+                            <!--Leave Notification-->
+                            <h2>Notifications</h2>
+                            <div class="row mt16 o_settings_container">
+                                <div class="col-xs-12 col-md-12 o_setting_box">
+                                    <div class="col-xs-6">
+                                        <field name="module_d7_sms_hr" attrs="{'invisible': [('sms_hr_leave_flag', '=', False)]}"/>
+                                        <label string="Notify employee leave approvals"/>
+                                        <a href="https://apps.odoo.com/apps/modules/11.0/d7_sms_hr/" target="_blank" attrs="{'invisible': [('sms_hr_leave_flag', '=', True)]}">
+                                            <i class="fa fa-download fa-2x text-muted"/> Click To Download</a>
+                                    </div>
+                                    <div class="col-xs-6 col-md-6" attrs="{'invisible': [('module_d7_sms_hr', '=', False)]}">
+                                        <label string="Leave Request Template"/>
+                                        <field name="hr_template_id"/><br/>
+                                        <label string="Leave Allocation Template"/>
+                                        <field name="hr_template_allocation"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Payroll-->
+                            <div class="row mt16 o_settings_container">
+                                <div class="col-xs-12 col-md-12 o_setting_box">
+                                    <div class="col-xs-6">
+                                        <field name="module_d7_sms_hr_payroll" attrs="{'invisible': [('sms_hr_payroll_flag', '=', False)]}"/>
+                                        <label string="Notify Payroll Confirmation"/>
+                                        <a href="https://apps.odoo.com/apps/modules/11.0/d7_sms_hr_payroll/" target="_blank" attrs="{'invisible': [('sms_hr_payroll_flag', '=', True)]}">
+                                            <i class="fa fa-download fa-2x text-muted"/>Click To Download</a>
+                                    </div>
+                                    <div class="col-xs-6 col-md-6" attrs="{'invisible': [('module_d7_sms_hr_payroll', '=', False)]}">
+                                        <label string="Payroll Template"/>
+                                        <field name="hr_template_payroll"/><br/>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Sales-->
+                            <div class="row mt16 o_settings_container">
+                                <div class="col-xs-12 col-md-12 o_setting_box">
+                                    <div class="col-xs-6">
+                                        <field name="module_d7_sms_sales" attrs="{'invisible': [('sms_sales_flag', '=', False)]}"/>
+                                        <label string="Notify sale order confirmation"/>
+                                        <a href="https://apps.odoo.com/apps/modules/11.0/d7_sms_sales/" target="_blank" attrs="{'invisible': [('sms_sales_flag', '=', True)]}">
+                                            <i class="fa fa-download fa-2x text-muted"/>Click To Download</a>
+
+                                    </div>
+                                    <div class="col-xs-6 col-md-6" attrs="{'invisible': [('module_d7_sms_sales', '=', False)]}">
+                                        <label string="Sales Template"/>
+                                        <field name="sale_sms_template"/><br/>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Purchase-->
+                            <div class="row mt16 o_settings_container">
+                                <div class="col-xs-12 col-md-12 o_setting_box">
+                                    <div class="col-xs-6">
+                                        <field name="module_d7_sms_purchase" attrs="{'invisible': [('sms_purchase_flags', '=', False)]}"/>
+                                        <label string="Notify purchase order confirmation"/>
+                                        <a href="https://apps.odoo.com/apps/modules/11.0/d7_sms_purchase/" target="_blank" attrs="{'invisible': [('sms_purchase_flags', '=', True)]}">
+                                            <i class="fa fa-download fa-2x text-muted"/>Click To Download</a>
+
+                                    </div>
+                                    <div class="col-xs-6 col-md-6" attrs="{'invisible': [('module_d7_sms_purchase', '=', False)]}">
+                                        <label string="Purchase order Template"/>
+                                        <field name="purchase_sms_template"/><br/>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Project-->
+                            <div class="row mt16 o_settings_container">
+                                <div class="col-xs-12 col-md-12 o_setting_box">
+                                    <div class="col-xs-6">
+                                        <field name="module_d7_sms_project_tasks" attrs="{'invisible': [('sms_project', '=', False)]}"/>
+                                        <label string="Notify customer about project"/>
+                                        <a href="https://apps.odoo.com/apps/modules/11.0/d7_sms_project_tasks/" target="_blank" attrs="{'invisible': [('sms_project', '=', True)]}">
+                                            <i class="fa fa-download fa-2x text-muted"/>Click To Download</a>
+
+                                    </div>
+                                    <div class="col-xs-6 col-md-6" attrs="{'invisible': [('module_d7_sms_project_tasks', '=', False)]}">
+                                        <label string="Project Template Task Stage"/>
+                                        <field name="project_sms_template"/><br/>
+                                        <label string="Project Template Task Creation"/>
+                                        <field name="project_sms_template_create"/><br/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <!--Templates Tree-->
+        <record id="view_sms_template_tree" model="ir.ui.view">
+            <field name="name">sms.template.tree</field>
+            <field name="model">sms.template</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="content"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Action SMS Config-->
+        <record id="action_sms_config" model="ir.actions.act_window">
+            <field name="name">Settings</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="d7_gateway.res_config_settings_view_form"/>
+            <field name="target">inline</field>
+            <field name="context">{'module' : 'd7_gateway'}</field>
+        </record>
+
+        <!--Action SMS Templates-->
+        <record id="action_sms_template" model="ir.actions.act_window">
+            <field name="name">Templates</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sms.template</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_sms_config" name="Settings" parent="menu_sms_gateway_main"
+            sequence="99" groups="group_sms_manager,base.group_system"/>
+        <menuitem id="menu_sms_config_view" name="Configuration" parent="menu_sms_config"
+            sequence="1" action="action_sms_config"/>
+
+        <!--Menu for SMS templates-->
+        <menuitem id="menu_sms_template"
+                  name="SMS Templates"
+                  parent="menu_sms_config"
+                  sequence="0"
+                  action="action_sms_template"
+                  />
+    </data>
+</odoo>

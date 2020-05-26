@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_calendar_event_form_inherit"
+            model="ir.ui.view">
+        <field name="name">calendar.event.form.inherit</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="project_resource_calendar.view_calendar_event_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='client_id']" position="after">
+                <field name="client_tag" 
+                       placeholder="Client Tag"  
+                       readonly="1" 
+                       style="font-size: 13px;"/>
+                <field name="client_type" placeholder="Client Type" attrs="{'readonly': [('is_task_event','=',True)]}"/>
+            </xpath>
+            <xpath expr="//div[@class='oe_title']" position="after">
+                    <group>
+                    <field name="category_id" 
+                           attrs="{'readonly': [('is_task_event','=',True)], 'required': True}"
+                           style="font-size: 13px;" />
+
+                    <field name="sector_id" 
+                           attrs="{'readonly': [('is_task_event','=',True)]}"
+                           style="font-size: 13px;" />
+                    </group>                
+            </xpath>
+        </field>
+    </record>
+    <record id="view_calendar_event_form_popup_inherit"
+            model="ir.ui.view">
+        <field name="name">calendar.event.form.popup.inherit</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="project_resource_calendar.view_calendar_event_form_popup"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='client_id']" position="after">
+                <field name="client_tag" placeholder="Client Tag"  readonly="1"/>
+                <field name="category_id" attrs="{'readonly': [('is_task_event','=',True)]}"/>
+            </xpath>
+
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="client_id" attrs="{'readonly': [('is_task_event','=',True)]}" options="{'no_open': True}"/>
+                <field name="client_type" attrs="{'readonly': [('is_task_event','=',True)]}"/>
+                <field name="sector_id" attrs="{'readonly': [('is_task_event','=',True)]}"/>
+            </xpath>
+        </field>
+    </record>
+    
+    <record id="view_calendar_event_calendar" model="ir.ui.view">
+        <field name="name">calendar.event.calendar</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_calendar"/>
+        <field name="arch" type="xml">
+            <xpath expr="//calendar" position="attributes">
+                <attribute name="js_class">calendar_colour</attribute>
+                <attribute name="quick_add">False</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

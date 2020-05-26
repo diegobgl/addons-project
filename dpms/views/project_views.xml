@@ -1,0 +1,332 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="dpms_project_form">
+            <field name="name">Projects</field>
+            <field name="model">dpms.project</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button type="object" name="export_excel" string="Project Report" help="Project Report Export in Excel Format" class="oe_highlight" />
+                        <button type="object" name="export_planning_excel" string="Project Planning" help="Project Planning Report Export in Excel Format" class="oe_highlight" />
+                    </header>
+                    <div class="oe_title" name="title">
+                        <h1>
+                            <field name="code" readonly="1" placeholder="Code Name"/>
+                        </h1>
+                    </div>
+                    <group string="Project Information">
+                        <group>
+                            <field name="title" required="True" />
+                            <field name="has_phases" invisible="1"/>
+                            <field name="phase_load" invisible="1"/>
+                            <field name="start_date"  required="True"/>
+                            <field name="end_date"  required="True"/>
+                            <field name="owner_id"  required="True"/>
+                            <field name="project_sponsor"  required="True" />
+                            <field name="spent_budget" />
+                        </group>
+
+                        <group>
+                            <field name="program_id" />
+                            <field name="project_weight"  attrs="{'invisible':[('program_id','=',False)]}" />
+                                <field name="projecttype_id"  required="True"/>
+                                <field name="phase_count" invisible="1"/>
+                                <button help="Load Project Phases depending the selected project type." name="load_phases" type="object"
+                                        class="oe_highlight" string="Load"
+                                        attrs="{'invisible':[('phase_count','!=',0)]}"/>
+                                <field name="budget"  required="True"/>
+
+                                <field name="status"  required="True"/>
+                            <field name="progression"  />
+
+                                <field name="projectmanager_id"  required="True"/>
+
+                        </group>
+                    </group>
+                    <group string="Project Description">
+                        <group>
+                            <field name="category"/>
+                            <field name="priority"/>
+                            <field name="budget_resources"/>
+                            <field name="description"/>
+                        </group>
+                        <group>
+
+
+                            <field name="keyachievements" />
+                            <field name="current_status" />
+                            <field name="planned_actions" />
+                        </group>
+
+                    </group>
+
+                    <notebook>
+                        <page string="Phases">
+                            <field name="milestone_ids">
+                                <tree>
+                                    <field name="title"/>
+                                    <field name="start_date"/>
+                                    <field name="end_date"/>
+                                    <field name="status"/>
+                                    <field name="progression"/>
+                                    <field name="weight"/>
+                                    <field name="budget" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Risks">
+                            <field name="risk_ids">
+                                <tree colors="red:status=='pending';green:status=='solved'">
+                                    <field name="title"/>
+                                    <field name="impact"/>
+                                    <field name="owner_id"/>
+                                    <field name="resolution_date"/>
+                                    <field name="status"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Issues">
+                            <field name="issue_ids">
+                                <tree colors="red:status=='pending';green:status=='solved'">
+                                    <field name="title"/>
+                                    <field name="impact"/>
+                                    <field name="owner_id"/>
+                                    <field name="resolution_date"/>
+                                    <field name="status"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Stakeholders">
+                            <field name="stakeholder_ids">
+                                <tree editable="bottom">
+                                    <field name="department_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Documents">
+                            <field name="attachment_ids">
+                                <tree editable="bottom">
+                                    <field name="title"/>
+                                    <field name="data" widget="binary" filename="filename"/>
+                                    <field name="filename" invisible="1"/>
+                                    <field name="description" string="Description" />
+                                    <field name="phase_id" string="Phase" widget="selection"    />
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="KPIs" attrs="{'invisible':[('projecttype_title', '!=', 'Rollout')]}" >
+                            <group>
+                                <group>
+                                    <field name="projecttype_title" invisible="1" />
+                                    <field name="planned_sites" />
+                                    <field name="offline_sites" />
+                                </group>
+                                <group>
+                                    <field name="onair_sites" />
+                                    <field name="accepted_sites" />
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="dpms_project_tree">
+            <field name="name">Projects</field>
+            <field name="model">dpms.project</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="title"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="budget"/>
+                    <field name="status"/>
+                    <field name="progression"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="dpms_project_search" >
+            <field name="name"> DPMS Projects</field>
+            <field name="model">dpms.project</field>
+            <field name="arch" type="xml">
+                <search string="Project">
+                    <field name="code"/>
+                    <field name="title"/>
+                    <field name="projecttype_id" />
+                    <field name="program_id" string="Program" />
+
+                    <group  string="Group by...">
+                        <filter string="Status" name="status" context="{'group_by':'status'}"/>
+                        <filter string="Department" name="owner_id" domain="[]" context="{'group_by':'owner_id'}"/>
+                        <filter string="Project Manager" name="projectmanager_id" domain="[]" context="{'group_by':'projectmanager_id'}"/>
+                        <filter string="Project Type" name="projecttype_id" domain="[]" context="{'group_by':'projecttype_id'}"/>
+                        <filter string="Program" name="program_id" domain="[]" context="{'group_by':'program_id'}"/>
+                    </group>
+
+                </search>
+            </field>
+        </record>
+
+
+
+
+
+        <record model="ir.actions.act_window" id="dpms_project_action_window">
+            <field name="name">Active Projects</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">dpms.project</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,graph,form</field>
+            <field name="search_view_id" ref="dpms_project_search"/>
+            <field name="domain">['&amp;',('status','!=','suspended'),('status','!=','closed')]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="dpms_archived_project_action_window">
+            <field name="name">Archived Projects</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">dpms.project</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,graph,form</field>
+            <field name="search_view_id" ref="dpms_project_search"/>
+            <field name="domain">['|',('status','=','suspended'),('status','=','closed')]</field>
+            <field name="context">{}</field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="dpms_project_pm_action_window">
+            <field name="name">My Projects</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">dpms.project</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,graph,form</field>
+            <field name="search_view_id" ref="dpms_project_search"/>
+            <field name="domain">['|',('user_id','=',uid),('programuser_id','=',uid)]</field>
+            <field name="context">{}</field>
+        </record>
+
+
+
+
+
+        <record model="ir.actions.act_window" id="dpms_project_graph_action_window">
+            <field name="name">Projects</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">dpms.project</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">graph</field>
+            <field name="domain">[('status','!=','suspended'),('status','!=','closed')]</field>
+            <field name="context">{}</field>
+        </record>
+
+
+
+
+        <record model="ir.ui.view" id="dpms_project_kanban">
+            <field name="name">Projects</field>
+            <field name="model">dpms.project</field>
+            <field name="type">kanban</field>
+            <field name="arch" type="xml">
+                <kanban class="background_grey">
+                    <field name="title"/>
+                    <field name="progression_text"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div name="stock_picking" class="oe_kanban_color_0 o_kanban_record">
+                                <div>
+                                    <div class="o_kanban_card_header">
+                                        <div class="o_kanban_card_header_title">
+                                            <div class="o_primary">
+                                                <a type="open" class=" oe_kanban_action oe_kanban_action_a">
+                                                    <span>
+                                                        <field name="code"/>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div class="o_secondary">
+                                                <a type="open" class=" oe_kanban_action oe_kanban_action_a">
+                                                    <h2>
+                                                        <field name="title"/>
+                                                    </h2>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container o_kanban_card_content">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <field string="Progression" name="progression" widget="gauge"
+                                                       options="{'title': 'Progression %'}"/>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div t-if="record.start_date.raw_value" class="col-xs-3">
+                                                <span>Start Date:
+                                                    <field name="start_date"/>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+
+                                            <div t-if="record.end_date.raw_value" class="col-xs-3 ">
+                                                <span>End Date:
+                                                    <field name="end_date"/>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div t-if="record.risk_count.raw_value" class="col-xs-2 warning-color">
+                                                <span>Risks:
+                                                    <field name="risk_count"/>
+                                                </span>
+                                            </div>
+                                            <div t-if="record.issue_count.raw_value" class="col-xs-2 danger-color">
+                                                <span>Issues:
+                                                    <field name="issue_count"/>
+                                                </span>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12 o_kanban_primary_left">
+                                                <span>Allocated Budget: $
+                                                    <field name="budget"/>
+                                                </span>
+                                            </div>
+                                            <div class="col-xs-12 o_kanban_primary_left">
+                                                <span>Spent Budget: $
+                                                    <field name="spent_budget"/>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="dpms_project_graph">
+            <field name="name">Projects Analysis</field>
+            <field name="model">dpms.project</field>
+            <field name="type">graph</field>
+            <field name="arch" type="xml">
+                <graph string="Risk and Issues Analysis">
+                    <field name="title" type="col"/>
+                    <field name="risk_count" type="row"/>
+                    <field name="issue_count" type="row"/>
+                </graph>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

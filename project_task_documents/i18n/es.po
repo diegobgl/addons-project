@@ -1,0 +1,58 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* project_task_documents
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-20 14:56+0000\n"
+"PO-Revision-Date: 2019-03-20 16:02+0100\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Last-Translator: Jose F. Fernandez\n"
+"Language: es\n"
+
+#. module: project_task_documents
+#: code:addons/project_task_documents/models/project.py:39
+#, python-format
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                        Documents are attached to the tasks of your project."
+"</p>\n"
+"                    "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                        Los documentos se adjuntan a las tareas de tu "
+"proyecto.</p>\n"
+"                    "
+
+#. module: project_task_documents
+#: code:addons/project_task_documents/models/project.py:32
+#, python-format
+msgid "Attachments"
+msgstr "Adjuntos"
+
+#. module: project_task_documents
+#: model:ir.ui.view,arch_db:project_task_documents.project_task_documents_kanban_view
+msgid "Document"
+msgstr "Documento"
+
+#. module: project_task_documents
+#: model:ir.ui.view,arch_db:project_task_documents.project_task_documents_form_view
+#: model:ir.ui.view,arch_db:project_task_documents.project_task_documents_kanban_view
+msgid "Documents"
+msgstr "Documentos"
+
+#. module: project_task_documents
+#: model:ir.model.fields,field_description:project_task_documents.field_project_task_doc_count
+msgid "Number of attached documents"
+msgstr "Número de documentos adjuntos"
+
+#. module: project_task_documents
+#: model:ir.model,name:project_task_documents.model_project_task
+msgid "Task"
+msgstr "Tarea"

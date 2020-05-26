@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="view_project_tech_skills_tree" model="ir.ui.view">
+            <field name="name">project.tech.skill.tree</field>
+            <field name="model">project.tech.skill</field>
+            <field name="arch" type="xml">
+                <tree string="Project Skills"> 
+                    <field name="name"/>                      
+                </tree>	
+            </field>
+        </record>        
+
+        <record id="view_project_tech_skills_form" model="ir.ui.view">
+            <field name="name">project.tech.skill.form</field>
+            <field name="model">project.tech.skill</field>
+            <field name="arch" type="xml">
+                <form string="Project Skills">
+		    <sheet>
+                        <group>
+                            <field name="name"/>                      
+                        </group>
+		    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="project_tech_skills_action" model="ir.actions.act_window">
+           <field name="name">Project Skills</field>
+            <field name="res_model">project.tech.skill</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_project_tech_skills_tree"/>
+        </record>
+
+        <menuitem id="menu_project_tech_skills"
+                  name="Project Skills" 
+                  parent="hr.menu_human_resources_configuration"
+                  sequence="2"
+                  action="abs_project_skill_matching.project_tech_skills_action"
+                  groups="abs_project_skill_matching.group_allow_finding_skill_employee"/>
+</odoo>

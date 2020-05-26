@@ -1,0 +1,33 @@
+<template>
+    <t t-name="calendar-box">
+        <t t-set="color" t-value="widget.getColor(event.color_index)"/>
+        <div t-att-style="typeof color === 'string' ? ('background-color:'+color)+';' : ''" t-attf-class="#{record.is_highlighted &amp;&amp; record.is_highlighted.value ? 'o_event_hightlight' : ''} #{typeof color === 'number' ? 'o_calendar_color_'+color : ''}">
+            <t t-foreach="widget.displayFields" t-as="name">
+                <t t-if="name == 'recurrency_icon' ">
+                    <t t-if="format(record, name) == '1'">
+                        <i class="fa fa-refresh" style="color:blue;"></i>
+                    </t>
+                </t>
+                <t t-if="name == 'is_cancelled' ">
+                    <t t-if="format(record, name) == '1'">
+                        <div class="cancelled_status">
+                            <t t-esc="format(record, 'state')" />
+                        </div>
+                    </t>
+                </t>
+            </t>
+            <div class="fc-time"/>
+            <div class="o_fields">
+                <t t-foreach="widget.displayFields" t-as="name">
+                    <div t-attf-class="o_field_#{name} o_field_type_#{fields[name].type}">
+                        <t t-if="widget.displayFields[name].avatar_field">
+                        </t>
+                        <t t-else="">
+                            <t t-esc="format(record, name)"/>
+                        </t>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+</template>

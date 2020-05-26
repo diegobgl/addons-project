@@ -1,0 +1,46 @@
+.kanban_screenshot_card {
+  height: 200px;
+  background-size: cover;
+  margin: -6px;
+
+  .kanban_screenshot_type {
+    span {
+      padding: 2px 5px;
+      color: white;
+      font-weight: 900;
+      height: 28px;
+      opacity: 0.7;
+      border-radius: 3px;
+      transition: opacity 0.6s;
+
+    }
+
+    .type-problem {
+      background-color: #9c0000;
+    }
+
+
+    .type-solution {
+      background-color: #005e00;
+    }
+  }
+
+  .kanban_screenshot_card_buttons {
+    position: absolute;
+    bottom: 5px;
+    left: 18%;
+    opacity: 0.6;
+    transition: opacity 0.6s;
+  }
+}
+
+.kanban_screenshot_card:hover .kanban_screenshot_type span {
+  opacity: 1;
+}
+
+
+.kanban_screenshot_card:hover .kanban_screenshot_card_buttons {
+  opacity: 1;
+}
+
+

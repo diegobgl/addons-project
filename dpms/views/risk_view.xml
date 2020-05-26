@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="dpms_risk_form">
+            <field name="name">Risk</field>
+            <field name="model">dpms.risk</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+
+                    </header>
+                    <group>
+                        <group>
+                            <field name="title"/>
+                            <field name="impact"/>
+                            <field name="status"/>
+                        </group>
+                        <group>
+                            <field name="resolution_date"/>
+                            <field name="owner_id"/>
+
+                        </group>
+                    </group>
+                    <group>
+                        <field name="mitigation" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+
+
+        <record model="ir.actions.act_window" id="dpms_risk_action_window">
+            <field name="name">Risks</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">dpms.risk</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+    </data>
+</odoo>

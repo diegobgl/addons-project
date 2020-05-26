@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_project_event" model="ir.actions.act_window">
+        <field name="name">Events</field>
+        <field name="res_model">project.project</field>
+        <field name="context" eval="{'default_project_type': 'event'}"/>
+        <field name="domain">[('project_type','=','event')]</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="project_event_menu_root"
+              name="Event"
+              groups="group_project_event_user"/>
+    <menuitem id="project_event_menu"
+              name="Event"
+              parent="project_event_menu_root"/>
+    <menuitem id="project_event_sub_menu"
+              name="Event"
+              parent="project_event_menu"
+              action="action_project_event"
+              sequence="10"/>
+    <menuitem id="project_event_configuration_menu"
+              name="Configuration"
+              parent="project_event_menu_root"
+              groups="group_project_event_manager"/>
+    <record id="project_event_form" model="ir.ui.view">
+        <field name="name">Event Form</field>
+        <field name="model">project.project</field>
+        <field name="arch" type="xml">
+            <form string="Project Event">
+            <header>
+                    <button name="action_option" string="Option" attrs="{'invisible': [('state', '=', 'option')]}" type="object"
+                        groups="project_event.group_project_event_editor"
+                    />
+                    <button name="action_accept" string="Approve" attrs="{'invisible': [('state', '=', 'approved')]}" type="object"
+                        groups="project_event.group_project_event_editor"
+                    />
+                    <button name="action_postpone" string="Postpone" attrs="{'invisible': [('state', 'not in', ['option','approved'])]}" type="object"
+                        groups="project_event.group_project_event_editor"
+                    />
+                    <button name="action_cancel" string="Cancel" type="object" attrs="{'invisible': [('state', 'in', ['draft','canceled','postponed'])]}"
+                        groups="project_event.group_project_event_editor"
+                    />
+                    <field name="state" widget="statusbar" statusbar_visible="draft,option,approved,postponed,canceled"/>
+                </header>
+                <sheet>
+                    <div align="right">
+                        <div name="button_box" position="inside">
+                            <button class="oe_stat_button" type="action"
+                                    name="%(project_event.action_project_event_to_auditlog_log)d"
+                                    icon="fa-history"
+                                    context="{'search_default_res_id': active_id}">
+                                <field string="Event Logs" name="event_log_count" widget="statinfo"/>
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <div align="right">
+                        <h1>
+                            <field name="code" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="responsible_id" string="Event Responsible" required="1"/>
+                        </group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="client_type" attrs="{'invisible': ['|',('partner_id', '=', False),('client_type', '=', False)]}" readonly = "0"/>
+                            <field name="sector_id" attrs="{'invisible': [('client_type', '=', False)]}"/>
+                            <field name="project_type" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Activities">
+                            <field name="task_ids" string="Activity" context="{
+                            'form_view_ref':'project_event.project_event_activity_form',
+                            'tree_view_ref':'project_event.project_event_activity_tree',
+                            'default_activity_task_type':'activity',
+                            'default_project_id': active_id,
+                            }" domain="[('activity_task_type','=', 'activity')]">
+                                <tree>
+                                    <field name="name"  string="Activity title"/>
+                                    <field name="code"/>
+                                    <field name="room_id"/>
+                                    <field name="project_id" string="Event"/>
+                                    <field name="date_start"/>
+                                    <field name="date_end"/>
+                                    <field name="task_order" invisible="1"/>
+                                    <field name="task_state" string="State"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                        <page string="Notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="project_event_tree" model="ir.ui.view">
+        <field name="name">Event Tree</field>
+        <field name="model">project.project</field>
+        <field name="arch" type="xml">
+            <tree string="Project Event">
+                <field name="name" string="Event Title"/>
+                <field name="code" string="Event Number"/>
+                <field name="partner_id"/>
+                <field name="responsible_id" string="Event Responsible"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_project_project_search" model="ir.ui.view">
+        <field name="name">Event Search</field>
+        <field name="model">project.project</field>
+        <field name="arch" type="xml">
+            <search string="Search">
+                <field name="code" string="Event Number"/>
+                <field name="name" string="Event Title"/>
+                <field name="partner_id" string="Client"/>
+                <field name="sector_id" string="Faculty Sector"/>
+            </search>
+        </field>
+    </record>
+</odoo>

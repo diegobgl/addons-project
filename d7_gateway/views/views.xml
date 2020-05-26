@@ -1,0 +1,205 @@
+<odoo>
+    <data>
+        <!-- Template View -->
+        <record id="view_sms_template_form" model="ir.ui.view">
+            <field name="name">sms.template.form</field>
+            <field name="model">sms.template</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <div class="col-md-12">
+                                <div class="col-xs-4 col-md-2">
+                                    <b><p>Syntax:</p></b>
+                                </div>
+                                <div class="col-xs-4 col-md-5">
+                                    <p style="color: #298a27;">
+                                        Name : {name} <br/>
+                                        Leave / Allocation Request : {type}<br/>
+                                        Leave Days : {days}<br/>
+                                        Duration/Period : {duration}<br/>
+                                        Payslip Name : {payslip_name}<br/>
+                                        Payslip Reference : {p_reference}<br/>
+                                        Manager : {manager}<br/>
+
+                                    </p>
+                                    <p style="color: #298a27;">
+                                        Example: Dear {name},
+                                    </p>
+                                </div>
+                                <div class="col-xs-4 col-md-5">
+                                    <p style="color: #298a27;">
+                                        Sale Order : {so_order}<br/>
+                                        Purchase Order : {po_order}<br/>
+                                        Total Amount : {amount}<br/>
+                                        Amount in words : {amount_words}<br/>
+                                        Project : {project}<br/>
+                                        Project Stage : {stage}<br/>
+                                        Project Tasks : {task}<br/>
+                                    </p>
+                                </div>
+                            </div>
+                        </group>
+                        <group>
+                            <field name="content"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- SMS views -->
+        <record id="view_sms_form" model="ir.ui.view">
+            <field name="name">sms.view.form</field>
+            <field name="model">sms.model</field>
+            <field name="arch" type="xml">
+                <form create="false" edit="false">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="to_address"/>
+                                <field name="employee_id"/>
+                                <field name="to" attrs="{'invisible': [('batch', '=', True)]}"/>
+                                <field name="to_list" widget="many2many_tags" options="{'no_create': True}"
+                                   attrs="{'invisible': [('batch', '=', False)]}"
+                                />
+                                <field name="template_id"/>
+                                <field name="batch"/>
+                            </group>
+                        </group>
+
+                        <group>
+                            <field name="message_id"/>
+                            <field name="message_log"/>
+                        </group>
+                        <group>
+                            <field name="content"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_sms_wizard" model="ir.ui.view">
+            <field name="name">sms.view.wizard</field>
+            <field name="model">sms.model</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="to" widget="selection" attrs="{'invisible': [('batch', '=', True)]}"/>
+                            <field name="to_list" widget="many2many_tags" options="{'no_create': True}"
+                                   attrs="{'invisible': [('batch', '=', False)]}"
+                            />
+                            <field name="template_id" attrs="{'invisible': [('batch', '=', False)]}"/>
+                        </group>
+                        <group>
+                            <field name="batch"/>
+                        </group>
+                    </group>
+                    <group>
+                        <div class="col-md-12">
+                            <div class="col-xs-4 col-md-2">
+                                <b><p>Syntax:</p></b>
+                            </div>
+                            <div class="col-xs-4 col-md-5">
+                                <p style="color: #298a27;">
+                                    Name : {name} <br/>
+                                    Leave / Allocation Request : {type}<br/>
+                                    Leave Days : {days}<br/>
+                                    Duration/Period : {duration}<br/>
+                                    Payslip Name : {payslip_name}<br/>
+                                    Payslip Reference : {p_reference}<br/>
+                                    Manager : {manager}<br/>
+
+                                </p>
+                                <p style="color: #298a27;">
+                                    Example: Dear {name},
+                                </p>
+                            </div>
+                            <div class="col-xs-4 col-md-5">
+                                    <p style="color: #298a27;">
+                                        Sale Order : {so_order}<br/>
+                                        Purchase Order : {po_order}<br/>
+                                        Total Amount : {amount}<br/>
+                                        Amount in words : {amount_words}<br/>
+                                        Project : {project}<br/>
+                                        Project Stage : {stage}<br/>
+                                        Project Tasks : {task}<br/>
+                                    </p>
+                            </div>
+
+                        </div>
+                    </group>
+                    <group>
+                        <field name="content"/>
+                    </group>
+                    <footer>
+                        <button string="Send" name="send_sms"
+                            type="object" class="btn btn-primary"/>
+                        <button string="Cancel" type="object" name="cancel" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_sms_tree" model="ir.ui.view">
+            <field name="name">sms.view.tree</field>
+            <field name="model">sms.model</field>
+            <field name="arch" type="xml">
+                <tree decoration-success="status == 'sent'"
+                      decoration-danger="status == 'fail'" default_order="id desc" create="false">
+                    <field name="create_uid" string="Sent By"/>
+                    <field name="to_address"/>
+                    <field name="employee_id"/>
+                    <field name="to"/>
+                    <field name="message_id"/>
+                    <field name="status"/>
+                </tree>
+            </field>
+        </record>
+        <!-- Menu Actions -->
+        <record id="action_sms_wizard" model="ir.actions.act_window">
+            <field name="name">SMS</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sms.model</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_sms_wizard"/>
+            <field name="target">new</field>
+        </record>
+
+        <record id="action_sms_view_send" model="ir.actions.act_window">
+            <field name="name">SMS Logs</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sms.model</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_sms_tree"/>
+        </record>
+
+        <!-- Main Menu SMS -->
+        <menuitem id="menu_sms_gateway_main"
+                  name="SMS"
+                  sequence="7"
+                  action="action_sms_view_send"
+                  groups="group_sms_user,group_sms_manager"
+        />
+        <menuitem id="menu_sms_gateway"
+                  name="SMS"
+                  parent="menu_sms_gateway_main"
+        />
+        <menuitem id="menu_sms_gateway_view_new"
+                  name="New"
+                  parent="menu_sms_gateway"
+                  action="action_sms_wizard"
+                  sequence="0"
+          />
+        <menuitem id="menu_sms_gateway_view_sent"
+                  name="Messages"
+                  parent="menu_sms_gateway"
+                  action="action_sms_view_send"
+                  groups="group_sms_user,group_sms_manager"
+          />
+    </data>
+</odoo>

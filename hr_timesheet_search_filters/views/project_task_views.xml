@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!-- Copyright Nova Code (http://www.novacode.nl)
+See LICENSE file for full copyright and licensing details. -->
+
+<odoo>
+    <record id="view_task_search_form_timesheet_filters" model="ir.ui.view">
+        <field name="name">project.task.search.form: timesheet filters</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_search_form"/>
+        <field name="arch" type="xml">
+            <filter name="inactive" position="after">
+                <separator name="critical"/>
+                <filter string="Deadline exceeded" name="deadline_exceeded" domain="[('date_deadline', '&lt;', (context_today()).strftime('%Y-%m-%d'))]" help="Tasks where deadline has been exceeded"/>
+                <filter string="Delay hours" name="" domain="[('delay_hours', '&gt;', 0)]" help="Tasks with delay"/>
+            </filter>
+        </field>
+    </record>
+</odoo>

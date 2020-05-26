@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!--
+    Copyright 2019 Fenix Engineering Solutions
+    @author Jose F. Fernandez
+    License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
+-->
+<odoo>
+    <record id="project_task_documents_form_view" model="ir.ui.view">
+        <field name="name">project.task.documents.form.view</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="priority">24</field>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']/button[@name='action_open_parent_task']" position="before">
+                <button  class="oe_stat_button" name="attached_docs_view_action" type="object" icon="fa-files-o">
+                    <field string="Documents" name="doc_count" widget="statinfo"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="project_task_documents_kanban_view" model="ir.ui.view">
+        <field name="name">project.task.documents.kanban.view</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_kanban"/>
+        <field name="priority">24</field>
+        <field name="arch" type="xml">
+            <xpath expr="/kanban" position="inside">
+                <field name="doc_count"/>
+            </xpath>
+            <xpath expr="//div[hasclass('oe_kanban_bottom_left')]" position="inside">
+                <div t-if="record.doc_count.raw_value">
+                    <a name="attached_docs_view_action" type="object">
+                        <span t-if="record.doc_count.raw_value == 1" class='' title='Document'><i class='fa fa-file-text-o'/>&amp;nbsp;<t t-raw="record.doc_count.value"/></span>
+                        <span t-if="record.doc_count.raw_value != 1" class='' title='Documents'><i class='fa fa-file-text-o'/>&amp;nbsp;<t t-raw="record.doc_count.value"/></span>
+                    </a>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

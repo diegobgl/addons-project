@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_project_tech_skill,access_project_tech_skill,model_project_tech_skill,,1,1,1,0
+
+
+
+
+
+
+

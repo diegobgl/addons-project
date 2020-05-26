@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Create access group to Show Project Skill Menu, skills field in employee and skills field in project. -->
+    <record id="abs_project_skill_matching.group_allow_finding_skill_employee" model="res.groups">
+        <field name="name">Show Skill Match</field>
+    </record>
+</odoo>

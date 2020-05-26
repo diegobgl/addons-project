@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="pickard_stockinvoices_timeinvoicewizard_form">
+            <field name="name">Project Information Export</field>
+            <field name="model">dpms.projectexportwizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="project_id" />
+                        </group>
+                    </group>
+                     <footer>
+                         <button type="object" name="export_project" string="Export" class="oe_highlight" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+
+    <act_window id="export_to_excel"
+            name="Export to Excel file"
+            src_model="dpms.project"
+            res_model="dpms.projectexportwizard"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"/>
+</odoo>

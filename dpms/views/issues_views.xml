@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="dpms_issue_form">
+            <field name="name">Issue</field>
+            <field name="model">dpms.issue</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+
+                    </header>
+                    <group>
+                        <group>
+                            <field name="title"/>
+                            <field name="impact"/>
+                            <field name="status"/>
+                        </group>
+                        <group>
+                            <field name="resolution_date"/>
+                            <field name="owner_id"/>
+
+                        </group>
+                    </group>
+                    <group>
+                        <field name="action" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="dpms_issue_action_window">
+            <field name="name">Issues</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">dpms.issue</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+    </data>
+</odoo>

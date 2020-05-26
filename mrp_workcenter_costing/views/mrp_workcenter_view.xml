@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mrp_workcenter_view" model="ir.ui.view">
+        <field name="name">mrp.workcenter.form</field>
+        <field name="model">mrp.workcenter</field>
+        <field name="inherit_id" ref="mrp.mrp_workcenter_view"/>
+        <field name="arch" type="xml">
+            <notebook>
+                <page string="Costing Data">
+                    <group name="wc costing data" col="3">
+                        <group string='Variable Direct Costs'>
+                            <field name="costs_hour" widget="monetary" options="{'currency_field': 'currency_id'}" required="True"/>
+                            <field name="costs_dir_analytic_account_id" groups="analytic.group_analytic_accounting" required="True"/>
+                            <field name="costs_dir_account_id" required="True"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                        <group string='Fixed Direct Costs'>       
+                            <field name="costs_hour_fixed" widget="monetary" options="{'currency_field': 'currency_id'}" required="True"/>
+                            <field name="costs_fixed_analytic_account_id" groups="analytic.group_analytic_accounting" required="True"/>
+                        </group> 
+                        <group string='Overheads Costs'>       
+                            <label for="costs_overheads_fixed_percentage"/>
+                            <div class="o_row">
+                                <field name="costs_overheads_fixed_percentage" required="True"/>
+                                %
+                            </div>
+                            <field name="costs_overheads_fixed_analytic_account_id" groups="analytic.group_analytic_accounting" required="True"/>
+                            <label for="costs_overheads_variable_percentage"/>
+                            <div class="o_row">
+                                <field name="costs_overheads_variable_percentage" required="True"/>
+                                %
+                            </div>
+                            <field name="costs_overheads_variable_analytic_account_id" groups="analytic.group_analytic_accounting" required="True"/>
+                        </group> 
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>

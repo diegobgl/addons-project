@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <report
+                id="dpms_enhanced_project_report"
+                model="dpms.project"
+                string="Project Enhanced Report"
+                name="dpms.project_enhanced_report"
+                file="dpms.project_enhanced_report"
+                report_type="qweb-pdf"
+                attachment="False"
+        />
+
+        <template id="dpms.project_enhanced_report">
+            <t t-call="dpms.external_layout">
+
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous" />
+                            <style type="text/css">
+                                ul {
+                                 padding:0;
+                                 list-style-type: none;
+                                }
+                                ul li {
+                                  text-align:left;
+                                }
+                                h1, h2, h3,h4 {
+                                  color:#FFC000;
+                                }
+
+                                .green { background-color:green; }
+                                .orange { background-color:orange; }
+                                .yellow { background-color:yellow; }
+                                .red { background-color:red; }
+
+
+                            </style>
+                            <t t-foreach="docs" t-as="o">
+                            <div class="row">
+                                <div class="col-xs-5">
+                                    <h2>PROJECT REPORT</h2>
+                                </div>
+                                <div class="col-xs-5 text-right">
+                                    <h4 style="color:#000;">Overall Progression <t t-esc="'{0:,.2f}'.format(o.progression)" /> %</h4>
+                                </div>
+                                <div class="col-xs-2 text-right">
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <h4>PROJECT INFORMATION</h4>
+                                    <ul style="">
+                                        <li>
+                                           <b>Project Name:</b>  <span t-field="o.title" />
+                                        </li>
+                                        <li>
+                                            <b>Owner:</b>
+                                            <span t-field="o.owner_id" />
+                                        </li>
+                                        <li>
+                                            <b>Program Manager:</b>
+                                            <span t-field="o.programuser_id" />
+                                        </li>
+                                        <li>
+                                            <b>Project Manager:</b>
+                                            <span t-field="o.user_id" />
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+                                <div class="col-xs-4">
+                                    <h4>STATUS</h4>
+                                    <ul>
+                                         <li>
+                                            <b>Delay:</b>
+                                             <t t-esc="'{:02d}'.format(int(o.delay))" /> Day
+                                        </li>
+                                         <li>
+                                            <b>Budget:</b>
+                                             <t t-esc="'{0:,.2f}'.format(o.budget)" />
+                                        </li>
+                                        <li>
+                                            <b>Risks:</b>
+                                            <t t-esc="'{:02d}'.format(int(o.risk_count))" />
+                                        </li>
+                                        <li>
+                                            <b>Issues:</b>
+                                            <t t-esc="'{:02d}'.format(int(o.issue_count))" />
+                                        </li>
+                                        <li>
+                                            <b>Progression:</b>
+                                             <t t-esc="'{0:,.2f}'.format(o.progression)" /> %
+                                        </li>
+                                    </ul>
+
+
+                                </div>
+                                <div class="col-xs-4">
+                                    <h4>KEY ACHIEVEMENTS &amp; NEXT STEP</h4>
+                                    <p>
+                                        <span t-field="o.keyachievements" />
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <h4>CURRENT STATUS</h4>
+                                    <p>
+                                        <span t-field="o.current_status" />
+                                    </p>
+                                    <div>
+                                        <div style="background-color:#fff;height:30px;width:200px;border:1px solid #000">
+                                            <t t-raw="o.progression_chart" />
+                                        </div>
+                                        <div style="text-align:center;text-weight:bold">
+                                            <h5><t t-esc="'{0:,.0f}'.format(o.progression)" /> %</h5>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h4>Planned Actions</h4>
+                                        <p>
+                                          <span t-field="o.planned_actions" />
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-xs-8">
+                                    <h4>ROADMAP</h4>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Milestone</th>
+                                                <th>Start Date</th>
+                                                <th>End Date</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr t-foreach="o.milestone_ids" t-as="m">
+                                                <td><span t-field="m.title"></span> </td>
+                                                <td><span t-field="m.start_date"></span> </td>
+                                                <td><span t-field="m.end_date"></span> </td>
+                                                <td><span t-field="m.status"></span> </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h4>RISK / STATUS ISSUES</h4>
+                                    <table class="table"  t-if="o.issue_count != 0">
+                                        <thead>
+                                            <tr>
+                                                <th>Description</th>
+                                            <th>Impact</th>
+                                            <th>Owner</th>
+                                            <th>Resolution Date</th>
+                                            <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr t-foreach="o.issue_ids" t-as="i" >
+                                                <td><span t-field="i.title"></span> </td>
+                                                <td><span t-field="i.impact"></span> </td>
+                                                <td><span t-field="i.owner_id"></span> </td>
+                                                <td><span t-field="i.resolution_date"></span> </td>
+                                                <td><span t-field="i.status"></span> </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p t-if="o.issue_count == 0">
+                                        No issues in this project.
+                                    </p>
+                                </div>
+                            </div>
+                                <p style="page-break-after:always;"></p>
+                            </t>
+                        </div>
+                    </t>
+                </t>
+
+        </template>
+
+    </data>
+</odoo>

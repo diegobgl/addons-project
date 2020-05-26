@@ -1,0 +1,97 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <!--
+        <record model="ir.ui.view" id="dpms.list">
+          <field name="name">dpms list</field>
+          <field name="model">dpms.dpms</field>
+          <field name="arch" type="xml">
+            <tree>
+              <field name="name"/>
+              <field name="value"/>
+              <field name="value2"/>
+            </tree>
+          </field>
+        </record>
+        -->
+
+
+        <!-- actions opening views on models -->
+        <!--
+        <record model="ir.actions.act_window" id="dpms.action_window">
+          <field name="name">dpms window</field>
+          <field name="res_model">dpms.dpms</field>
+          <field name="view_mode">tree,form</field>
+        </record>
+        -->
+
+        <!-- server action to the one above -->
+        <!--
+        <record model="ir.actions.server" id="dpms.action_server">
+          <field name="name">dpms server</field>
+          <field name="model_id" ref="model_dpms_dpms"/>
+          <field name="state">code</field>
+          <field name="code">
+            action = {
+              "type": "ir.actions.act_window",
+              "view_mode": "tree,form",
+              "res_model": self._name,
+            }
+          </field>
+        </record>
+        -->
+
+        <template id="assets_frontend" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/dpms/static/css/style.css"/>
+            </xpath>
+        </template>
+
+        <!-- Top menu item -->
+        <!--
+        <menuitem name="dpms" id="dpms.menu_root"/>
+        -->
+        <menuitem name="Project Management" id="dpms.menu_root"/>
+        <!-- menu categories -->
+        <!--
+        <menuitem name="Menu 1" id="dpms.menu_1" parent="dpms.menu_root"/>
+        <menuitem name="Menu 2" id="dpms.menu_2" parent="dpms.menu_root"/>
+        -->
+
+        <menuitem sequence="100" name="Projects" groups="dpms_group_admin,dpms_group_reader" id="dpms.projects" parent="dpms.menu_root"/>
+
+
+        <menuitem sequence="110" name="Open Projects" groups="dpms_group_admin,dpms_group_reader" id="dpms.open_projects" parent="dpms.projects" action="dpms_project_action_window"/>
+        <menuitem sequence="120" name="Archived Projects" groups="dpms_group_admin,dpms_group_reader" id="dpms.archived_projects" parent="dpms.projects" action="dpms_archived_project_action_window"/>
+
+
+
+        <menuitem sequence="101" name="My Projects" groups="dpms_group_pm,dpms_group_pgm" id="dpms.myprojects" parent="dpms.menu_root" action="dpms_project_pm_action_window" />
+
+
+
+
+
+
+        <menuitem sequence="150" name="Programs" groups="dpms_group_admin,dpms_group_reader" id="dpms.programs" parent="dpms.menu_root" action="dpms_program_action_window"/>
+        <menuitem sequence="151" name="My Programs" groups="dpms_group_pgm" id="dpms.myprograms" parent="dpms.menu_root" action="dpms_program_pm_action_window" />
+
+
+        <menuitem sequence="200" name="Reporting" id="dpms.reporting" parent="dpms.menu_root"/>
+        <menuitem name="Risk and Issues Analysis" parent="dpms.reporting" id="dpms.projectanalysis" action="dpms_project_graph_action_window" />
+
+
+        <menuitem sequence="300" name="Settings" id="dpms.settings" parent="dpms.menu_root"/>
+
+        <menuitem name="Project Types" id="dpms.projecttype" parent="dpms.settings" action="dpms_projecttype_action_window"/>
+        <menuitem name="Departments" id="dpms.department" parent="dpms.settings" action="dpms_department_action_window"/>
+
+        <menuitem name="Project Managers" id="dpms.employee" parent="dpms.settings" action="dpms_employee_action_window"/>
+        <menuitem name="Program Managers" id="dpms.programmanager" parent="dpms.settings" action="dpms_programmanager_action_window"/>
+        <menuitem name="Project Change History" id="dpms.projectchangehistory" groups="dpms_group_admin" parent="dpms.settings" action="dpms_change_history_action_window"/>
+
+        <menuitem sequence="400" name="Templates" id="dpms.documenttemplate" parent="dpms.menu_root"
+                  action="dpms_documenttemplate_action_window"/>
+
+    </data>
+</odoo>

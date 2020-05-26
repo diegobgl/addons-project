@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DPMS : Project Management Application</title>
+</head>
+<body>
+<h1>Project Management Application</h1>
+    <h2>Odoo Project Management Application for Small and Medium Size businesses</h2>
+    <h3>Supported versions: Odoo 10/11</h3>
+    <p>
+    This application module contains the basic templates for project management follow up and cost analysis. It allows project managers to create and follow theirs projects and group them in programs, each projects beside the general attributes it contains the Risk & Issues and the resolution.
+    </p>
+    <img src="https://res.cloudinary.com/t3-solutions-llc/image/upload/c_scale,w_800/v1571311102/Capture_yqmfda.jpg" />
+    <h2>Main entities:</h2>
+    <ul>
+        <li>Project</li>
+        <li>Program</li>
+        <li>Risks</li>
+        <li>Issues</li>
+        <li>Project Types</li>
+        <li>Project Managers</li>
+        <li>Program Managers</li>
+    </ul>
+    <h2>Additional features</h2>
+    <ul>
+        <li>Document Management</li>
+        <li>Kanban and Chart views.</li>
+        <li>Custom project reports</li>
+    </ul>
+    <h2>Docker</h2>
+    <p>The project is also available in docker hub, you could try it from :</p>
+    <code>docker pull lyasine/dpms</code>
+    <p>Then create the first PostgreSQL container and link it to the dpms container as the following:</p>
+    <code>docker run --name dpmsdb -e POSTGRES_USER=odoo -e POSTGRES_PASSWORD=odoo -e POSTGRES_DB=postgres -d postgres</code>
+    <p>Then create the the dpms container:</p>
+    <code>docker run --name dpms  --link dpmsdb:db -p 8069:8069 -d lyasine/dpms:latest</code>
+
+    <p>For support feel free to contact : <a href="mailto:lyasine@3t-solutions.us">lyasine@3t-solutions.us</a></p>
+</body>
+</html>

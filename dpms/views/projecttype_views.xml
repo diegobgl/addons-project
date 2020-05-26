@@ -1,0 +1,54 @@
+<odoo>
+    <data>
+         <record model="ir.ui.view" id="dpms_projecttype_form">
+            <field name="name">Project Type</field>
+            <field name="model">dpms.projecttype</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="title"/>
+
+                        </group>
+                    <group>
+                    <field name="phase_count" />
+                    </group>
+                    </group>
+                    <notebook>
+                        <page string="Phases">
+                            <field name="phase_ids" >
+                                <tree editable="bottom">
+                                    <field name="name" />
+                                    <field name="weight" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="dpms_projecttype_tree">
+            <field name="name">Project Types</field>
+            <field name="model">dpms.projecttype</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="title"/>
+                    <field name="phase_count" />
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="dpms_projecttype_action_window">
+            <field name="name">Project Types</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">dpms.projecttype</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+    </data>
+</odoo>

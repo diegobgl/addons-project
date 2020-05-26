@@ -1,0 +1,89 @@
+<odoo>
+    <data>
+        <report
+                id="dpms_project_planning_report"
+                model="dpms.project"
+                string="Project Planning Report"
+                name="dpms.project_planning_report"
+                file="dpms.project_planning_report"
+                report_type="qweb-pdf"
+                attachment="False"
+        />
+
+
+        <template id="dpms.project_planning_report">
+            <t t-call="dpms.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <h2 style="color:#FFC000;"><span t-field="o.title" /></h2>
+                                </div>
+                                <div class="col-xs-4 text-right">
+                                    <img src="dpms/static/img/dummy.png" width="100" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h4  style="color:#FFC000;">Project Type</h4>
+                                    <p>
+                                        <span t-field="o.category" />
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h4  style="color:#FFC000;">Project Priority</h4>
+                                    <p>
+                                        <span t-field="o.priority" />
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h4  style="color:#FFC000;">Description</h4>
+                                    <p>
+                                        <span t-field="o.description" />
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h4  style="color:#FFC000;">Ready by</h4>
+                                    <p>
+                                        <span t-field="o.ready" />
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h4  style="color:#FFC000;">Budget &amp; Resources</h4>
+                                    <p>
+                                        <span t-field="o.projecttype_id" />
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h4  style="color:#FFC000;">Project Management</h4>
+                                    <ul>
+                                        <li>Project Manager: <span t-field="o.projectmanager_id" /> </li>
+                                        <li>Owner Department: <span t-field="o.owner_id" /> </li>
+                                        <li>Stackholders: </li>
+                                        <li  t-foreach="o.stakeholder_ids" t-as="s">
+                                            <span t-field="s.department_id" />
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+         </template>
+
+</data>
+        </odoo>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="crm_case_form_view_leads_project_task" model="ir.ui.view">
+        <field name="name">crm.lead.form.inherit.lead2projecttask</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_form_view_leads"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button class="oe_stat_button" type="action" name="%(convert_lead2projecttask_wizard_action)d"
+                        icon="fa-tasks" help="Convert to Task">
+                    <div class="o_form_field o_stat_info">
+                        <span class="o_stat_text">Convert To</span>
+                        <span class="o_stat_text">Task</span>
+                    </div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="crm_case_form_view_opportunities_project_task" model="ir.ui.view">
+        <field name="name">crm.lead.form.inherit.opportunity2projecttask</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button class="oe_stat_button" type="action" name="%(convert_lead2projecttask_wizard_action)d"
+                        icon="fa-tasks" help="Convert to Task">
+                    <div class="o_form_field o_stat_info">
+                        <span class="o_stat_text">Convert To</span>
+                        <span class="o_stat_text">Task</span>
+                    </div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="crm_task_to_opportunity" model="ir.actions.act_window">
+        <field name="name">Task</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">project.task</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('opportunity_id','=',active_id)]</field>
+        <field name="context">{}</field>
+        <field name="search_view_id" ref="project.view_task_search_form"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to show task related.
+            </p>
+            <p>
+                Odoo helps you easily track all activities related to
+                a task.
+            </p>
+        </field>
+    </record>
+
+    <record id="button_crm_lead_task_count" model="ir.ui.view">
+        <field name="name">button.crm.lead.task.count</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/div[@class='oe_button_box']" position="inside">
+                <button type="action" class="oe_stat_button" id="crm_lead_button_task"
+                        icon="fa-pencil-square-o" name="%(crm_task_to_opportunity)d">
+                    <div class="o_stat_info">
+                        <field name="taskcount" widget="statinfo"/>
+                        <span class="o_stat_text">Task</span>
+                    </div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="lead_in_task_form_view_2" model="ir.ui.view">
+        <field name="name">lead.in.task.form.view.2</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="hr_timesheet.view_task_form2_inherited"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//sheet/group/group/field[@name='tag_ids']" position="after">
+                <field name="opportunity_id"/>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="action_open_view_project" model="ir.actions.act_window">
+        <field name="name">Leads</field>
+        <field name="res_model">crm.lead</field>
+        <field name="view_type">form</field>
+        <field name="domain">[('project_id','=', active_id)]</field>
+        <field name="view_mode">kanban,tree,form,gantt</field>
+        <field name="context">{'default_project_id':active_id}
+        </field>
+    </record>
+
+    <record id="project_lead_form_view" model="ir.ui.view">
+        <field name="name">project_lead_form_view</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//sheet/group/group/field[@name='tag_ids']" position="after">
+                <field name="project_id"/>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="project_lead_kanban_view" model="ir.ui.view">
+        <field name="name">project_lead_kanban_view</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_kanban"/>
+        <field name="arch" type="xml">
+            <field name="task_count" position="after">
+                <field name="leadcount"/>
+            </field>
+            <xpath expr="//a[contains(@class, 'o_project_kanban_box')]/div[last()]" position="before">
+                <div t-if="record.leadcount.raw_value" class="o_project_kanban_box">
+                    <a name="%(action_open_view_project)d" type="action">
+                        <span class="o_value">
+                            <t t-raw="record.leadcount.raw_value"/>
+                        </span>
+                        <span class="o_label">Leads</span>
+                    </a>
+                </div>
+
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

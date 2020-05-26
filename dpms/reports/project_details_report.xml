@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="dpms_details_project_report"
+                model="dpms.project"
+                string="Project Details Report"
+                name="dpms.project_details_report"
+                file="dpms.project_details_report"
+                report_type="qweb-pdf"
+                attachment="False"
+        />
+
+
+        <template id="dpms.project_details_report">
+            <t t-call="dpms.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <h1 style="color:#FFC000;">
+                                        <span t-field="o.title"/>
+                                    </h1>
+                                </div>
+                                <div class="col-xs-4 text-right">
+                                    <img src="dpms/static/img/dummy.png" width="100"/>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <h2 style="color:#FFC000;">Project Type</h2>
+                                    <p>
+                                        <span t-field="o.category"/>
+                                    </p>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div t-field="o.progression" t-field-options='{"widget": "gauge"}'/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h2 style="color:#FFC000;">Project Priority</h2>
+                                    <p>
+                                        <span t-field="o.priority"/>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h2 style="color:#FFC000;">Description</h2>
+                                    <p>
+                                        <span t-field="o.description"/>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <style>
+table {
+  border-collapse: collapse;
+}
+
+table, td, th {
+  border: 1px solid #454643;
+}
+</style>
+                                <div class="col-xs-12">
+                                    <h2 style="color:#FFC000;">Phases</h2>
+
+                                    <table style="width:100%" >
+                                        <thead>
+                                            <tr style="border: 1px solid black;">
+                                                <th >Title</th>
+                                                <th>Start Date</th>
+                                                <th>Overall Status</th>
+                                                <th>Progression</th>
+                                                <th>Weight</th>
+                                                <th>Budget</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="invoice_tbody">
+                                            <tr t-foreach="o.milestone_ids" t-as="ph" >
+                                                <td class="text-center">
+                                                    <span t-field="ph.title"/>
+                                                </td>
+                                                <td style="text-align:center">
+                                                    <span t-field="ph.start_date"/>
+                                                </td>
+                                                <td style="text-align:center">
+                                                    <span t-field="ph.status"/>
+                                                </td>
+                                                <td style="text-align:center">
+                                                    <span t-field="ph.progression"/>%
+                                                </td>
+                                                <td style="text-align:right">
+                                                    <span t-field="ph.weight"/>
+                                                </td>
+                                                <td style="text-align:right">
+                                                    <span t-field="ph.budget"
+                                                          t-options="{&quot;widget&quot;: &quot;float&quot;,&quot;precision&quot;: 2}"/>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h2 style="color:#FFC000;">Risks</h2>
+                                    <table style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Title</th>
+                                                <th>Impact</th>
+                                                <th>Owner</th>
+                                                <th>Resolution Date</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="invoice_tbody">
+                                            <tr t-foreach="o.risk_ids" t-as="r">
+                                                <td style="text-align:center">
+                                                    <span t-field="r.title" />
+                                                </td>
+                                                <td style="text-align:center">
+                                                    <span t-field="r.impact"/>
+                                                </td>
+                                                <td style="text-align:center">
+                                                    <span t-field="r.owner"/>
+                                                </td>
+                                                <td style="text-align:right">
+                                                    <span t-field="r.resolution_date"/>
+                                                </td>
+                                                <td style="text-align:right">
+                                                    <span t-field="r.status"/>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h2 style="color:#FFC000;">Ready By</h2>
+                                    <p>
+                                        <span t-field="o.ready"/>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h2 style="color:#FFC000;">Budget &amp; Resources</h2>
+                                    <p>
+                                        <span t-field="o.budget_resources"/>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h2 style="color:#FFC000;">Project Management</h2>
+                                    <p t-if="o.projectmanager_id">
+                                        Project Manager: <span t-field="o.projectmanager_id"/>
+                                    </p>
+                                    <p t-if="o.owner_id">
+                                        Owner Department: <span t-field="o.owner_id"/>
+                                    </p>
+                                    <p t-if="o.owner_id">
+                                        Stackholders: <br />
+                                        <ul>
+                                            <li t-foreach="o.stakeholder_ids" t-as="s">
+                                                <span t-field="s.department_id" />
+                                            </li>
+                                        </ul>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>
